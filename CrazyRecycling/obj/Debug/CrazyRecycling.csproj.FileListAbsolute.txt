@@ -7,3 +7,4 @@ D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.GenerateResourc
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.CoreCompileInputs.cache
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.exe
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.pdb
+D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.Form1.resources

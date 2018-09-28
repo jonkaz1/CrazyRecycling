@@ -1,0 +1,9 @@
+D:\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.exe.config
+D:\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.exe
+D:\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.pdb
+D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csprojAssemblyReference.cache
+D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.Properties.Resources.resources
+D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.GenerateResource.cache
+D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.CoreCompileInputs.cache
+D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.exe
+D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.pdb

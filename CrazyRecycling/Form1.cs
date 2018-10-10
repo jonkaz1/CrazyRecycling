@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CrazyRecycling.Controllers;
+using CrazyRecycling.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,11 @@ namespace CrazyRecycling
 {
     public partial class Form1 : Form
     {
+        int bottleCount = 0;
+        Random random = new Random();
+        PlayerController playerController = new PlayerController();
+        Player player = new Player();
+
         public Form1()
         {
             InitializeComponent();
@@ -19,35 +26,25 @@ namespace CrazyRecycling
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            player.playerObject = pictureBox1;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            int x = textBox1.Location.X;
-            int y = textBox1.Location.Y;
+        {           
+            playerController.Move(player, e);
+        }        
 
-            if (e.KeyCode == Keys.W)
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            if (bottleCount < 50)
             {
-                y--;
-                textBox1.Text = "W";
+                bottleCount++;
+                PictureBox bottle = new PictureBox();
+                bottle.Image = global::CrazyRecycling.Properties.Resources.Bottle;
+                bottle.Location = new Point(random.Next(16, 640-16), random.Next(16, 480-16));
+                bottle.Size = new Size(16, 16);
+                this.Controls.Add(bottle);
             }
-            else if (e.KeyCode == Keys.A)
-            {
-                x--;
-                textBox1.Text = "A";
-            }
-            else if (e.KeyCode == Keys.S)
-            {
-                y++;
-                textBox1.Text = "S";
-            }
-            else if (e.KeyCode == Keys.D)
-            {
-                x++;
-                textBox1.Text = "D";
-            }
-            textBox1.Location = new Point(x, y);
         }
     }
 }

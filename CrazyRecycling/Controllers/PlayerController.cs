@@ -34,5 +34,18 @@ namespace CrazyRecycling.Controllers
             }
             player.playerObject.Location = new Point(x, y);
         }
+
+        public Bottle ThrowBottle(Player player, KeyEventArgs e)
+        {
+            Bottle bottle = new Bottle();
+            PictureBox bottlePic = new PictureBox();
+            bottlePic.Image = global::CrazyRecycling.Properties.Resources.Bottle;
+            bottlePic.Location = new Point(player.playerObject.Location.X, player.playerObject.Location.Y);
+            bottlePic.Size = new Size(16, 16);
+            bottle.picture = bottlePic;
+            bottle.thrownDirection = new Point(1, 1);
+            bottle.despawnTimer = 2;
+            return bottle;
+        }
     }
 }

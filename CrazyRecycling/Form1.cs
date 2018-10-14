@@ -18,6 +18,7 @@ namespace CrazyRecycling
         Random random = new Random();
         PlayerController playerController = new PlayerController();
         Player player = new Player();
+        List<Bottle> thrownBottles = new List<Bottle>();
 
         public Form1()
         {
@@ -32,6 +33,12 @@ namespace CrazyRecycling
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {           
             playerController.Move(player, e);
+            if (e.KeyCode == Keys.Space)
+            {
+                var bottle = playerController.ThrowBottle(player, e);
+                Controls.Add(bottle.picture);
+                thrownBottles.Add(bottle);
+            }
         }        
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -43,7 +50,17 @@ namespace CrazyRecycling
                 bottle.Image = global::CrazyRecycling.Properties.Resources.Bottle;
                 bottle.Location = new Point(random.Next(16, 640-16), random.Next(16, 480-16));
                 bottle.Size = new Size(16, 16);
-                this.Controls.Add(bottle);
+                Controls.Add(bottle);
+            }
+            if (thrownBottles.Count > 0)
+            {
+                foreach (var item in thrownBottles)
+                {
+                    item.picture.Location = new Point(item.picture.Location.X + item.thrownDirection.X,
+                        item.picture.Location.Y + item.thrownDirection.Y);
+                    item.despawnTimer -= 0.1f;                    
+                }
+                thrownBottles.RemoveAll(x => x.despawnTimer < 0);
             }
         }
     }

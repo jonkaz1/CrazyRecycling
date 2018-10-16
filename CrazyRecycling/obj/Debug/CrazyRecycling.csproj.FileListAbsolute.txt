@@ -8,3 +8,13 @@ D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.CoreCompileInpu
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.exe
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.pdb
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.Form1.resources
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.exe.config
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.exe
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.pdb
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csprojAssemblyReference.cache
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.Form1.resources
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.Properties.Resources.resources
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.GenerateResource.cache
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.CoreCompileInputs.cache
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.exe
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.pdb

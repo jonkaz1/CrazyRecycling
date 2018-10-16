@@ -11500,23 +11500,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jonas\\.nuget\\packages\\": {},
+    "C:\\Users\\pulei\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CrazyRecycling\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\pulei\\OneDrive\\Documents\\CrazyRecycling\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "D:\\CrazyRecycling\\Server\\Server.csproj",
-      "packagesPath": "C:\\Users\\jonas\\.nuget\\packages\\",
-      "outputPath": "D:\\CrazyRecycling\\Server\\obj\\",
+      "projectPath": "C:\\Users\\pulei\\OneDrive\\Documents\\CrazyRecycling\\Server\\Server.csproj",
+      "packagesPath": "C:\\Users\\pulei\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pulei\\OneDrive\\Documents\\CrazyRecycling\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\jonas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pulei\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

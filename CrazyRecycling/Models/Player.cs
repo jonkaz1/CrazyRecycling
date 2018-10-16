@@ -7,8 +7,14 @@ using System.Windows.Forms;
 
 namespace CrazyRecycling.Models
 {
-    public class Player
+    public class Player : IPlayer
     {
         public PictureBox playerObject;
+
+        public void WarnPlayer()
+        {
+            throw new NotImplementedException();
+        }
     }
+
 }

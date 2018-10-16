@@ -15,8 +15,8 @@ namespace CrazyRecycling
     public partial class Form1 : Form
     {
         int bottleCount = 0;
-        Random random = new Random();
         PlayerController playerController = new PlayerController();
+        GenerationController generator = new GenerationController();
         Player player = new Player();
         List<Bottle> thrownBottles = new List<Bottle>();
 
@@ -39,19 +39,16 @@ namespace CrazyRecycling
                 Controls.Add(bottle.picture);
                 thrownBottles.Add(bottle);
             }
-        }        
+        }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
             if (bottleCount < 50)
             {
                 bottleCount++;
-                PictureBox bottle = new PictureBox();
-                bottle.Image = global::CrazyRecycling.Properties.Resources.Bottle;
-                bottle.Location = new Point(random.Next(16, 640-16), random.Next(16, 480-16));
-                bottle.Size = new Size(16, 16);
-                Controls.Add(bottle);
+                Controls.Add(generator.GenerateBottles());
             }
+            
             if (thrownBottles.Count > 0)
             {
                 foreach (var item in thrownBottles)

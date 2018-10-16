@@ -1,4 +1,5 @@
-﻿using CrazyRecycling.Models;
+﻿using CrazyRecycling.Controllers.PlayerControllerSubSystem;
+using CrazyRecycling.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,28 +12,30 @@ namespace CrazyRecycling.Controllers
 {
     public class PlayerController
     {
+        private MovementController Movement = new MovementController();
+        private ClassChangeController ClassChange  = new ClassChangeController();
         public void Move(Player player, KeyEventArgs e)
         {
             int x = player.playerObject.Location.X;
             int y = player.playerObject.Location.Y;
 
-            if (e.KeyCode == Keys.W)
+            switch (e.KeyCode)
             {
-                y--;
+                case Keys.W://up
+                    player.playerObject.Location = Movement.MoveUp(x, y);
+                break;
+            case Keys.A://left
+                    player.playerObject.Location = Movement.MoveLeft(x, y);
+                break;
+            case Keys.S://down
+                    player.playerObject.Location = Movement.MoveDown(x, y);
+                break;
+            case Keys.D://right
+                player.playerObject.Location = Movement.MoveRight(x, y);
+                break;
+            default:
+                break;
             }
-            else if (e.KeyCode == Keys.A)
-            {
-                x--;
-            }
-            else if (e.KeyCode == Keys.S)
-            {
-                y++;
-            }
-            else if (e.KeyCode == Keys.D)
-            {
-                x++;
-            }
-            player.playerObject.Location = new Point(x, y);
         }
 
         public Bottle ThrowBottle(Player player, KeyEventArgs e)
@@ -46,6 +49,18 @@ namespace CrazyRecycling.Controllers
             bottle.thrownDirection = new Point(1, 1);
             bottle.despawnTimer = 2;
             return bottle;
+        }
+        public void PickBottle()
+        {
+
+        }
+        public void UseBottle()
+        {
+
+        }
+        public void ChangeCharacterClass()
+        {
+
         }
     }
 }

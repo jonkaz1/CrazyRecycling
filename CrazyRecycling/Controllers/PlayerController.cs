@@ -14,7 +14,22 @@ namespace CrazyRecycling.Controllers
     {
         private MovementController Movement = new MovementController();
         private ClassChangeController ClassChange  = new ClassChangeController();
-        public void Move(Player player, KeyEventArgs e)
+
+        public Player player;
+
+        private List<PlayerCommand> commands = new List<PlayerCommand>();
+
+        public void AddCommand(PlayerCommand command)
+        {
+            commands.Add(command);
+        }
+
+        public void RemoveCommandAt(int index)
+        {
+            commands.RemoveAt(index);
+        }
+
+        public void Move(KeyEventArgs e)
         {
             int x = player.playerObject.Location.X;
             int y = player.playerObject.Location.Y;
@@ -38,7 +53,7 @@ namespace CrazyRecycling.Controllers
             }
         }
 
-        public Bottle ThrowBottle(Player player, KeyEventArgs e)
+        public Bottle ThrowBottle(KeyEventArgs e)
         {
             Bottle bottle = new Bottle();
             PictureBox bottlePic = new PictureBox();
@@ -59,6 +74,11 @@ namespace CrazyRecycling.Controllers
 
         }
         public void ChangeCharacterClass()
+        {
+
+        }
+
+        public void SendAction(KeyEventArgs e)
         {
 
         }

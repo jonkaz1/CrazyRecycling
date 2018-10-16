@@ -62,9 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\GenerationController.cs" />
+    <Compile Include="Controllers\MoveCommand.cs" />
+    <Compile Include="Controllers\PlayerCommand.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\PlayerControllerSubSystem\ClassChangeController.cs" />
     <Compile Include="Controllers\PlayerControllerSubSystem\MovementController.cs" />
+    <Compile Include="Controllers\ServerConnector.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,7 +75,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AttackEffect.cs" />
-    <Compile Include="Models\Bottle.cs" />  
+    <Compile Include="Models\Bottle.cs" />
     <Compile Include="Models\IPlayer.cs" />
     <Compile Include="Models\Brute.cs" />
     <Compile Include="Models\DefaultClass.cs" />

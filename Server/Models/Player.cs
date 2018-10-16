@@ -7,5 +7,7 @@ namespace Server.Models
 {
     public class Player
     {
+        int pointX;
+        int pointY;
     }
 }

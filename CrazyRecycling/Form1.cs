@@ -32,10 +32,10 @@ namespace CrazyRecycling
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {           
-            playerController.Move(player, e);
+            playerController.Move(e);
             if (e.KeyCode == Keys.Space)
             {
-                var bottle = playerController.ThrowBottle(player, e);
+                var bottle = playerController.ThrowBottle(e);
                 Controls.Add(bottle.picture);
                 thrownBottles.Add(bottle);
             }

@@ -16,13 +16,11 @@ namespace CrazyRecycling.Models
         public Bottle Bottle;
         public int Color;
         public PictureBox playerObject;
-<<<<<<< HEAD
 
         public void WarnPlayer()
         {
             throw new NotImplementedException();
         }
-=======
         public Player()
         {
 
@@ -40,12 +38,6 @@ namespace CrazyRecycling.Models
         /// <summary>
         ///Method for IPlayer 
         /// </summary>
-        public void WarnPlayer()
-        {
-
-        }
-
->>>>>>> e8c58a9211c6b3cf3db542e2739ffcbf467d0e21
     }
 
 }

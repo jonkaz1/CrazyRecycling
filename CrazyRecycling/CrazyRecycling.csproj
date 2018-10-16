@@ -71,9 +71,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AttackEffect.cs" />
     <Compile Include="Models\Bottle.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\IPlayer.cs" />
+=======
+    <Compile Include="Models\Brute.cs" />
+    <Compile Include="Models\DefaultClass.cs" />
+    <Compile Include="Models\Hoarder.cs" />
+    <Compile Include="Models\ICharacterClass.cs" />
+>>>>>>> e8c58a9211c6b3cf3db542e2739ffcbf467d0e21
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Speedy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

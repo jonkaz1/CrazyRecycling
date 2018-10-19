@@ -29,29 +29,29 @@ namespace CrazyRecycling.Controllers
             commands.RemoveAt(index);
         }
 
-        public void Move(KeyEventArgs e)
-        {
-            int x = player.playerObject.Location.X;
-            int y = player.playerObject.Location.Y;
+        //public void Move(KeyEventArgs e)
+        //{
+        //    int x = player.playerObject.Location.X;
+        //    int y = player.playerObject.Location.Y;
 
-            switch (e.KeyCode)
-            {
-                case Keys.W://up
-                    player.playerObject.Location = Movement.MoveUp(x, y);
-                break;
-            case Keys.A://left
-                    player.playerObject.Location = Movement.MoveLeft(x, y);
-                break;
-            case Keys.S://down
-                    player.playerObject.Location = Movement.MoveDown(x, y);
-                break;
-            case Keys.D://right
-                player.playerObject.Location = Movement.MoveRight(x, y);
-                break;
-            default:
-                break;
-            }
-        }
+        //    switch (e.KeyCode)
+        //    {
+        //        case Keys.W://up
+        //            player.playerObject.Location = Movement.MoveUp(x, y);
+        //        break;
+        //    case Keys.A://left
+        //            player.playerObject.Location = Movement.MoveLeft(x, y);
+        //        break;
+        //    case Keys.S://down
+        //            player.playerObject.Location = Movement.MoveDown(x, y);
+        //        break;
+        //    case Keys.D://right
+        //        player.playerObject.Location = Movement.MoveRight(x, y);
+        //        break;
+        //    default:
+        //        break;
+        //    }
+        //}
 
         public Bottle ThrowBottle(KeyEventArgs e)
         {
@@ -80,7 +80,23 @@ namespace CrazyRecycling.Controllers
 
         public void SendAction(KeyEventArgs e)
         {
-
+            switch (e.KeyCode)
+            {
+                case Keys.A:
+                    commands[0].Execute("1,0");
+                    break;
+                case Keys.S:
+                    commands[0].Execute("0,-1");
+                    break;
+                case Keys.D:
+                    commands[0].Execute("-1,0");
+                    break;
+                case Keys.W:
+                    commands[0].Execute("0,1");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

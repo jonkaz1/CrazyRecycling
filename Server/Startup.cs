@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using Server.Models;
 
 namespace Server
 {
@@ -26,6 +28,9 @@ namespace Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<ServerContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ServerContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

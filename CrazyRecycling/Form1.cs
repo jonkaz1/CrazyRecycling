@@ -17,6 +17,7 @@ namespace CrazyRecycling
         int bottleCount = 0;
         PlayerController playerController = new PlayerController();
         GenerationController generator = new GenerationController();
+        ServerConnector connector = new ServerConnector();
         Player player = new Player();
         List<Bottle> thrownBottles = new List<Bottle>();
 
@@ -28,17 +29,19 @@ namespace CrazyRecycling
         private void Form1_Load(object sender, EventArgs e)
         {
             player.playerObject = pictureBox1;
+            playerController.AddCommand(new MoveCommand(connector));
+            playerController.player = player;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {           
-            playerController.Move(e);
             if (e.KeyCode == Keys.Space)
             {
                 var bottle = playerController.ThrowBottle(e);
                 Controls.Add(bottle.picture);
                 thrownBottles.Add(bottle);
             }
+            playerController.SendAction(e);
         }
 
         private void Timer1_Tick(object sender, EventArgs e)

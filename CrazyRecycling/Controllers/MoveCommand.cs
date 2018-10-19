@@ -13,11 +13,26 @@ namespace CrazyRecycling.Controllers
         {
 
         }
-
-        //Move?
-        public override void Execute()
+        
+        public override void Execute(string value)
         {
-            serverConnector.Action();
+            switch (value)
+            {
+                case "W":
+                    serverConnector.Action("Move;0,1");
+                    break;
+                case "A":
+                    serverConnector.Action("Move;1,0");
+                    break;
+                case "S":
+                    serverConnector.Action("Move;0,-1");
+                    break;
+                case "D":
+                    serverConnector.Action("Move;-1,0");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

@@ -16,6 +16,6 @@ namespace CrazyRecycling.Controllers
             this.serverConnector = serverConnector;
         }
 
-        public abstract void Execute();
+        public abstract void Execute(string value);
     }
 }

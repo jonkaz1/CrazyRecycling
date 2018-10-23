@@ -17,3 +17,4 @@ C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyR
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.CoreCompileInputs.cache
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.exe
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.pdb
+D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csprojAssemblyReference.cache

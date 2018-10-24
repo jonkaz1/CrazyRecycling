@@ -14,6 +14,7 @@ namespace Server.Controllers
     public class PlayerController : ControllerBase
     {
         private readonly ServerContext _context;
+        private Random random = new Random();
 
         public PlayerController(ServerContext context)
         {
@@ -60,6 +61,7 @@ namespace Server.Controllers
                 return BadRequest();
             }
 
+
             _context.Entry(player).State = EntityState.Modified;
 
             try
@@ -81,6 +83,27 @@ namespace Server.Controllers
             return NoContent();
         }
 
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchPlayer([FromRoute] int id, [FromBody] Player player)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var p = await _context.Player.FindAsync(id);
+            if (p == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                p.PosX = p.PosX + player.PosX;
+                p.PosY = p.PosY + player.PosY;
+                await _context.SaveChangesAsync();
+            }
+            return Ok();
+        }
+
         // POST: api/Player
         [HttpPost]
         public async Task<IActionResult> PostPlayer([FromBody] Player player)
@@ -89,7 +112,8 @@ namespace Server.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            player.PosX = random.Next(16, 200);
+            player.PosY = random.Next(16, 200);
             _context.Player.Add(player);
             await _context.SaveChangesAsync();
 

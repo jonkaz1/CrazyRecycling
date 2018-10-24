@@ -9,9 +9,10 @@ namespace CrazyRecycling.Models
 {
     public class Player : IPlayer
     {
+        public int PlayerId;
         public string Name;
-        public double PosX;
-        public double PosY;
+        public int PosX;
+        public int PosY;
         public int Points;
         public Bottle Bottle;
         public int Color;
@@ -25,7 +26,7 @@ namespace CrazyRecycling.Models
         {
 
         }
-        public Player(string name, double posX, double posY, int points, Bottle bottle, int color, PictureBox playerObject)
+        public Player(string name, int posX, int posY, int points, Bottle bottle, int color, PictureBox playerObject)
         {
             Name = name;
             PosX = posX;

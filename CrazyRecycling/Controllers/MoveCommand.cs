@@ -9,17 +9,23 @@ namespace CrazyRecycling.Controllers
 {
     public class MoveCommand : PlayerCommand
     {
-        private string direction;
+        public string newLocation { get; set; }
 
-        public MoveCommand(ServerConnector serverConnector, string direction) : base(serverConnector)
+        public MoveCommand(ServerConnector serverConnector, string newLocation) : base(serverConnector)
         {
-            string[] split = direction.Split(';');
-            this.direction = "{\"posX\":\"" + split[0] + "\",\"posY\":\"" + split[1] + "\"}";
+            string[] split = newLocation.Split(';');
+            this.newLocation = "{\"posX\":\"" + split[0] + "\",\"posY\":\"" + split[1] + "\"}";
         }
 
         public override void Execute(string value)
         {
-            Task.Run(() => serverConnector.PatchAction(value, direction)).Wait();
+            Task.Run(() => serverConnector.PatchAction(value, newLocation)).Wait();
+        }
+
+        public override void ChangeInnerValue(string value)
+        {
+            string[] split = value.Split(';');
+            newLocation = "{\"posX\":\"" + split[0] + "\",\"posY\":\"" + split[1] + "\"}";
         }
     }
 }

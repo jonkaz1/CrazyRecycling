@@ -17,5 +17,7 @@ namespace CrazyRecycling.Controllers
         }
 
         public abstract void Execute(string value);
+
+        public abstract void ChangeInnerValue(string value);
     }
 }

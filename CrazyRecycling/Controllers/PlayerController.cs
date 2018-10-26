@@ -1,10 +1,8 @@
 ﻿using CrazyRecycling.Controllers.PlayerControllerSubSystem;
 using CrazyRecycling.Models;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,9 +11,19 @@ namespace CrazyRecycling.Controllers
     public class PlayerController
     {
         private MovementController Movement = new MovementController();
-        private ClassChangeController ClassChange  = new ClassChangeController();
+        private ClassChangeController ClassChange = new ClassChangeController();
+        CancellationTokenSource _cancelationTokenSource;
 
         public Player player;
+        public Point oldLocation;
+
+        public PlayerController(Player player)
+        {
+            this.player = player;
+            oldLocation = new Point(player.PosX, player.PosY);
+            _cancelationTokenSource = new CancellationTokenSource();
+            new Task(() => UpdatePlayerLocation(), _cancelationTokenSource.Token, TaskCreationOptions.LongRunning).Start();
+        }
 
         private List<PlayerCommand> commands = new List<PlayerCommand>();
 
@@ -53,25 +61,48 @@ namespace CrazyRecycling.Controllers
         {
 
         }
-
+        
         public void SendAction(KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.W:
-                    commands[0].Execute("Player/" + player.PlayerId);
+                    player.PosY += -1;
+                    player.playerObject.Location = new Point(player.PosX, player.PosY);
                     break;
                 case Keys.A:
-                    commands[1].Execute("Player/" + player.PlayerId);
+                    player.PosX += -1;
+                    player.playerObject.Location = new Point(player.PosX, player.PosY);
                     break;
                 case Keys.S:
-                    commands[2].Execute("Player/" + player.PlayerId);
+                    player.PosY += 1;
+                    player.playerObject.Location = new Point(player.PosX, player.PosY);
                     break;
                 case Keys.D:
-                    commands[3].Execute("Player/" + player.PlayerId);
+                    player.PosX += 1;
+                    player.playerObject.Location = new Point(player.PosX, player.PosY);
                     break;
                 default:
                     break;
+            }
+            
+        }
+
+        public async void UpdatePlayerLocation()
+        {
+            while (!_cancelationTokenSource.Token.IsCancellationRequested)
+            {
+                if (player.PosX != oldLocation.X || player.PosY != oldLocation.Y)
+                {
+                    commands[0].ChangeInnerValue(player.PosX + ";" + player.PosY);
+                    commands[0].Execute("Player/" + player.PlayerId);
+                    oldLocation.X = player.PosX;
+                    oldLocation.Y = player.PosY;
+                }
+                else
+                {
+                    await Task.Delay(200);
+                }
             }
         }
     }

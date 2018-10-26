@@ -97,8 +97,8 @@ namespace Server.Controllers
             }
             else
             {
-                p.PosX = p.PosX + player.PosX;
-                p.PosY = p.PosY + player.PosY;
+                p.PosX = player.PosX;
+                p.PosY = player.PosY;
                 await _context.SaveChangesAsync();
             }
             return Ok();

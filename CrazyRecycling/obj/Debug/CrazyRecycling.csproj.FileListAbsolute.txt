@@ -18,3 +18,16 @@ C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyR
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.exe
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.pdb
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csprojAssemblyReference.cache
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.exe.config
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.exe
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.pdb
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\bin\Debug\Newtonsoft.Json.dll
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\bin\Debug\Newtonsoft.Json.xml
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csprojAssemblyReference.cache
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.Form1.resources
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.Properties.Resources.resources
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.GenerateResource.cache
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.CoreCompileInputs.cache
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.CopyComplete
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.exe
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.pdb

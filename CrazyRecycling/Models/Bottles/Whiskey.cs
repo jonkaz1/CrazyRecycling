@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace CrazyRecycling.Models.Bottles
 {
-    class Whiskey
+    public class Whiskey : Bottle
     {
+        public int Damage;
+
+        public override string GetBottleInfo()
+        {
+            return Damage.ToString();
+        }
     }
 }

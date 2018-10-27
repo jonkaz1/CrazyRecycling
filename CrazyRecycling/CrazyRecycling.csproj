@@ -81,6 +81,10 @@
     <Compile Include="Models\AttackEffect.cs" />
     <Compile Include="Models\Bottles\Bottle.cs" />
     <Compile Include="Models\Bottles\Cola.cs" />
+    <Compile Include="Models\Bottles\GinOfDestruction.cs" />
+    <Compile Include="Models\Bottles\Whiskey.cs" />
+    <Compile Include="Models\Bottles\Wine.cs" />
+    <Compile Include="Models\Bottles\Vodka.cs" />
     <Compile Include="Models\IPlayer.cs" />
     <Compile Include="Models\Brute.cs" />
     <Compile Include="Models\DefaultClass.cs" />

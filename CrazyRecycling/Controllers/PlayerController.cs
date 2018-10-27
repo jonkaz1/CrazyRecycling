@@ -1,5 +1,6 @@
 ﻿using CrazyRecycling.Controllers.PlayerControllerSubSystem;
 using CrazyRecycling.Models;
+using CrazyRecycling.Models.Bottles;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
@@ -39,7 +40,7 @@ namespace CrazyRecycling.Controllers
 
         public Bottle ThrowBottle(KeyEventArgs e)
         {
-            Bottle bottle = new Bottle();
+            Bottle bottle = new PointBottleFactory().CreateBottle("Cola");
             PictureBox bottlePic = new PictureBox();
             bottlePic.Image = global::CrazyRecycling.Properties.Resources.Bottle;
             bottlePic.Location = new Point(player.playerObject.Location.X, player.playerObject.Location.Y);

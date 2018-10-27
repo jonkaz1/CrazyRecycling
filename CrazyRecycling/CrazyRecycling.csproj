@@ -77,15 +77,20 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Bottles\AbstractFactory.cs" />
     <Compile Include="Models\AttackEffect.cs" />
-    <Compile Include="Models\Bottle.cs" />
+    <Compile Include="Models\Bottles\Bottle.cs" />
+    <Compile Include="Models\Bottles\Cola.cs" />
     <Compile Include="Models\IPlayer.cs" />
     <Compile Include="Models\Brute.cs" />
     <Compile Include="Models\DefaultClass.cs" />
     <Compile Include="Models\Hoarder.cs" />
     <Compile Include="Models\ICharacterClass.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Bottles\PointBottleFactory.cs" />
+    <Compile Include="Models\Bottles\SpecialBottleFactory.cs" />
     <Compile Include="Models\Speedy.cs" />
+    <Compile Include="Models\Bottles\NukeCola.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

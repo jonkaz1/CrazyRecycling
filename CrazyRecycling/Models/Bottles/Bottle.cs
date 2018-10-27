@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CrazyRecycling.Models
+namespace CrazyRecycling.Models.Bottles
 {
-    public class Bottle
+    public abstract class Bottle
     {
+        public int PosX;
+        public int PosY;
         public PictureBox picture;
         Rectangle box = new Rectangle(new Point(16, 16),new Size(16, 16));
         public Point thrownDirection = new Point();
@@ -19,5 +21,7 @@ namespace CrazyRecycling.Models
         {
             
         }
+
+        public abstract string GetBottleInfo();
     }
 }

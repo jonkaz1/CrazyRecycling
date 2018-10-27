@@ -3,11 +3,13 @@ using CrazyRecycling.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Specialized;
 
 namespace CrazyRecycling
 {
@@ -28,6 +30,7 @@ namespace CrazyRecycling
         public Form1()
         {
             InitializeComponent();
+            DoubleBuffered = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -96,14 +99,8 @@ namespace CrazyRecycling
                             Name = item["name"].Value<string>(),
                             PosX = point.X,
                             PosY = point.Y,
-                            playerObject = new PictureBox()
-                            {
-                                Image = global::CrazyRecycling.Properties.Resources.Player,
-                                Size = new Size(16, 16),
-                                Location = point
-                            }
+                            isNewlyCreated = true
                         };
-                        AddPlayerObject(p.playerObject);
                         playerList.Add(p);
                     }
                     else
@@ -116,7 +113,7 @@ namespace CrazyRecycling
                         {
                             p.PosX = point.X;
                             p.PosY = point.Y;
-                            ChangePlayerLocation(player, point);
+                            p.locationChanged = true;
                         }
                     }
                 }
@@ -161,6 +158,29 @@ namespace CrazyRecycling
             else
             {
                 Controls.Add(player);
+            }
+        }
+
+        private void Timer1_tick(object sender, EventArgs e)
+        {
+            foreach (var item in playerList)
+            {
+                if (item.isNewlyCreated)
+                {
+                    item.playerObject = new PictureBox()
+                    {
+                        Image = global::CrazyRecycling.Properties.Resources.Player,
+                        Size = new Size(16, 16),
+                        Location = new Point(item.PosX, item.PosY)
+                    };
+                    Controls.Add(item.playerObject);
+                    item.isNewlyCreated = false;
+                }
+                if (item.locationChanged)
+                {
+                    item.playerObject.Location = new Point(item.PosX, item.PosY);
+                    item.locationChanged = false;
+                }
             }
         }
     }

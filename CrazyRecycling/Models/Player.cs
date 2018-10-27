@@ -17,6 +17,8 @@ namespace CrazyRecycling.Models
         public Bottle Bottle;
         public int Color;
         public PictureBox playerObject;
+        public bool isNewlyCreated;
+        public bool locationChanged;
 
         public void WarnPlayer()
         {

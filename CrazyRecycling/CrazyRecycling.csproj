@@ -95,6 +95,7 @@
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Bottles\PointBottleFactory.cs" />
     <Compile Include="Models\Bottles\SpecialBottleFactory.cs" />
+    <Compile Include="Models\RecyclingMachine.cs" />
     <Compile Include="Models\Speedy.cs" />
     <Compile Include="Models\Bottles\NukeCola.cs" />
     <Compile Include="Program.cs" />
@@ -143,6 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bottle.png" />
+    <Content Include="RecyclingMachine.png" />
+    <None Include="Resources\RecyclingMachine.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

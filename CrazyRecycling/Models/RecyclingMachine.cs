@@ -22,7 +22,8 @@ namespace CrazyRecycling.Models
             PosY = posY;
             SizeX = sizeX;
             SizeY = sizeY;
-            Image = new PictureBox() { Location = new Point(PosX, PosY), Size = new Size(SizeX, SizeY) };
+            Image = new PictureBox() { Location = new Point(PosX, PosY), Size = new Size(SizeX, SizeY),
+            Image = Properties.Resources.RecyclingMachine};
         }
     }
 }

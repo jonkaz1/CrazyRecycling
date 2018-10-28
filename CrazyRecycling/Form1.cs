@@ -18,10 +18,12 @@ namespace CrazyRecycling
     {
         PlayerController playerController;
         GenerationController generator = new GenerationController();
+        LeaderboardController leaderboard = new LeaderboardController();
         ServerConnector connector = new ServerConnector();
         Player player = new Player();
         List<Player> playerList = new List<Player>();
         List<Bottle> thrownBottles = new List<Bottle>();
+        List<RecyclingMachine> recyclingMachines = new List<RecyclingMachine>();
 
         CancellationTokenSource _cancelationTokenSource;
 
@@ -34,6 +36,12 @@ namespace CrazyRecycling
             DoubleBuffered = true;
         }
 
+
+        /// <summary>
+        /// Start method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             player.Name = "John";
@@ -42,6 +50,7 @@ namespace CrazyRecycling
             player.PosY = pictureBox1.Location.Y;
             playerList.Add(player);
             CreatePlayer();
+                       
 
             _cancelationTokenSource = new CancellationTokenSource();
             new Task(() => GetPlayerData(), _cancelationTokenSource.Token, TaskCreationOptions.LongRunning).Start();
@@ -51,6 +60,12 @@ namespace CrazyRecycling
 
         }
 
+
+        /// <summary>
+        /// Input controller
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
@@ -72,11 +87,14 @@ namespace CrazyRecycling
             player.PlayerId = obj["playerId"].Value<int>();
         }
 
-        public void DeletePlayer()
+        public void DeletePlayer(int playerId)
         {
-            Task.Run(() => connector.DeleteAction("Player/" + player.PlayerId)).Wait();
+            Task.Run(() => connector.DeleteAction("Player/" + playerId)).Wait();
         }
 
+        /// <summary>
+        /// Get player data. Updates player locations and leaderboard. Repeated.
+        /// </summary>
         public void GetPlayerData()
         {
             while (!_cancelationTokenSource.Token.IsCancellationRequested)
@@ -117,14 +135,34 @@ namespace CrazyRecycling
                             p.locationChanged = true;
                         }
                     }
+                    leaderboard.UpdateLeaderboard(p);
                 }
                 _cancelationTokenSource.Token.WaitHandle.WaitOne(200);
             }
         }
 
+        /// <summary>
+        /// Gets all shops and recycling machines
+        /// </summary>
+        private void GetMachines()
+        {
+            var task = Task.Run(() => connector.GetAction("RecyclingMachine"));
+            task.Wait();
+            var result = task.Result;
+            var array = JArray.Parse(result);
+            foreach (var item in array)
+            {
+                var machine = new RecyclingMachine(
+                    item["posX"].Value<int>(), item["posY"].Value<int>(),
+                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>());
+                recyclingMachines.Add(machine);
+                Controls.Add(machine.Image);
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DeletePlayer();
+            DeletePlayer(player.PlayerId);
         }
 
         private bool IsPlayerTooFar(int playerPosX, int playerPosY, int newPosX, int newPosY)

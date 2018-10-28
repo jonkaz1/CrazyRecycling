@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\GenerationController.cs" />
+    <Compile Include="Controllers\LeaderboardController.cs" />
     <Compile Include="Controllers\MoveCommand.cs" />
     <Compile Include="Controllers\PlayerCommand.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Models\DefaultClass.cs" />
     <Compile Include="Models\Hoarder.cs" />
     <Compile Include="Models\ICharacterClass.cs" />
+    <Compile Include="Models\Leaderboard.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Bottles\PointBottleFactory.cs" />
     <Compile Include="Models\Bottles\SpecialBottleFactory.cs" />

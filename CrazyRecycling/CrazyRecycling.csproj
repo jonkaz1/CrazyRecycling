@@ -91,11 +91,13 @@
     <Compile Include="Models\DefaultClass.cs" />
     <Compile Include="Models\Hoarder.cs" />
     <Compile Include="Models\ICharacterClass.cs" />
+    <Compile Include="Models\Machine.cs" />
     <Compile Include="Models\Leaderboard.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Bottles\PointBottleFactory.cs" />
     <Compile Include="Models\Bottles\SpecialBottleFactory.cs" />
     <Compile Include="Models\RecyclingMachine.cs" />
+    <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Speedy.cs" />
     <Compile Include="Models\Bottles\NukeCola.cs" />
     <Compile Include="Program.cs" />

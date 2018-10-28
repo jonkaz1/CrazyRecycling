@@ -74,7 +74,7 @@ namespace CrazyRecycling
                 Controls.Add(bottle.picture);
                 thrownBottles.Add(bottle);
             }
-            playerController.SendAction(e);
+            playerController.ChangeLocation(e);
         }
 
         public void CreatePlayer()

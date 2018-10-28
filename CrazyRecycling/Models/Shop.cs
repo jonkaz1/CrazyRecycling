@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CrazyRecycling.Models
 {
-    public class RecyclingMachine : Machine
+    public class Shop : Machine
     {
         public int PosX;
         public int PosY;
@@ -16,14 +16,18 @@ namespace CrazyRecycling.Models
         public int SizeY;
         public PictureBox Image;
 
-        public RecyclingMachine(int posX, int posY, int sizeX, int sizeY)
+        public Shop(int posX, int posY, int sizeX, int sizeY)
         {
             PosX = posX;
             PosY = posY;
             SizeX = sizeX;
             SizeY = sizeY;
-            Image = new PictureBox() { Location = new Point(PosX, PosY), Size = new Size(SizeX, SizeY),
-            Image = Properties.Resources.RecyclingMachine};
+            Image = new PictureBox()
+            {
+                Location = new Point(PosX, PosY),
+                Size = new Size(SizeX, SizeY),
+                Image = Properties.Resources.RecyclingMachine
+            };
         }
 
         public override Machine Clone()

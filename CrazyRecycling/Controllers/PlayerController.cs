@@ -63,7 +63,7 @@ namespace CrazyRecycling.Controllers
 
         }
         
-        public void SendAction(KeyEventArgs e)
+        public void ChangeLocation(KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -89,6 +89,9 @@ namespace CrazyRecycling.Controllers
             
         }
 
+        /// <summary>
+        /// Performs move command
+        /// </summary>
         public async void UpdatePlayerLocation()
         {
             while (!_cancelationTokenSource.Token.IsCancellationRequested)

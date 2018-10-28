@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CrazyRecycling.Models
 {
-    public interface ICharacterClass
+    public abstract class Machine
     {
-        void ThrowBottle();
+        public abstract Machine Clone();
     }
 }

@@ -21,6 +21,8 @@ namespace CrazyRecycling.Models
         public bool isNewlyCreated;
         public bool locationChanged;
 
+        public ICharacterClass characterClass = new DefaultClass();
+
         public void WarnPlayer()
         {
             throw new NotImplementedException();

@@ -16,12 +16,12 @@ namespace CrazyRecycling.Models
         public int PosY;
         public int Points;
         public Bottle Bottle;
-        public int Color;
         public PictureBox playerObject;
         public bool isNewlyCreated;
         public bool locationChanged;
 
         public ICharacterClass characterClass = new DefaultClass();
+        public PlayerDefaultColor Color;
 
         public void WarnPlayer()
         {
@@ -29,21 +29,20 @@ namespace CrazyRecycling.Models
         }
         public Player()
         {
-
+            Color = new PlayerDefaultColor(characterClass);
         }
-        public Player(string name, int posX, int posY, int points, Bottle bottle, int color, PictureBox playerObject)
+        public Player(string name, int posX, int posY, int points, ICharacterClass characterClass, Bottle bottle, PictureBox playerObject)
         {
             Name = name;
             PosX = posX;
             PosY = posY;
             Points = points;
             Bottle = bottle;
-            Color = color;
             this.playerObject = playerObject;
+            this.characterClass = characterClass;
+            Color = new PlayerColor(characterClass);
         }
-        /// <summary>
-        ///Method for IPlayer 
-        /// </summary>
-    }
 
+        
+    }
 }

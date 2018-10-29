@@ -10,12 +10,6 @@ namespace CrazyRecycling.Models
 {
     public class RecyclingMachine : Machine
     {
-        public int PosX;
-        public int PosY;
-        public int SizeX;
-        public int SizeY;
-        public PictureBox Image;
-
         public RecyclingMachine(int posX, int posY, int sizeX, int sizeY)
         {
             PosX = posX;

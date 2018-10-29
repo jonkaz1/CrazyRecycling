@@ -11,8 +11,8 @@ namespace Server.Models
         [Key]
         public int PlayerId { get; set; }
         public string Name { get; set; }
-        public double PosX { get; set; }
-        public double PosY { get; set; }
+        public int PosX { get; set; }
+        public int PosY { get; set; }
         public int Points { get; set; }
         public Bottle Bottle { get; set; }
         public int Color { get; set; }
@@ -22,7 +22,7 @@ namespace Server.Models
         {
 
         }
-        public Player(string name, double posX, double posY, int points, Bottle bottle, int color)
+        public Player(string name, int posX, int posY, int points, Bottle bottle, int color)
         {
             Name = name;
             PosX = posX;

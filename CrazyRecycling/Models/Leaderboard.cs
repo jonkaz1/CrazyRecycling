@@ -10,11 +10,11 @@ namespace CrazyRecycling.Models
     {
         private static Leaderboard _instance;
 
-        public List<Standing> standings;
+        public List<Standing> Standings;
 
         protected Leaderboard()
         {
-            standings = new List<Standing>();
+            Standings = new List<Standing>();
         }
 
         public static Leaderboard Instance()
@@ -24,15 +24,13 @@ namespace CrazyRecycling.Models
                 _instance = new Leaderboard();
             }
             return _instance;
-        }
-
-
+        }        
     }
 
     public class Standing
     {
-        public int playerId;
-        public string playerName;
+        public int PlayerId;
+        public string PlayerName;
         public int Points;
     }
 }

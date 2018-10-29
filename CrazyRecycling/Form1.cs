@@ -24,6 +24,7 @@ namespace CrazyRecycling
         List<Player> playerList = new List<Player>();
         List<Bottle> thrownBottles = new List<Bottle>();
         List<RecyclingMachine> recyclingMachines = new List<RecyclingMachine>();
+        MachineController machineController = new MachineController();
 
         CancellationTokenSource _cancelationTokenSource;
 

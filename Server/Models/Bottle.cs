@@ -15,6 +15,10 @@ namespace Server.Models
         public int PosX { get; set; }
         public int PosY { get; set; }
         public DateTime SpawnTime { get; set; }
+        public bool IsProjectile { get; set; }
+        public int Speed { get; set; }
+        public int LastPosX { get; set; }
+        public int LastPosY { get; set; }
 
         public Bottle()
         {

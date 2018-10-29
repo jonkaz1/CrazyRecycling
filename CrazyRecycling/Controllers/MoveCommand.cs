@@ -9,7 +9,7 @@ namespace CrazyRecycling.Controllers
 {
     public class MoveCommand : PlayerCommand
     {
-        public string NewLocation { get; set; }
+        private string NewLocation { get; set; }
 
         public MoveCommand(ServerConnector serverConnector, string newLocation) : base(serverConnector)
         {

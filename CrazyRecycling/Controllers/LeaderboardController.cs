@@ -18,12 +18,12 @@ namespace CrazyRecycling.Controllers
 
         public void UpdateLeaderboard(Player player)
         {
-            var standing = leaderboard.standings.Find(x => x.playerId == player.PlayerId);
+            var standing = leaderboard.Standings.Find(x => x.PlayerId == player.PlayerId);
             if (standing == null)
             {
-                leaderboard.standings.Add(new Standing() {
-                    playerId = player.PlayerId,
-                    playerName = player.Name,
+                leaderboard.Standings.Add(new Standing() {
+                    PlayerId = player.PlayerId,
+                    PlayerName = player.Name,
                     Points = player.Points
                 });
             }
@@ -35,7 +35,7 @@ namespace CrazyRecycling.Controllers
 
         public void RemoveFromLeaderboard(int playerId)
         {
-            leaderboard.standings.RemoveAll(x => x.playerId == playerId);
+            leaderboard.Standings.RemoveAll(x => x.PlayerId == playerId);
         }
     }
 }

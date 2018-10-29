@@ -79,6 +79,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameStart.Designer.cs">
+      <DependentUpon>GameStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Highscores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Highscores.Designer.cs">
+      <DependentUpon>Highscores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Bottles\AbstractFactory.cs" />
     <Compile Include="Models\AttackEffect.cs" />
     <Compile Include="Models\Bottles\Bottle.cs" />
@@ -108,6 +120,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameStart.resx">
+      <DependentUpon>GameStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Highscores.resx">
+      <DependentUpon>Highscores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -16,15 +16,13 @@ namespace CrazyRecycling
 {
     public partial class Form1 : Form
     {
-        PlayerController playerController;
-        GenerationController generator = new GenerationController();
-        LeaderboardController leaderboard = new LeaderboardController();
+        Facade facade = new Facade();
         ServerConnector connector = new ServerConnector();
         Player player = new Player();
         List<Player> playerList = new List<Player>();
         List<Bottle> thrownBottles = new List<Bottle>();
         List<RecyclingMachine> recyclingMachines = new List<RecyclingMachine>();
-        MachineController machineController = new MachineController();
+        
 
         CancellationTokenSource _cancelationTokenSource;
 
@@ -56,9 +54,8 @@ namespace CrazyRecycling
             _cancelationTokenSource = new CancellationTokenSource();
             new Task(() => GetPlayerData(), _cancelationTokenSource.Token, TaskCreationOptions.LongRunning).Start();
 
-            playerController = new PlayerController(player);
-            playerController.AddCommand(new MoveCommand(connector, player.PosX + ";" + player.PosY));
-
+            facade.AttachPlayer(player);
+            facade.AddCommand(connector, player.PosX + ";" + player.PosY);
         }
 
 
@@ -71,11 +68,11 @@ namespace CrazyRecycling
         {
             if (e.KeyCode == Keys.Space)
             {
-                var bottle = playerController.ThrowBottle(e);
+                var bottle = facade.GetBottle(e);
                 Controls.Add(bottle.picture);
                 thrownBottles.Add(bottle);
             }
-            playerController.ChangeLocation(e);
+            facade.ChangeLocation(e);
         }
 
         public void CreatePlayer()
@@ -136,7 +133,8 @@ namespace CrazyRecycling
                             p.locationChanged = true;
                         }
                     }
-                    leaderboard.UpdateLeaderboard(p);
+
+                    facade.UpdateLeaderBoard(p);
                 }
                 _cancelationTokenSource.Token.WaitHandle.WaitOne(200);
             }

@@ -1,5 +1,4 @@
-﻿using CrazyRecycling.Controllers.PlayerControllerSubSystem;
-using CrazyRecycling.Models;
+﻿using CrazyRecycling.Models;
 using CrazyRecycling.Models.Bottles;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,8 +10,6 @@ namespace CrazyRecycling.Controllers
 {
     public class PlayerController
     {
-        private MovementController Movement = new MovementController();
-        private ClassChangeController ClassChange = new ClassChangeController();
         CancellationTokenSource _cancelationTokenSource;
 
         public Player player;

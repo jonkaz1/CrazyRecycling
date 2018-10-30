@@ -92,7 +92,6 @@
       <DependentUpon>Highscores.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Bottles\AbstractFactory.cs" />
-    <Compile Include="Models\AttackEffect.cs" />
     <Compile Include="Models\Bottles\Bottle.cs" />
     <Compile Include="Models\Bottles\Cola.cs" />
     <Compile Include="Models\Bottles\GinOfDestruction.cs" />
@@ -169,6 +168,7 @@
   <ItemGroup>
     <Content Include="Bottle.png" />
     <Content Include="RecyclingMachine.png" />
+    <None Include="Resources\nukeCola.png" />
     <None Include="Resources\RecyclingMachine.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -38,16 +38,14 @@ namespace CrazyRecycling.Controllers
             commands.RemoveAt(index);
         }
 
+        /// <summary>
+        /// Throwing bottle depends on character class
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
         public Bottle ThrowBottle(KeyEventArgs e)
         {
-            Bottle bottle = new PointBottleFactory().CreateBottle("Cola");
-            PictureBox bottlePic = new PictureBox();
-            bottlePic.Image = global::CrazyRecycling.Properties.Resources.Bottle;
-            bottlePic.Location = new Point(player.playerObject.Location.X, player.playerObject.Location.Y);
-            bottlePic.Size = new Size(16, 16);
-            bottle.picture = bottlePic;
-            bottle.thrownDirection = new Point(1, 1);
-            bottle.despawnTimer = 2;
+            Bottle bottle = player.characterClass.ThrowBottle(player.playerObject.Location.X, player.playerObject.Location.Y);
             return bottle;
         }
         public void PickBottle()
@@ -108,6 +106,12 @@ namespace CrazyRecycling.Controllers
                     await Task.Delay(200);
                 }
             }
+        }
+
+        public PlayerStats GetPlayerStats()
+        {
+            PlayerStats playerStats = player.characterClass.GetStats();
+            return playerStats;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrazyRecycling.Models.Bottles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace CrazyRecycling.Models
 {
     public interface ICharacterClass
     {
-        void ThrowBottle();
+        Bottle ThrowBottle(int X, int Y);
+        PlayerStats GetStats();
     }
 }

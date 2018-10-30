@@ -1,28 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using CrazyRecycling.Models.Bottles;
 
 namespace CrazyRecycling.Models
 {
     class DefaultClass : ICharacterClass
     {
-        public AttackEffect Effect;
+        PlayerStats stats;
+
         public DefaultClass()
         {
+            stats = new PlayerStats();
+            stats.HealthPoints = 10;
+            stats.Damage = 2;
+            stats.Color = 0;
+            stats.Speed = 1;
+            stats.PointsBoost = 0;
+        }
 
-        }
-        public DefaultClass(AttackEffect effect)
+        public PlayerStats GetStats()
         {
-            Effect = effect;
+            return stats;
         }
+
         /// <summary>
         /// DefaultClass ThrowBottle method
         /// </summary>
-        public void ThrowBottle()
+        Bottle ICharacterClass.ThrowBottle(int X, int Y)
         {
-            throw new NotImplementedException();
+            Bottle bottle = new PointBottleFactory().CreateBottle("Cola");
+            PictureBox bottlePic = new PictureBox();
+            bottlePic.Image = global::CrazyRecycling.Properties.Resources.nukeCola;
+            bottlePic.Location = new Point(X, Y);
+            bottlePic.Size = new Size(16, 16);
+            bottle.picture = bottlePic;
+            bottle.thrownDirection = new Point(1, 1);
+            bottle.despawnTimer = 2;
+            return bottle;
+        }
+    }
+    public class PlayerStats
+    {
+        public int HealthPoints;
+        public int Damage;
+        public int Color;
+        public int Speed;
+        public int PointsBoost;
+        public PlayerStats()
+        {
+
         }
     }
 }

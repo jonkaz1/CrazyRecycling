@@ -23,6 +23,14 @@ namespace CrazyRecycling.Models
         public ICharacterClass characterClass = new DefaultClass();
         public PlayerDefaultColor Color;
 
+        //Player stats from playerClass
+        public int HealthPoints;
+        public int Damage;
+        public int ColorNew;
+        public int Speed;
+        public int PointsBoost;
+
+
         public void WarnPlayer()
         {
             throw new NotImplementedException();
@@ -30,6 +38,13 @@ namespace CrazyRecycling.Models
         public Player()
         {
             Color = new PlayerDefaultColor(characterClass);
+            //Gets stats from player characterClass
+            PlayerStats stats = characterClass.GetStats();
+            HealthPoints = stats.HealthPoints;
+            Damage = stats.Damage;
+            ColorNew = stats.Color;
+            Speed = stats.Speed;
+            PointsBoost = stats.PointsBoost;
         }
         public Player(string name, int posX, int posY, int points, ICharacterClass characterClass, Bottle bottle, PictureBox playerObject)
         {
@@ -41,8 +56,16 @@ namespace CrazyRecycling.Models
             this.playerObject = playerObject;
             this.characterClass = characterClass;
             Color = new PlayerColor(characterClass);
+
+            //Gets stats from player characterClass
+            PlayerStats stats = characterClass.GetStats();
+            HealthPoints = stats.HealthPoints;
+            Damage = stats.Damage;
+            ColorNew = stats.Color;
+            Speed = stats.Speed;
+            PointsBoost = stats.PointsBoost;
         }
 
-        
+
     }
 }

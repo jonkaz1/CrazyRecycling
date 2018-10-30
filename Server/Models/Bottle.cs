@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Server.Models
 {
-    public abstract class Bottle
+    public class Bottle
     {
         [Key]
         public int BottleId { get; set; }
@@ -19,12 +19,16 @@ namespace Server.Models
         public int Speed { get; set; }
         public int LastPosX { get; set; }
         public int LastPosY { get; set; }
+        public BottleType BottleType { get; set; }        
+    }
 
-        public Bottle()
-        {
-            
-        }
-
-        public abstract string GetBottleInfo();
+    public enum BottleType
+    {
+        Wine,
+        Vodka,
+        Whiskey,
+        GinOfDestruction,
+        Cola,
+        NukeCola
     }
 }

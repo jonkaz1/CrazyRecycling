@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Server.Models;
 
 namespace Server.Migrations
 {
     [DbContext(typeof(ServerContext))]
-    partial class ServerContextModelSnapshot : ModelSnapshot
+    [Migration("20181030091630_Restructuredmodels")]
+    partial class Restructuredmodels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,7 +81,7 @@ namespace Server.Migrations
 
                     b.Property<int>("CharacterClass");
 
-                    b.Property<DateTime>("LastCheckTime");
+                    b.Property<int>("Color");
 
                     b.Property<string>("Name");
 

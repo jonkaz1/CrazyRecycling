@@ -36,3 +36,5 @@ D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.exe
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.pdb
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.csprojAssemblyReference.cache
 D:\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.Highscores.resources
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.GameStart.resources
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\obj\Debug\CrazyRecycling.Highscores.resources

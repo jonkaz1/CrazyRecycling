@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Server.Models
 {
-    public class Player : IPlayer
+    public class Player
     {
         [Key]
         public int PlayerId { get; set; }
@@ -14,26 +14,19 @@ namespace Server.Models
         public int PosX { get; set; }
         public int PosY { get; set; }
         public int Points { get; set; }
-        public Bottle Bottle { get; set; }
-        public int Color { get; set; }
+        public DateTime SpawnTime { get; set; }
+        public DateTime LastCheckTime { get; set; }
         public CharacterClass CharacterClass { get; set; }
 
-        public Player()
-        {
+        public ICollection<Bottle> Bottles { get; set; }
 
-        }
-        public Player(string name, int posX, int posY, int points, Bottle bottle, int color)
-        {
-            Name = name;
-            PosX = posX;
-            PosY = posY;
-            Points = points;
-            Bottle = bottle;
-            Color = color;
-        }
-        public void WarnPlayer()
-        {
-            throw new NotImplementedException();
-        }
+    }
+
+    public enum CharacterClass
+    {
+        DefaultClass,
+        Speedy,
+        Hoarder,
+        Brute
     }
 }

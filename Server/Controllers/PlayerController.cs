@@ -114,6 +114,7 @@ namespace Server.Controllers
             }
             player.PosX = random.Next(16, 200);
             player.PosY = random.Next(16, 200);
+            player.CharacterClass = CharacterClass.DefaultClass;
             _context.Player.Add(player);
             await _context.SaveChangesAsync();
 

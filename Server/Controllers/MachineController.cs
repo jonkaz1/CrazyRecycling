@@ -11,32 +11,32 @@ namespace Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RecyclingMachineController : ControllerBase
+    public class MachineController : ControllerBase
     {
         private readonly ServerContext _context;
 
-        public RecyclingMachineController(ServerContext context)
+        public MachineController(ServerContext context)
         {
             _context = context;
         }
 
         // GET: api/RecyclingMachine
         [HttpGet]
-        public IEnumerable<RecyclingMachine> GetRecyclingMachine()
+        public IEnumerable<Machine> GetMachine()
         {
-            return _context.RecyclingMachine;
+            return _context.Machine;
         }
 
         // GET: api/RecyclingMachine/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetRecyclingMachine([FromRoute] int id)
+        public async Task<IActionResult> GetMachine([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var recyclingMachine = await _context.RecyclingMachine.FindAsync(id);
+            var recyclingMachine = await _context.Machine.FindAsync(id);
 
             if (recyclingMachine == null)
             {
@@ -48,19 +48,19 @@ namespace Server.Controllers
 
         // PUT: api/RecyclingMachine/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRecyclingMachine([FromRoute] int id, [FromBody] RecyclingMachine recyclingMachine)
+        public async Task<IActionResult> PutMachine([FromRoute] int id, [FromBody] Machine machine)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != recyclingMachine.MachineId)
+            if (id != machine.MachineId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(recyclingMachine).State = EntityState.Modified;
+            _context.Entry(machine).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +68,7 @@ namespace Server.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RecyclingMachineExists(id))
+                if (!MachineExists(id))
                 {
                     return NotFound();
                 }
@@ -83,43 +83,43 @@ namespace Server.Controllers
 
         // POST: api/RecyclingMachine
         [HttpPost]
-        public async Task<IActionResult> PostRecyclingMachine([FromBody] RecyclingMachine recyclingMachine)
+        public async Task<IActionResult> PostMachine([FromBody] Machine machine)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.RecyclingMachine.Add(recyclingMachine);
+            _context.Machine.Add(machine);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRecyclingMachine", new { id = recyclingMachine.MachineId }, recyclingMachine);
+            return CreatedAtAction("GetRecyclingMachine", new { id = machine.MachineId }, machine);
         }
 
         // DELETE: api/RecyclingMachine/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRecyclingMachine([FromRoute] int id)
+        public async Task<IActionResult> DeleteMachine([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var recyclingMachine = await _context.RecyclingMachine.FindAsync(id);
-            if (recyclingMachine == null)
+            var machine = await _context.Machine.FindAsync(id);
+            if (machine == null)
             {
                 return NotFound();
             }
 
-            _context.RecyclingMachine.Remove(recyclingMachine);
+            _context.Machine.Remove(machine);
             await _context.SaveChangesAsync();
 
-            return Ok(recyclingMachine);
+            return Ok(machine);
         }
 
-        private bool RecyclingMachineExists(int id)
+        private bool MachineExists(int id)
         {
-            return _context.RecyclingMachine.Any(e => e.MachineId == id);
+            return _context.Machine.Any(e => e.MachineId == id);
         }
     }
 }

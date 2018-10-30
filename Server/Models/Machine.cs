@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Server.Models
 {
-    public class RecyclingMachine
+    public class Machine
     {
         [Key]
         public int MachineId { get; set; }
@@ -14,5 +14,12 @@ namespace Server.Models
         public int PosY { get; set; }
         public int SizeX { get; set; }
         public int SizeY { get; set; }
+        public MachineType MachineType { get; set; }
+    }
+
+    public enum MachineType
+    {
+        RecyclingMachine,
+        Shop
     }
 }

@@ -35,16 +35,12 @@ namespace Server.Controllers
 
         // POST: api/Projectile
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] int posX, [FromBody] int posY, [FromBody] int dirX, [FromBody] int dirY)
+        public async Task<IActionResult> Post([FromBody] Bottle bottle)
         {
-            _context.Bottle.Add(new Vodka()
-            {
-                PosX = posX,
-                PosY = posY,
-                LastPosX = posX + dirX * 10,
-                LastPosY = posY + dirY * 10,
-                SpawnTime = DateTime.Now
-            });
+            bottle.SpawnTime = DateTime.Now;
+            bottle.LastPosX = bottle.PosX + bottle.LastPosX * 10;
+            bottle.LastPosY = bottle.PosX + bottle.LastPosY * 10;
+            _context.Bottle.Add(bottle);
 
             await _context.SaveChangesAsync();
 
@@ -53,7 +49,7 @@ namespace Server.Controllers
 
         // PUT: api/Projectile/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Bottle bottle)
         {
         }
 

@@ -46,7 +46,7 @@ namespace Server
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc( routes => { routes.MapRoute("default", "api/{controller=Player}"); });
         }
     }
 }

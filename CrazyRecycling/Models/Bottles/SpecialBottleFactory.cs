@@ -1,8 +1,11 @@
-﻿using System;
+﻿using CrazyRecycling.Properties;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CrazyRecycling.Models.Bottles
 {
@@ -13,15 +16,45 @@ namespace CrazyRecycling.Models.Bottles
             switch (name)
             {
                 case "Wine":
-                    return new Wine();
+                    return new Wine() { Damage = 1,
+                        Image = new PictureBox()
+                        {
+                            Image = Resources.Wine,
+                            BackColor = Color.Transparent
+                        }
+                    };
                 case "Vodka":
-                    return new Vodka();
+                    return new Vodka()
+                    {
+                        Damage = 2,
+                        Image = new PictureBox()
+                        {
+                            Image = Resources.Vodka,
+                            BackColor = Color.Transparent
+                        }
+                    };
                 case "Whiskey":
-                    return new Whiskey();
+                    return new Whiskey()
+                    {
+                        Damage = 3,
+                        Image = new PictureBox()
+                        {
+                            Image = Resources.Whiskey,
+                            BackColor = Color.Transparent
+                        }
+                    };
                 case "GinOfDestruction":
-                    return new GinOfDestruction();
+                    return new GinOfDestruction()
+                    {
+                        Damage = 10,
+                        Image = new PictureBox()
+                        {
+                            Image = Resources.GinOfDestruction,
+                            BackColor = Color.Transparent
+                        }
+                    };
                 default:
-                    return new Wine();
+                    return null;
             }
         }
     }

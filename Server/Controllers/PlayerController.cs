@@ -115,6 +115,7 @@ namespace Server.Controllers
             player.PosX = random.Next(16, 200);
             player.PosY = random.Next(16, 200);
             player.CharacterClass = CharacterClass.DefaultClass;
+            player.SpawnTime = DateTime.Now;
             _context.Player.Add(player);
             await _context.SaveChangesAsync();
 
@@ -140,6 +141,13 @@ namespace Server.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(player);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAllPlayers()
+        {
+            await _context.Database.ExecuteSqlCommandAsync("TRUNCATE TABLE Player");
+            return Ok();
         }
 
         private bool PlayerExists(int id)

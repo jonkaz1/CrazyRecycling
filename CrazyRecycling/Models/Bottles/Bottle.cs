@@ -10,12 +10,14 @@ namespace CrazyRecycling.Models.Bottles
 {
     public abstract class Bottle
     {
+        public int BottleId;
         public int PosX;
         public int PosY;
-        public PictureBox picture;
+        public PictureBox Image;
         Rectangle box = new Rectangle(new Point(16, 16),new Size(16, 16));
         public Point thrownDirection = new Point();
         public float despawnTimer = 0;
+        public bool IsNewlySpawned;
 
         public Bottle()
         {

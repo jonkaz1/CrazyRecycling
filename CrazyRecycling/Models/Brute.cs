@@ -35,10 +35,10 @@ namespace CrazyRecycling.Models
         {
             Bottle bottle = new PointBottleFactory().CreateBottle("Cola");
             PictureBox bottlePic = new PictureBox();
-            bottlePic.Image = global::CrazyRecycling.Properties.Resources.nukeCola;
+            bottlePic.Image = global::CrazyRecycling.Properties.Resources.NukeCola;
             bottlePic.Location = new Point(X, Y);
             bottlePic.Size = new Size(16, 16);
-            bottle.picture = bottlePic;
+            bottle.Image = bottlePic;
             bottle.thrownDirection = new Point(1, 1);
             bottle.despawnTimer = 2;
             return bottle;

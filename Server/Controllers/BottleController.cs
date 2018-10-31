@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Server.Helper;
 using Server.Models;
 
 namespace Server.Controllers
@@ -14,9 +15,14 @@ namespace Server.Controllers
     public class BottleController : ControllerBase
     {
         private readonly ServerContext _context;
+        private readonly Generator _generator;
 
         public BottleController(ServerContext context)
         {
+            _generator = new BottleGenerator()
+            {
+                Creator = new BottleDataCreator()
+            };
             _context = context;
         }
 
@@ -24,6 +30,8 @@ namespace Server.Controllers
         [HttpGet]
         public IEnumerable<Bottle> GetBottle()
         {
+            _generator.GenerateData(_context);
+            _context.SaveChanges();
             return _context.Bottle;
         }
 

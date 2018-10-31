@@ -19,14 +19,15 @@ namespace CrazyRecycling
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             this.Hide();
             form1.Closed += (s, args) => this.Close();
+            Form1.PlayerName = textBox1.Text;
             form1.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Highscores highscores = new Highscores();
             highscores.Show();

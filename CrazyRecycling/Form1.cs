@@ -16,25 +16,24 @@ namespace CrazyRecycling
 {
     public partial class Form1 : Form
     {
-        Facade facade = new Facade();
-        ServerConnector connector = new ServerConnector();
-        Player player = new Player();
-        List<Player> playerList = new List<Player>();
-        List<Bottle> thrownBottles = new List<Bottle>();
-        List<RecyclingMachine> recyclingMachines = new List<RecyclingMachine>();
-        
+        public static string PlayerName;
+        Facade Facade = new Facade();
+        ServerConnector Connector = new ServerConnector();
+        Player MainPlayer = new Player();
+        List<Player> PlayerList = new List<Player>();
+        List<Bottle> ThrownBottles = new List<Bottle>();
+        List<Bottle> GroundBottles = new List<Bottle>();
+        List<Machine> Machines = new List<Machine>();
 
-        CancellationTokenSource _cancelationTokenSource;
 
-        delegate void PlayerLocationVoidDelegate(Player player, Point point);
-        delegate void PlayerObjectDelegate(PictureBox player);
+        CancellationTokenSource _cancelationTokenSourcePlayers;
+        CancellationTokenSource _cancelationTokenSourceBottles;
 
         public Form1()
         {
             InitializeComponent();
             DoubleBuffered = true;
         }
-
 
         /// <summary>
         /// Start method
@@ -43,19 +42,23 @@ namespace CrazyRecycling
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            player.Name = "John";
-            player.playerObject = pictureBox1;
-            player.PosX = pictureBox1.Location.X;
-            player.PosY = pictureBox1.Location.Y;
-            playerList.Add(player);
+            MainPlayer.Name = PlayerName;
+            MainPlayer.playerObject = pictureBox1;
+            pictureBox1.BackColor = Color.Transparent;
+            MainPlayer.PosX = pictureBox1.Location.X;
+            MainPlayer.PosY = pictureBox1.Location.Y;
+            PlayerList.Add(MainPlayer);
             CreatePlayer();
-                       
 
-            _cancelationTokenSource = new CancellationTokenSource();
-            new Task(() => GetPlayerData(), _cancelationTokenSource.Token, TaskCreationOptions.LongRunning).Start();
 
-            facade.AttachPlayer(player);
-            facade.AddCommand(connector, player.PosX + ";" + player.PosY);
+            _cancelationTokenSourcePlayers = new CancellationTokenSource();
+            _cancelationTokenSourceBottles = new CancellationTokenSource();
+            new Task(() => GetPlayerData(), _cancelationTokenSourcePlayers.Token, TaskCreationOptions.LongRunning).Start();
+            new Task(() => GetBottleData(), _cancelationTokenSourceBottles.Token, TaskCreationOptions.LongRunning).Start();
+            GetMachines();
+
+            Facade.AttachPlayer(MainPlayer);
+            Facade.AddCommand(Connector, MainPlayer.PosX + ";" + MainPlayer.PosY);
         }
 
 
@@ -68,26 +71,26 @@ namespace CrazyRecycling
         {
             if (e.KeyCode == Keys.Space)
             {
-                var bottle = facade.GetBottle(e);
-                Controls.Add(bottle.picture);
-                thrownBottles.Add(bottle);
+                var bottle = Facade.GetBottle(e);
+                Controls.Add(bottle.Image);
+                ThrownBottles.Add(bottle);
             }
-            facade.ChangeLocation(e);
+            Facade.ChangeLocation(e);
         }
 
         public void CreatePlayer()
         {
-            Task<string> create = Task.Run(() => connector.PostAction("Player",
-                "{\"Name\":\"" + player.Name + "\"}"));
+            Task<string> create = Task.Run(() => Connector.PostAction("Player",
+                "{\"Name\":\"" + MainPlayer.Name + "\"}"));
             create.Wait();
             var result = create.Result;
             var obj = JObject.Parse(result);
-            player.PlayerId = obj["playerId"].Value<int>();
+            MainPlayer.PlayerId = obj["playerId"].Value<int>();
         }
 
         public void DeletePlayer(int playerId)
         {
-            Task.Run(() => connector.DeleteAction("Player/" + playerId)).Wait();
+            Task.Run(() => Connector.DeleteAction("Player/" + playerId)).Wait();
         }
 
         /// <summary>
@@ -95,9 +98,9 @@ namespace CrazyRecycling
         /// </summary>
         public void GetPlayerData()
         {
-            while (!_cancelationTokenSource.Token.IsCancellationRequested)
+            while (!_cancelationTokenSourcePlayers.Token.IsCancellationRequested)
             {
-                Task<string> getPlayers = Task.Run(() => connector.GetAction("Player"));
+                Task<string> getPlayers = Task.Run(() => Connector.GetAction("Player"));
                 getPlayers.Wait();
                 var result = getPlayers.Result;
                 var array = JArray.Parse(result);
@@ -105,7 +108,7 @@ namespace CrazyRecycling
                 Point point = new Point();
                 foreach (var item in array)
                 {
-                    p = playerList.FirstOrDefault(x => x.PlayerId == item["playerId"].Value<int>());
+                    p = PlayerList.FirstOrDefault(x => x.PlayerId == item["playerId"].Value<int>());
                     point.X = item["posX"].Value<int>();
                     point.Y = item["posY"].Value<int>();
                     if (p == null)
@@ -118,11 +121,11 @@ namespace CrazyRecycling
                             PosY = point.Y,
                             isNewlyCreated = true
                         };
-                        playerList.Add(p);
+                        PlayerList.Add(p);
                     }
                     else
                     {
-                        if (p.PlayerId == player.PlayerId && !IsPlayerTooFar(player.PosX, player.PosY, point.X, point.Y))
+                        if (p.PlayerId == MainPlayer.PlayerId && !IsPlayerTooFar(MainPlayer.PosX, MainPlayer.PosY, point.X, point.Y))
                         {
                             continue;
                         }
@@ -134,9 +137,57 @@ namespace CrazyRecycling
                         }
                     }
 
-                    facade.UpdateLeaderBoard(p);
+                    Facade.UpdateLeaderBoard(p);
                 }
-                _cancelationTokenSource.Token.WaitHandle.WaitOne(200);
+                _cancelationTokenSourcePlayers.Token.WaitHandle.WaitOne(200);
+            }
+        }
+
+        public void GetBottleData()
+        {
+            while (!_cancelationTokenSourceBottles.Token.IsCancellationRequested)
+            {
+                var task = Task.Run(() => Connector.GetAction("Bottle"));
+                task.Wait();
+                var result = task.Result;
+                var array = JArray.Parse(result);
+                Bottle bottle;
+                AbstractFactory pointBottleFactory = new PointBottleFactory();
+                AbstractFactory specialBottleFactory = new SpecialBottleFactory();
+                foreach (var item in array)
+                {
+                    lock (GroundBottles)
+                    {
+                        if (GroundBottles.FirstOrDefault(x => x.BottleId == item["bottleId"].Value<int>()) == null)
+                        {
+                            string bottleType = BottleTypeIntToString(item["bottleType"].Value<int>());
+                            bottle = pointBottleFactory.CreateBottle(bottleType);
+                            if (bottle != null)
+                            {
+                                bottle.PosX = item["posX"].Value<int>();
+                                bottle.PosY = item["posY"].Value<int>();
+                                bottle.BottleId = item["bottleId"].Value<int>();
+                                bottle.Image.Location = new Point(bottle.PosX, bottle.PosY);
+                                bottle.IsNewlySpawned = true;
+                                GroundBottles.Add(bottle);
+                            }
+                            else
+                            {
+                                bottle = specialBottleFactory.CreateBottle(bottleType);
+                                if (bottle != null)
+                                {
+                                    bottle.PosX = item["posX"].Value<int>();
+                                    bottle.PosY = item["posY"].Value<int>();
+                                    bottle.BottleId = item["bottleId"].Value<int>();
+                                    bottle.Image.Location = new Point(bottle.PosX, bottle.PosY);
+                                    bottle.IsNewlySpawned = true;
+                                    GroundBottles.Add(bottle);
+                                }
+                            }
+                        }
+                    }
+                }
+                _cancelationTokenSourceBottles.Token.WaitHandle.WaitOne(5000);
             }
         }
 
@@ -145,23 +196,36 @@ namespace CrazyRecycling
         /// </summary>
         private void GetMachines()
         {
-            var task = Task.Run(() => connector.GetAction("RecyclingMachine"));
+            var task = Task.Run(() => Connector.GetAction("Machine"));
             task.Wait();
             var result = task.Result;
             var array = JArray.Parse(result);
+            Machine machine;
             foreach (var item in array)
             {
-                var machine = new RecyclingMachine(
+                if (item["machineType"].Value<int>() == 0)
+                {
+                    machine = new RecyclingMachine(
                     item["posX"].Value<int>(), item["posY"].Value<int>(),
-                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>());
-                recyclingMachines.Add(machine);
+                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>()
+                    );
+                    Machines.Add(machine);
+                }
+                else
+                {
+                    machine = new Shop(
+                    item["posX"].Value<int>(), item["posY"].Value<int>(),
+                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>()
+                    );
+                    Machines.Add(machine);
+                }
                 Controls.Add(machine.Image);
             }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DeletePlayer(player.PlayerId);
+            DeletePlayer(MainPlayer.PlayerId);
         }
 
         private bool IsPlayerTooFar(int playerPosX, int playerPosY, int newPosX, int newPosY)
@@ -173,41 +237,15 @@ namespace CrazyRecycling
             return false;
         }
 
-        private void ChangePlayerLocation(Player player, Point point)
-        {
-            if (player.playerObject.InvokeRequired)
-            {
-                PlayerLocationVoidDelegate d = new PlayerLocationVoidDelegate(ChangePlayerLocation);
-                Invoke(d, new object[] { player, point });
-            }
-            else
-            {
-                player.playerObject.Location = point;
-            }
-        }
-
-        private void AddPlayerObject(PictureBox player)
-        {
-            if (InvokeRequired)
-            {
-                PlayerObjectDelegate d = new PlayerObjectDelegate(AddPlayerObject);
-                Invoke(d, new object[] { player });
-            }
-            else
-            {
-                Controls.Add(player);
-            }
-        }
-
         private void Timer1_tick(object sender, EventArgs e)
         {
-            foreach (var item in playerList)
+            foreach (var item in PlayerList)
             {
                 if (item.isNewlyCreated)
                 {
                     item.playerObject = new PictureBox()
                     {
-                        Image = global::CrazyRecycling.Properties.Resources.Player,
+                        Image = Properties.Resources.Player,
                         Size = new Size(16, 16),
                         Location = new Point(item.PosX, item.PosY)
                     };
@@ -219,6 +257,45 @@ namespace CrazyRecycling
                     item.playerObject.Location = new Point(item.PosX, item.PosY);
                     item.locationChanged = false;
                 }
+            }
+            lock (GroundBottles)
+            {
+                foreach (var item in GroundBottles)
+                {
+                    if (item.IsNewlySpawned)
+                    {
+                        Controls.Add(item.Image);
+                        item.IsNewlySpawned = false;
+                    }
+                }
+            }
+        }
+        /*
+         Wine,
+        Vodka,
+        Whiskey,
+        GinOfDestruction,
+        Cola,
+        NukeCola
+        */
+        private string BottleTypeIntToString(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                    return "Wine";
+                case 1:
+                    return "Vodka";
+                case 2:
+                    return "Whiskey";
+                case 3:
+                    return "GinOfDestruction";
+                case 4:
+                    return "Cola";
+                case 5:
+                    return "NukeCola";
+                default:
+                    return "";
             }
         }
     }

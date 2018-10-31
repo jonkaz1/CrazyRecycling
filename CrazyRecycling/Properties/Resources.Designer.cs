@@ -73,9 +73,29 @@ namespace CrazyRecycling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap nukeCola {
+        internal static System.Drawing.Bitmap Cola {
             get {
-                object obj = ResourceManager.GetObject("nukeCola", resourceCulture);
+                object obj = ResourceManager.GetObject("Cola", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GinOfDestruction {
+            get {
+                object obj = ResourceManager.GetObject("GinOfDestruction", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NukeCola {
+            get {
+                object obj = ResourceManager.GetObject("NukeCola", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +116,46 @@ namespace CrazyRecycling.Properties {
         internal static System.Drawing.Bitmap RecyclingMachine {
             get {
                 object obj = ResourceManager.GetObject("RecyclingMachine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shop {
+            get {
+                object obj = ResourceManager.GetObject("Shop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vodka {
+            get {
+                object obj = ResourceManager.GetObject("Vodka", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Whiskey {
+            get {
+                object obj = ResourceManager.GetObject("Whiskey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wine {
+            get {
+                object obj = ResourceManager.GetObject("Wine", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

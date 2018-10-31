@@ -167,6 +167,13 @@
   <ItemGroup>
     <Content Include="Bottle.png" />
     <Content Include="RecyclingMachine.png" />
+    <Content Include="Resources\Cola.png" />
+    <Content Include="Resources\GinOfDestruction.png" />
+    <Content Include="Resources\RecyclingMachine.png" />
+    <Content Include="Resources\Shop.png" />
+    <Content Include="Resources\Vodka.png" />
+    <Content Include="Resources\Whiskey.png" />
+    <Content Include="Resources\Wine.png" />
     <None Include="Resources\nukeCola.png" />
     <None Include="Resources\RecyclingMachine.bmp" />
   </ItemGroup>

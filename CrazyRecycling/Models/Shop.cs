@@ -20,7 +20,8 @@ namespace CrazyRecycling.Models
             {
                 Location = new Point(PosX, PosY),
                 Size = new Size(SizeX, SizeY),
-                Image = Properties.Resources.RecyclingMachine
+                Image = Properties.Resources.Shop,
+                BackColor = Color.Transparent
             };
         }
 

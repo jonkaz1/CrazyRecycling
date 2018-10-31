@@ -1,8 +1,11 @@
-﻿using System;
+﻿using CrazyRecycling.Properties;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CrazyRecycling.Models.Bottles
 {
@@ -13,11 +16,27 @@ namespace CrazyRecycling.Models.Bottles
             switch (name)
             {
                 case "Cola":
-                    return new Cola() { Count = 1 };
+                    return new Cola()
+                    {
+                        Count = 1,
+                        Image = new PictureBox()
+                        {
+                            Image = Resources.Cola,
+                            BackColor = Color.Transparent
+                        }
+                    };
                 case "NukeCola":
-                    return new NukeCola() { Count = 5 };
+                    return new NukeCola()
+                    {
+                        Count = 5,
+                        Image = new PictureBox()
+                        {
+                            Image = Resources.NukeCola,
+                            BackColor = Color.Transparent
+                        }
+                    };
                 default:
-                    return new Cola() { Count = 1 };
+                    return null;
             }
         }
     }

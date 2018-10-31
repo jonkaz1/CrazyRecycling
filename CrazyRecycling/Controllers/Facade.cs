@@ -12,7 +12,6 @@ namespace CrazyRecycling.Controllers
     class Facade
     {
         PlayerController playerController;
-        GenerationController generator = new GenerationController();
         LeaderboardController leaderboard = new LeaderboardController();
         MachineController machineController = new MachineController();
 

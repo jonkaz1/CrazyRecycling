@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Facade.cs" />
-    <Compile Include="Controllers\GenerationController.cs" />
     <Compile Include="Controllers\LeaderboardController.cs" />
     <Compile Include="Controllers\MachineController.cs" />
     <Compile Include="Controllers\MoveCommand.cs" />

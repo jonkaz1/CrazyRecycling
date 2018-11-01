@@ -97,7 +97,6 @@
     <Compile Include="Models\Bottles\Wine.cs" />
     <Compile Include="Models\Bottles\Vodka.cs" />
     <Compile Include="Models\ColorData.cs" />
-    <Compile Include="Models\IPlayer.cs" />
     <Compile Include="Models\Brute.cs" />
     <Compile Include="Models\DefaultClass.cs" />
     <Compile Include="Models\Hoarder.cs" />
@@ -109,6 +108,11 @@
     <Compile Include="Models\Bottles\SpecialBottleFactory.cs" />
     <Compile Include="Models\PlayerColor.cs" />
     <Compile Include="Models\PlayerDefaultColor.cs" />
+    <Compile Include="Models\Props\MapPropBuilder.cs" />
+    <Compile Include="Models\Props\MountainBuilder.cs" />
+    <Compile Include="Models\Props\Prop.cs" />
+    <Compile Include="Models\Props\PropSpawner.cs" />
+    <Compile Include="Models\Props\TreeBuilder.cs" />
     <Compile Include="Models\RecyclingMachine.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\Speedy.cs" />
@@ -166,6 +170,9 @@
   <ItemGroup>
     <Content Include="Bottle.png" />
     <Content Include="RecyclingMachine.png" />
+    <None Include="Resources\Mountain.bmp" />
+    <Content Include="Resources\Mountain.png" />
+    <Content Include="Resources\Tree.png" />
     <Content Include="Resources\Cola.png" />
     <Content Include="Resources\GinOfDestruction.png" />
     <Content Include="Resources\RecyclingMachine.png" />

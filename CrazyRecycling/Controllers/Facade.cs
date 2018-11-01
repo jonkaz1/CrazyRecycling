@@ -11,9 +11,9 @@ namespace CrazyRecycling.Controllers
 {
     class Facade
     {
-        PlayerController playerController;
-        LeaderboardController leaderboard = new LeaderboardController();
-        MachineController machineController = new MachineController();
+        private PlayerController playerController;
+        private LeaderboardController leaderboard = new LeaderboardController();
+        private MachineController machineController = new MachineController();
 
         public void AttachPlayer(Player player)
         {

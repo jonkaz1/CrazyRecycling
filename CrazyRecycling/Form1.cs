@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections.Specialized;
 using CrazyRecycling.Models.Bottles;
+using CrazyRecycling.Models.Props;
 
 namespace CrazyRecycling
 {
@@ -42,6 +43,20 @@ namespace CrazyRecycling
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
+            PropSpawner propSpawner = new PropSpawner();
+            MapPropBuilder builder = new TreeBuilder();
+            for (int i = 0; i < 50; i++)
+            {
+                builder = new TreeBuilder();
+                propSpawner.construct(builder);
+                Controls.Add(builder.Prop.picture);
+            }
+            for (int i = 0; i < 50; i++)
+            {
+                builder = new MountainBuilder();
+                propSpawner.construct(builder);
+                Controls.Add(builder.Prop.picture);
+            }
             MainPlayer.Name = PlayerName;
             MainPlayer.playerObject = pictureBox1;
             pictureBox1.BackColor = Color.Transparent;
@@ -49,6 +64,7 @@ namespace CrazyRecycling
             MainPlayer.PosY = pictureBox1.Location.Y;
             PlayerList.Add(MainPlayer);
             CreatePlayer();
+
 
 
             _cancelationTokenSourcePlayers = new CancellationTokenSource();

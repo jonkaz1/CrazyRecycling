@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CrazyRecycling.Models
 {
-    public class Player : IPlayer
+    public class Player
     {
         public int PlayerId;
         public string Name;

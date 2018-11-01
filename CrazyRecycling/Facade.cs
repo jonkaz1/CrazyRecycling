@@ -1,4 +1,5 @@
-﻿using CrazyRecycling.Models;
+﻿using CrazyRecycling.Controllers;
+using CrazyRecycling.Models;
 using CrazyRecycling.Models.Bottles;
 using System;
 using System.Collections.Generic;
@@ -7,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CrazyRecycling.Controllers
+namespace CrazyRecycling
 {
     class Facade
     {
         private PlayerController playerController;
         private LeaderboardController leaderboard = new LeaderboardController();
         private MachineController machineController = new MachineController();
-
         public void AttachPlayer(Player player)
         {
             playerController = new PlayerController(player);
@@ -36,7 +36,8 @@ namespace CrazyRecycling.Controllers
             playerController.ChangeLocation(e);
         }
 
-        public void UpdateLeaderBoard(Player player) {
+        public void UpdateLeaderBoard(Player player)
+        {
             leaderboard.UpdateLeaderboard(player);
         }
     }

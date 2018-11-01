@@ -1,5 +1,4 @@
-﻿using CrazyRecycling.Controllers;
-using CrazyRecycling.Models;
+﻿using CrazyRecycling.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -19,7 +18,7 @@ namespace CrazyRecycling
     {
         public static string PlayerName;
         Facade Facade = new Facade();
-        ServerConnector Connector = new ServerConnector();
+        Controllers.ServerConnector Connector = new Controllers.ServerConnector();
         Player MainPlayer = new Player();
         List<Player> PlayerList = new List<Player>();
         List<Bottle> ThrownBottles = new List<Bottle>();

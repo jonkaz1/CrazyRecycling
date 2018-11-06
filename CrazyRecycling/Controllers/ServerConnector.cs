@@ -9,11 +9,21 @@ namespace CrazyRecycling.Controllers
 {
     public class ServerConnector
     {
+        private static ServerConnector Connector;
+
         private HttpClient Client = new HttpClient();
         private readonly string BaseAdress = "https://crazyrecycling.azurewebsites.net/api/";
         //private readonly string baseAdress = "https://localhost:44399/api/";
         private readonly HttpMethod PatchMethod = new HttpMethod("PATCH");
 
+        public static ServerConnector Instance()
+        {
+            if (Connector == null)
+            {
+                Connector = new ServerConnector();
+            }
+            return Connector;
+        }
         public ServerConnector()
         {
             Client.BaseAddress = new Uri(BaseAdress);

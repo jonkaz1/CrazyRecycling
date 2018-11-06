@@ -11,14 +11,16 @@ using System.Windows.Forms;
 using System.Collections.Specialized;
 using CrazyRecycling.Models.Bottles;
 using CrazyRecycling.Models.Props;
+using CrazyRecycling.Controllers;
 
 namespace CrazyRecycling
 {
+    //context
     public partial class Form1 : Form
     {
-        public static string PlayerName;
         Facade Facade = new Facade();
-        Controllers.ServerConnector Connector = new Controllers.ServerConnector();
+        public static string PlayerName;
+
         Player MainPlayer = new Player();
         List<Player> PlayerList = new List<Player>();
         List<Bottle> ThrownBottles = new List<Bottle>();
@@ -42,20 +44,7 @@ namespace CrazyRecycling
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            PropSpawner propSpawner = new PropSpawner();
-            MapPropBuilder builder = new TreeBuilder();
-            for (int i = 0; i < 50; i++)
-            {
-                builder = new TreeBuilder();
-                propSpawner.construct(builder);
-                Controls.Add(builder.Prop.picture);
-            }
-            for (int i = 0; i < 50; i++)
-            {
-                builder = new MountainBuilder();
-                propSpawner.construct(builder);
-                Controls.Add(builder.Prop.picture);
-            }
+            SpawnProps();
             MainPlayer.Name = PlayerName;
             MainPlayer.playerObject = pictureBox1;
             pictureBox1.BackColor = Color.Transparent;
@@ -73,7 +62,7 @@ namespace CrazyRecycling
             GetMachines();
 
             Facade.AttachPlayer(MainPlayer);
-            Facade.AddCommand(Connector, MainPlayer.PosX + ";" + MainPlayer.PosY);
+            Facade.AddCommand(MainPlayer.PosX + ";" + MainPlayer.PosY);
         }
 
 
@@ -95,7 +84,7 @@ namespace CrazyRecycling
 
         public void CreatePlayer()
         {
-            Task<string> create = Task.Run(() => Connector.PostAction("Player",
+            Task<string> create = Task.Run(() => Facade.GetConnector().PostAction("Player",
                 "{\"Name\":\"" + MainPlayer.Name + "\"}"));
             create.Wait();
             var result = create.Result;
@@ -105,7 +94,7 @@ namespace CrazyRecycling
 
         public void DeletePlayer(int playerId)
         {
-            Task.Run(() => Connector.DeleteAction("Player/" + playerId)).Wait();
+            Task.Run(() => Facade.GetConnector().DeleteAction("Player/" + playerId)).Wait();
         }
 
         /// <summary>
@@ -115,44 +104,14 @@ namespace CrazyRecycling
         {
             while (!_cancelationTokenSourcePlayers.Token.IsCancellationRequested)
             {
-                Task<string> getPlayers = Task.Run(() => Connector.GetAction("Player"));
+                Task<string> getPlayers = Task.Run(() => Facade.GetConnector().GetAction("Player"));
                 getPlayers.Wait();
                 var result = getPlayers.Result;
                 var array = JArray.Parse(result);
-                Player p;
-                Point point = new Point();
+
                 foreach (var item in array)
                 {
-                    p = PlayerList.FirstOrDefault(x => x.PlayerId == item["playerId"].Value<int>());
-                    point.X = item["posX"].Value<int>();
-                    point.Y = item["posY"].Value<int>();
-                    if (p == null)
-                    {
-                        p = new Player()
-                        {
-                            PlayerId = item["playerId"].Value<int>(),
-                            Name = item["name"].Value<string>(),
-                            PosX = point.X,
-                            PosY = point.Y,
-                            isNewlyCreated = true
-                        };
-                        PlayerList.Add(p);
-                    }
-                    else
-                    {
-                        if (p.PlayerId == MainPlayer.PlayerId && !IsPlayerTooFar(MainPlayer.PosX, MainPlayer.PosY, point.X, point.Y))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            p.PosX = point.X;
-                            p.PosY = point.Y;
-                            p.locationChanged = true;
-                        }
-                    }
-
-                    Facade.UpdateLeaderBoard(p);
+                    Facade.UpdateLeaderBoard(item, ref PlayerList, ref MainPlayer);
                 }
                 _cancelationTokenSourcePlayers.Token.WaitHandle.WaitOne(200);
             }
@@ -162,7 +121,7 @@ namespace CrazyRecycling
         {
             while (!_cancelationTokenSourceBottles.Token.IsCancellationRequested)
             {
-                var task = Task.Run(() => Connector.GetAction("Bottle"));
+                var task = Task.Run(() => Facade.GetConnector().GetAction("Bottle"));
                 task.Wait();
                 var result = task.Result;
                 var array = JArray.Parse(result);
@@ -211,7 +170,7 @@ namespace CrazyRecycling
         /// </summary>
         private void GetMachines()
         {
-            var task = Task.Run(() => Connector.GetAction("Machine"));
+            var task = Task.Run(() => Facade.GetConnector().GetAction("Machine"));
             task.Wait();
             var result = task.Result;
             var array = JArray.Parse(result);
@@ -243,13 +202,23 @@ namespace CrazyRecycling
             DeletePlayer(MainPlayer.PlayerId);
         }
 
-        private bool IsPlayerTooFar(int playerPosX, int playerPosY, int newPosX, int newPosY)
+        private void SpawnProps()
         {
-            if (Math.Abs(playerPosX - newPosX) > 50 || Math.Abs(playerPosY - newPosY) > 50)
+                        PropSpawner propSpawner = new PropSpawner();
+            MapPropBuilder builder = new TreeBuilder();
+
+            for (int i = 0; i < 50; i++)
             {
-                return true;
+                builder = new TreeBuilder();
+                propSpawner.construct(builder);
+                Controls.Add(builder.Prop.picture);
             }
-            return false;
+            for (int i = 0; i < 50; i++)
+            {
+                builder = new MountainBuilder();
+                propSpawner.construct(builder);
+                Controls.Add(builder.Prop.picture);
+            }
         }
 
         private void Timer1_tick(object sender, EventArgs e)

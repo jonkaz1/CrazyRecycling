@@ -10,6 +10,6 @@ namespace CrazyRecycling.Models.Props
 {
     public class Prop
     {
-        public PictureBox picture { get; set; } = new PictureBox();
+        public PictureBox Picture { get; set; } = new PictureBox();
     }
 }

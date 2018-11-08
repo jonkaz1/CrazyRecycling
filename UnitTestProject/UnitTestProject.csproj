@@ -48,11 +48,21 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+<<<<<<< HEAD
+=======
+    <Reference Include="System.Windows.Forms" />
+>>>>>>> 5d6ea1e47d97dfc1af1fcb1236e16e51c7fd0fb5
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\FacadeControllers\UnitTestServerConnector.cs" />
     <Compile Include="Models\Bottles\AbstractFactoryTests.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\PlayerColorTests.cs" />
+=======
+    <Compile Include="Models\Props\MountainBuilderTests.cs" />
+    <Compile Include="Models\Props\PropSpawnerTests.cs" />
+    <Compile Include="Models\Props\TreeBuilderTests.cs" />
+>>>>>>> 5d6ea1e47d97dfc1af1fcb1236e16e51c7fd0fb5
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +74,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

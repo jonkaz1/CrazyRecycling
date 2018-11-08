@@ -42,13 +42,13 @@ C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\Server.csproj.CoreCompileInputs.cache
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\Server.RazorAssemblyInfo.cache
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\Server.RazorAssemblyInfo.cs
-C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\Server.AssemblyInfoInputs.cache
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\Server.AssemblyInfo.cs
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\Server.RazorTargetAssemblyInfo.cache
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\Server.dll
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\Server.pdb
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\Server.csprojAssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\user\Documents\GitHub\CrazyRecycling\Server\bin\Debug\netcoreapp2.1\Server.deps.json
 C:\Users\user\Documents\GitHub\CrazyRecycling\Server\bin\Debug\netcoreapp2.1\Server.runtimeconfig.json
 C:\Users\user\Documents\GitHub\CrazyRecycling\Server\bin\Debug\netcoreapp2.1\Server.runtimeconfig.dev.json
@@ -66,3 +66,9 @@ C:\Users\user\Documents\GitHub\CrazyRecycling\Server\obj\Debug\netcoreapp2.1\Ser
 C:\Users\user\Documents\GitHub\CrazyRecycling\Server\obj\Debug\netcoreapp2.1\Server.RazorTargetAssemblyInfo.cache
 C:\Users\user\Documents\GitHub\CrazyRecycling\Server\obj\Debug\netcoreapp2.1\Server.dll
 C:\Users\user\Documents\GitHub\CrazyRecycling\Server\obj\Debug\netcoreapp2.1\Server.pdb
+=======
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\Server\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+>>>>>>> 5d6ea1e47d97dfc1af1fcb1236e16e51c7fd0fb5

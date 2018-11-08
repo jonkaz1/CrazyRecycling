@@ -205,20 +205,20 @@ namespace CrazyRecycling
 
         private void SpawnProps()
         {
-                        PropSpawner propSpawner = new PropSpawner();
+            PropSpawner propSpawner = new PropSpawner();
             MapPropBuilder builder = new TreeBuilder();
 
             for (int i = 0; i < 50; i++)
             {
                 builder = new TreeBuilder();
-                propSpawner.construct(builder);
-                Controls.Add(builder.Prop.picture);
+                propSpawner.Construct(builder);
+                Controls.Add(builder.Prop.Picture);
             }
             for (int i = 0; i < 50; i++)
             {
                 builder = new MountainBuilder();
-                propSpawner.construct(builder);
-                Controls.Add(builder.Prop.picture);
+                propSpawner.Construct(builder);
+                Controls.Add(builder.Prop.Picture);
             }
         }
 

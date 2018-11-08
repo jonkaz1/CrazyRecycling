@@ -9,20 +9,19 @@ namespace CrazyRecycling.Models.Props
 {
     public class TreeBuilder : MapPropBuilder
     {
-
         public override void BuildLocation(int X, int Y)
         {
-            Prop.picture.Location = new Point(X, Y);
+            Prop.Picture.Location = new Point(X, Y);
         }
 
         public override void BuildPictureBox()
         {
-            Prop.picture.Image = global::CrazyRecycling.Properties.Resources.Tree;
+            Prop.Picture.Image = global::CrazyRecycling.Properties.Resources.Tree;
         }
 
         public override void BuildSize()
         {
-            Prop.picture.Size = new Size(16, 16);
+            Prop.Picture.Size = new Size(16, 16);
         }
     }
 }

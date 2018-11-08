@@ -11,9 +11,14 @@ namespace UnitTestProject.Models
         public void TestDefaultPlayerColor_TestHoarderClassPlayerColor()
         {
             Player MainPlayer = new Player();
+
             Assert.AreEqual(MainPlayer.Color.GetColor().Name, "Black");
+
             MainPlayer.setClass("Hoarder");
             Assert.AreEqual(MainPlayer.Color.GetColor().Name, "LawnGreen");
+
+            MainPlayer.setClass("Speedy");
+            Assert.AreEqual(MainPlayer.Color.GetColor().Name, "LightBlue");
         }
 
     }

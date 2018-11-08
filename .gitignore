@@ -355,3 +355,13 @@ Server/obj/Debug/netcoreapp2.1/Server.pdb
 Server/obj/project.assets.json
 Server/obj/Server.csproj.nuget.cache
 Server/obj/Server.csproj.nuget.g.props
+*.ide-shm
+CrazyRecycling/.vs/CrazyRecycling/v15/Server/sqlite3/storage.ide-shm
+CrazyRecycling/.vs/CrazyRecycling/v15/Server/sqlite3/storage.ide-shm
+CrazyRecycling/.vs/CrazyRecycling/v15/Server/sqlite3/storage.ide-shm
+CrazyRecycling/.vs/CrazyRecycling/v15/.suo
+CrazyRecycling/.vs/CrazyRecycling/v15/Server/sqlite3/storage.ide
+CrazyRecycling/.vs/CrazyRecycling/v15/Server/sqlite3/storage.ide-shm
+CrazyRecycling/.vs/CrazyRecycling/v15/Server/sqlite3/storage.ide-wal
+CrazyRecycling/bin/Debug/CrazyRecycling.exe
+CrazyRecycling/bin/Debug/CrazyRecycling.pdb

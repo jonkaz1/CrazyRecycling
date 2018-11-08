@@ -65,6 +65,22 @@ namespace CrazyRecycling.Models
             Speed = stats.Speed;
             PointsBoost = stats.PointsBoost;
         }
+        public void setClass(string charClass)
+        {
+            if (charClass == "Brute")
+            {
+                characterClass = new Brute();
+            }
+            else if (charClass == "Hoarder")
+            {
+                characterClass = new Hoarder();
+            }
+            else if (charClass == "Speedy")
+            {
+                characterClass = new Speedy();
+            }
+            Color = new PlayerColor(characterClass);
+        }
 
 
     }

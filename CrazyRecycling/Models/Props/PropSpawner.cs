@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CrazyRecycling.Models.Props
 {
-    class PropSpawner
+    public class PropSpawner
     {
         Random rnd = new Random();
-        public void construct(MapPropBuilder builder)
+        public void Construct(MapPropBuilder builder)
         {
             builder.BuildPictureBox();
             builder.BuildSize();

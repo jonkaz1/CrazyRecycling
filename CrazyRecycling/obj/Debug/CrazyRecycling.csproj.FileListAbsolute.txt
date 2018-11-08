@@ -53,3 +53,10 @@ C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\bin\Debug\Newto
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\obj\Debug\CrazyRecycling.csproj.CopyComplete
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\obj\Debug\CrazyRecycling.exe
 C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\obj\Debug\CrazyRecycling.pdb
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\pulei\OneDrive\Documents\CrazyRecycling1\CrazyRecycling\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml

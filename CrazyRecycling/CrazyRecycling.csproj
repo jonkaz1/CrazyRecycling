@@ -171,7 +171,11 @@
     <Content Include="Bottle.png" />
     <Content Include="RecyclingMachine.png" />
     <None Include="Resources\Mountain.bmp" />
+    <None Include="Resources\ginofdestruction1.png" />
     <Content Include="Resources\Mountain.png" />
+    <None Include="Resources\shop1.png" />
+    <None Include="Resources\test.png" />
+    <None Include="Resources\recyclingmachine1.png" />
     <Content Include="Resources\Tree.png" />
     <Content Include="Resources\Cola.png" />
     <Content Include="Resources\GinOfDestruction.png" />

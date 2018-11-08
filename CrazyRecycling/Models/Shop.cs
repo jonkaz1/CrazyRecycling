@@ -16,6 +16,7 @@ namespace CrazyRecycling.Models
             PosY = posY;
             SizeX = sizeX;
             SizeY = sizeY;
+
             Image = new PictureBox()
             {
                 Location = new Point(PosX, PosY),
@@ -23,6 +24,34 @@ namespace CrazyRecycling.Models
                 Image = Properties.Resources.Shop,
                 BackColor = Color.Transparent
             };
+
+        }
+        public Shop(int posX, int posY, int sizeX, int sizeY, int shopIMG)
+        {
+            PosX = posX;
+            PosY = posY;
+            SizeX = sizeX;
+            SizeY = sizeY;
+            if (shopIMG == 1)
+            {
+                Image = new PictureBox()
+                {
+                    Location = new Point(PosX, PosY),
+                    Size = new Size(SizeX, SizeY),
+                    Image = Properties.Resources.Shop,
+                    BackColor = Color.Transparent
+                };
+            }
+            else if (shopIMG == 2)
+            {
+                Image = new PictureBox()
+                {
+                    Location = new Point(PosX, PosY),
+                    Size = new Size(SizeX, SizeY),
+                    Image = Properties.Resources.Shop2,
+                    BackColor = Color.Transparent
+                };
+            }
         }
 
         public override Machine Clone()

@@ -12,9 +12,9 @@ namespace CrazyRecycling.Controllers
     {
         public List<Machine> Machines = new List<Machine>();
 
-        public void PopulateListAsShops(List<Point> locations)
+        public void PopulateListAsShops(List<Point> locations, int IMG) //int IMG (1 = first img; 2 = second img)
         {
-            Machine shop = new Shop(0,0,16,16);
+            Machine shop = new Shop(0, 0, 16, 16, IMG);
 
             foreach (var item in locations)
             {
@@ -24,9 +24,9 @@ namespace CrazyRecycling.Controllers
             }
         }
 
-        public void PopulateListAsRecyclingMachines(List<Point> locations)
+        public void PopulateListAsRecyclingMachines(List<Point> locations, int IMG)//int IMG (1 = first img; 2 = second img)
         {
-            Machine recyclingMachine = new RecyclingMachine(0, 0, 16, 16);
+            Machine recyclingMachine = new RecyclingMachine(0, 0, 16, 16, IMG);
 
             foreach (var item in locations)
             {

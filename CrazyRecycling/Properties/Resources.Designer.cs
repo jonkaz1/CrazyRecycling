@@ -133,9 +133,29 @@ namespace CrazyRecycling.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Recyclingmachine2 {
+            get {
+                object obj = ResourceManager.GetObject("Recyclingmachine2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Shop {
             get {
                 object obj = ResourceManager.GetObject("Shop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shop2 {
+            get {
+                object obj = ResourceManager.GetObject("Shop2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -58,7 +58,7 @@ namespace CrazyRecycling
             _cancelationTokenSourceBottles = new CancellationTokenSource();
             new Task(() => GetPlayerData(), _cancelationTokenSourcePlayers.Token, TaskCreationOptions.LongRunning).Start();
             new Task(() => GetBottleData(), _cancelationTokenSourceBottles.Token, TaskCreationOptions.LongRunning).Start();
-            GetMachines();
+            GetMachines(1);
 
             Facade.AttachPlayer(MainPlayer);
             Facade.AddCommand(MainPlayer.PosX + ";" + MainPlayer.PosY);
@@ -167,7 +167,7 @@ namespace CrazyRecycling
         /// <summary>
         /// Gets all shops and recycling machines
         /// </summary>
-        private void GetMachines()
+        private void GetMachines(int imgNumber)
         {
             var task = Task.Run(() => Facade.GetConnector().GetAction("Machine"));
             task.Wait();
@@ -180,7 +180,8 @@ namespace CrazyRecycling
                 {
                     machine = new RecyclingMachine(
                     item["posX"].Value<int>(), item["posY"].Value<int>(),
-                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>()
+                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>(), 
+                    imgNumber
                     );
                     Machines.Add(machine);
                 }
@@ -188,7 +189,8 @@ namespace CrazyRecycling
                 {
                     machine = new Shop(
                     item["posX"].Value<int>(), item["posY"].Value<int>(),
-                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>()
+                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>(),
+                    imgNumber
                     );
                     Machines.Add(machine);
                 }

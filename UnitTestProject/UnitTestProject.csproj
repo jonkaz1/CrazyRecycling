@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Controllers\FacadeControllers\MachineControllerTests.cs" />
     <Compile Include="Controllers\FacadeControllers\UnitTestServerConnector.cs" />
+    <Compile Include="Controllers\PlayerControllersTest.cs" />
     <Compile Include="Models\Bottles\AbstractFactoryTests.cs" />
     <Compile Include="Models\PlayerColorTests.cs" />
     <Compile Include="Models\Props\MountainBuilderTests.cs" />

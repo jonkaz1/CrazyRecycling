@@ -65,6 +65,11 @@ namespace CrazyRecycling.Models
             Speed = stats.Speed;
             PointsBoost = stats.PointsBoost;
         }
+        public Player(int posX, int posY)
+        {
+            PosX = posX;
+            PosY = posY;
+        }
         public void setClass(string charClass)
         {
             if (charClass == "Brute")

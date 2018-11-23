@@ -18,7 +18,7 @@ namespace CrazyRecycling.Controllers
         public PlayerController(Player player)
         {
             this.player = player;
-            oldLocation = new Point(player.PosX, player.PosY);
+            oldLocation = new Point(player.PositionX, player.PositionY);
             _cancelationTokenSource = new CancellationTokenSource();
             new Task(() => UpdatePlayerLocation(), _cancelationTokenSource.Token, TaskCreationOptions.LongRunning).Start();
         }
@@ -42,7 +42,7 @@ namespace CrazyRecycling.Controllers
         /// <returns></returns>
         public Bottle ThrowBottle(KeyEventArgs e)
         {
-            Bottle bottle = player.characterClass.ThrowBottle(player.playerObject.Location.X, player.playerObject.Location.Y);
+            Bottle bottle = player.CharacterClass.ThrowBottle(player.PlayerObject.Location.X, player.PlayerObject.Location.Y);
             return bottle;
         }
         public void PickBottle()
@@ -63,20 +63,20 @@ namespace CrazyRecycling.Controllers
             switch (e.KeyCode)
             {
                 case Keys.W:
-                    player.PosY += -1;
-                    player.playerObject.Location = new Point(player.PosX, player.PosY);
+                    player.PositionY += -1;
+                    player.PlayerObject.Location = new Point(player.PositionX, player.PositionY);
                     break;
                 case Keys.A:
-                    player.PosX += -1;
-                    player.playerObject.Location = new Point(player.PosX, player.PosY);
+                    player.PositionX += -1;
+                    player.PlayerObject.Location = new Point(player.PositionX, player.PositionY);
                     break;
                 case Keys.S:
-                    player.PosY += 1;
-                    player.playerObject.Location = new Point(player.PosX, player.PosY);
+                    player.PositionY += 1;
+                    player.PlayerObject.Location = new Point(player.PositionX, player.PositionY);
                     break;
                 case Keys.D:
-                    player.PosX += 1;
-                    player.playerObject.Location = new Point(player.PosX, player.PosY);
+                    player.PositionX += 1;
+                    player.PlayerObject.Location = new Point(player.PositionX, player.PositionY);
                     break;
                 default:
                     break;
@@ -91,12 +91,12 @@ namespace CrazyRecycling.Controllers
         {
             while (!_cancelationTokenSource.Token.IsCancellationRequested)
             {
-                if (player.PosX != oldLocation.X || player.PosY != oldLocation.Y)
+                if (player.PositionX != oldLocation.X || player.PositionY != oldLocation.Y)
                 {
-                    commands[0].ChangeInnerValue(player.PosX + ";" + player.PosY);
+                    commands[0].ChangeInnerValue(player.PositionX + ";" + player.PositionY);
                     commands[0].Execute("Player/" + player.PlayerId);
-                    oldLocation.X = player.PosX;
-                    oldLocation.Y = player.PosY;
+                    oldLocation.X = player.PositionX;
+                    oldLocation.Y = player.PositionY;
                 }
                 else
                 {
@@ -107,7 +107,7 @@ namespace CrazyRecycling.Controllers
 
         public PlayerStats GetPlayerStats()
         {
-            PlayerStats playerStats = player.characterClass.GetStats();
+            PlayerStats playerStats = player.CharacterClass.GetStats();
             return playerStats;
         }
     }

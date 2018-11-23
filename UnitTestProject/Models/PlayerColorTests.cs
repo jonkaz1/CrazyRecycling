@@ -14,10 +14,10 @@ namespace UnitTestProject.Models
 
             Assert.AreEqual(MainPlayer.Color.GetColor().Name, "Black");
 
-            MainPlayer.setClass("Hoarder");
+            MainPlayer.SetClass("Hoarder");
             Assert.AreEqual(MainPlayer.Color.GetColor().Name, "LawnGreen");
 
-            MainPlayer.setClass("Speedy");
+            MainPlayer.SetClass("Speedy");
             Assert.AreEqual(MainPlayer.Color.GetColor().Name, "LightBlue");
         }
 

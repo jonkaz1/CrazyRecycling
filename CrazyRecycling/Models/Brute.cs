@@ -39,8 +39,8 @@ namespace CrazyRecycling.Models
             bottlePic.Location = new Point(X, Y);
             bottlePic.Size = new Size(16, 16);
             bottle.Image = bottlePic;
-            bottle.thrownDirection = new Point(1, 1);
-            bottle.despawnTimer = 2;
+            bottle.ThrownDirection = new Point(1, 1);
+            bottle.TimeToDestroy = 2;
             return bottle;
         }
     }

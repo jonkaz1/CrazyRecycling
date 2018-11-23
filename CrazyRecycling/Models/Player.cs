@@ -10,81 +10,76 @@ namespace CrazyRecycling.Models
 {
     public class Player
     {
-        public int PlayerId;
-        public string Name;
-        public int PosX;
-        public int PosY;
-        public int Points;
-        public Bottle Bottle;
-        public PictureBox playerObject;
-        public bool isNewlyCreated;
-        public bool locationChanged;
+        public int PlayerId { get; set; }
+        public string Name { get; set; }
+        public int PositionX { get; set; }
+        public int PositionY { get; set; }
+        public int Points { get; set; }
+        public Bottle Bottle { get; set; }
+        public PictureBox PlayerObject { get; set; }
+        public bool IsNewlyCreated { get; set; }
+        public bool LocationChanged { get; set; }
 
-        public ICharacterClass characterClass = new DefaultClass();
-        public PlayerDefaultColor Color;
+        public ICharacterClass CharacterClass { get; set; } = new DefaultClass();
+        public PlayerDefaultColor Color { get; set; }
 
         //Player stats from playerClass
-        public int HealthPoints;
-        public int Damage;
-        public int ColorNew;
-        public int Speed;
-        public int PointsBoost;
+        public int HealthPoints { get; set; }
+        public int Damage { get; set; }
+        public int Color2 { get; set; }
+        public int Speed { get; set; }
+        public int PointsBoost { get; set; }
 
-
-        public void WarnPlayer()
-        {
-            throw new NotImplementedException();
-        }
         public Player()
         {
-            Color = new PlayerDefaultColor(characterClass);
+            Color = new PlayerDefaultColor(CharacterClass);
             //Gets stats from player characterClass
-            PlayerStats stats = characterClass.GetStats();
+            PlayerStats stats = CharacterClass.GetStats();
             HealthPoints = stats.HealthPoints;
             Damage = stats.Damage;
-            ColorNew = stats.Color;
+            Color2 = stats.Color;
             Speed = stats.Speed;
             PointsBoost = stats.PointsBoost;
         }
-        public Player(string name, int posX, int posY, int points, ICharacterClass characterClass, Bottle bottle, PictureBox playerObject)
+        public Player(string name, int positionX, int positionY, int points, ICharacterClass characterClass, Bottle bottle, PictureBox playerObject)
         {
             Name = name;
-            PosX = posX;
-            PosY = posY;
+            PositionX = positionX;
+            PositionY = positionY;
             Points = points;
             Bottle = bottle;
-            this.playerObject = playerObject;
-            this.characterClass = characterClass;
+            this.PlayerObject = playerObject;
+            this.CharacterClass = characterClass;
             Color = new PlayerColor(characterClass);
 
             //Gets stats from player characterClass
             PlayerStats stats = characterClass.GetStats();
             HealthPoints = stats.HealthPoints;
             Damage = stats.Damage;
-            ColorNew = stats.Color;
+            Color2 = stats.Color;
             Speed = stats.Speed;
             PointsBoost = stats.PointsBoost;
         }
-        public Player(int posX, int posY)
+        public Player(int positionX, int positionY)
         {
-            PosX = posX;
-            PosY = posY;
+            PositionX = positionX;
+            PositionY = positionY;
         }
-        public void setClass(string charClass)
+        public void SetClass(string charClass)
         {
             if (charClass == "Brute")
             {
-                characterClass = new Brute();
+                CharacterClass = new Brute();
             }
             else if (charClass == "Hoarder")
             {
-                characterClass = new Hoarder();
+                CharacterClass = new Hoarder();
             }
             else if (charClass == "Speedy")
             {
-                characterClass = new Speedy();
+                CharacterClass = new Speedy();
             }
-            Color = new PlayerColor(characterClass);
+            Color = new PlayerColor(CharacterClass);
         }
 
 

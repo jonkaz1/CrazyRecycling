@@ -45,10 +45,10 @@ namespace CrazyRecycling
         {
             SpawnProps();
             MainPlayer.Name = PlayerName;
-            MainPlayer.playerObject = pictureBox1;
+            MainPlayer.PlayerObject = pictureBox1;
             pictureBox1.BackColor = Color.Transparent;
-            MainPlayer.PosX = pictureBox1.Location.X;
-            MainPlayer.PosY = pictureBox1.Location.Y;
+            MainPlayer.PositionX = pictureBox1.Location.X;
+            MainPlayer.PositionY = pictureBox1.Location.Y;
             PlayerList.Add(MainPlayer);
             CreatePlayer();
 
@@ -61,7 +61,7 @@ namespace CrazyRecycling
             GetMachines(1);
 
             Facade.AttachPlayer(MainPlayer);
-            Facade.AddCommand(MainPlayer.PosX + ";" + MainPlayer.PosY);
+            Facade.AddCommand(MainPlayer.PositionX + ";" + MainPlayer.PositionY);
         }
 
 
@@ -137,10 +137,10 @@ namespace CrazyRecycling
                             bottle = pointBottleFactory.CreateBottle(bottleType);
                             if (bottle != null)
                             {
-                                bottle.PosX = item["posX"].Value<int>();
-                                bottle.PosY = item["posY"].Value<int>();
+                                bottle.PositionX = item["posX"].Value<int>();
+                                bottle.PositionY = item["posY"].Value<int>();
                                 bottle.BottleId = item["bottleId"].Value<int>();
-                                bottle.Image.Location = new Point(bottle.PosX, bottle.PosY);
+                                bottle.Image.Location = new Point(bottle.PositionX, bottle.PositionY);
                                 bottle.IsNewlySpawned = true;
                                 GroundBottles.Add(bottle);
                             }
@@ -149,10 +149,10 @@ namespace CrazyRecycling
                                 bottle = specialBottleFactory.CreateBottle(bottleType);
                                 if (bottle != null)
                                 {
-                                    bottle.PosX = item["posX"].Value<int>();
-                                    bottle.PosY = item["posY"].Value<int>();
+                                    bottle.PositionX = item["posX"].Value<int>();
+                                    bottle.PositionY = item["posY"].Value<int>();
                                     bottle.BottleId = item["bottleId"].Value<int>();
-                                    bottle.Image.Location = new Point(bottle.PosX, bottle.PosY);
+                                    bottle.Image.Location = new Point(bottle.PositionX, bottle.PositionY);
                                     bottle.IsNewlySpawned = true;
                                     GroundBottles.Add(bottle);
                                 }
@@ -226,21 +226,21 @@ namespace CrazyRecycling
         {
             foreach (var item in PlayerList)
             {
-                if (item.isNewlyCreated)
+                if (item.IsNewlyCreated)
                 {
-                    item.playerObject = new PictureBox()
+                    item.PlayerObject = new PictureBox()
                     {
                         Image = Properties.Resources.Player,
                         Size = new Size(16, 16),
-                        Location = new Point(item.PosX, item.PosY)
+                        Location = new Point(item.PositionX, item.PositionY)
                     };
-                    Controls.Add(item.playerObject);
-                    item.isNewlyCreated = false;
+                    Controls.Add(item.PlayerObject);
+                    item.IsNewlyCreated = false;
                 }
-                if (item.locationChanged)
+                if (item.LocationChanged)
                 {
-                    item.playerObject.Location = new Point(item.PosX, item.PosY);
-                    item.locationChanged = false;
+                    item.PlayerObject.Location = new Point(item.PositionX, item.PositionY);
+                    item.LocationChanged = false;
                 }
             }
             lock (GroundBottles)

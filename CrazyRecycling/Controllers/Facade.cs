@@ -61,23 +61,23 @@ namespace CrazyRecycling
                 {
                     PlayerId = item["playerId"].Value<int>(),
                     Name = item["name"].Value<string>(),
-                    PosX = point.X,
-                    PosY = point.Y,
-                    isNewlyCreated = true
+                    PositionX = point.X,
+                    PositionY = point.Y,
+                    IsNewlyCreated = true
                 };
                 PlayerList.Add(p);
             }
             else
             {
-                if (p.PlayerId == MainPlayer.PlayerId && !IsPlayerTooFar(MainPlayer.PosX, MainPlayer.PosY, point.X, point.Y))
+                if (p.PlayerId == MainPlayer.PlayerId && !IsPlayerTooFar(MainPlayer.PositionX, MainPlayer.PositionY, point.X, point.Y))
                 {
                     return;
                 }
                 else
                 {
-                    p.PosX = point.X;
-                    p.PosY = point.Y;
-                    p.locationChanged = true;
+                    p.PositionX = point.X;
+                    p.PositionY = point.Y;
+                    p.LocationChanged = true;
                 }
             }
             leaderboard.UpdateLeaderboard(p);

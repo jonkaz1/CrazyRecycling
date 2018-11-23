@@ -19,8 +19,8 @@ namespace CrazyRecycling.Controllers
             foreach (var item in locations)
             {
                 Machines.Add(shop.Clone());
-                Machines.Last().PosX = item.X;
-                Machines.Last().PosY = item.Y;
+                Machines.Last().PositionX = item.X;
+                Machines.Last().PositionY = item.Y;
             }
         }
 
@@ -31,8 +31,8 @@ namespace CrazyRecycling.Controllers
             foreach (var item in locations)
             {
                 Machines.Add(recyclingMachine.Clone());
-                Machines.Last().PosX = item.X;
-                Machines.Last().PosY = item.Y;
+                Machines.Last().PositionX = item.X;
+                Machines.Last().PositionY = item.Y;
             }
         }
     }

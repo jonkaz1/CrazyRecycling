@@ -21,8 +21,8 @@ namespace UnitTestProject.Models
             recyclingMachine = new RecyclingMachine(0, 0, 16, 16, 1);
 
             //Assert
-            Assert.AreEqual(recyclingMachine.PosX, 0);
-            Assert.AreEqual(recyclingMachine.PosY, 0);
+            Assert.AreEqual(recyclingMachine.PositionX, 0);
+            Assert.AreEqual(recyclingMachine.PositionY, 0);
             Assert.AreEqual(recyclingMachine.SizeX, 16);
             Assert.AreEqual(recyclingMachine.SizeY, 16);
         }

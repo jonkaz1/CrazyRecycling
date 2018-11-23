@@ -21,8 +21,8 @@ namespace UnitTestProject.Models
             shop = new Shop(0, 0, 16, 16, 1);
 
             //Assert
-            Assert.AreEqual(shop.PosX, 0);
-            Assert.AreEqual(shop.PosY, 0);
+            Assert.AreEqual(shop.PositionX, 0);
+            Assert.AreEqual(shop.PositionY, 0);
             Assert.AreEqual(shop.SizeX, 16);
             Assert.AreEqual(shop.SizeY, 16);
         }

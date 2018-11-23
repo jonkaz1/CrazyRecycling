@@ -9,8 +9,8 @@ namespace CrazyRecycling.Models
 {
     public abstract class Machine
     {
-        public int PosX;
-        public int PosY;
+        public int PositionX;
+        public int PositionY;
         public int SizeX;
         public int SizeY;
         public PictureBox Image;

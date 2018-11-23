@@ -10,43 +10,43 @@ namespace CrazyRecycling.Models
 {
     public class Shop : Machine
     {
-        public Shop(int posX, int posY, int sizeX, int sizeY)
+        public Shop(int positionX, int positionY, int sizeX, int sizeY)
         {
-            PosX = posX;
-            PosY = posY;
+            PositionX = positionX;
+            PositionY = positionY;
             SizeX = sizeX;
             SizeY = sizeY;
 
             Image = new PictureBox()
             {
-                Location = new Point(PosX, PosY),
+                Location = new Point(PositionX, PositionY),
                 Size = new Size(SizeX, SizeY),
                 Image = Properties.Resources.Shop,
                 BackColor = Color.Transparent
             };
 
         }
-        public Shop(int posX, int posY, int sizeX, int sizeY, int shopIMG)
+        public Shop(int positionX, int positionY, int sizeX, int sizeY, int image)
         {
-            PosX = posX;
-            PosY = posY;
+            PositionX = positionX;
+            PositionY = positionY;
             SizeX = sizeX;
             SizeY = sizeY;
-            if (shopIMG == 1)
+            if (image == 1)
             {
                 Image = new PictureBox()
                 {
-                    Location = new Point(PosX, PosY),
+                    Location = new Point(PositionX, PositionY),
                     Size = new Size(SizeX, SizeY),
                     Image = Properties.Resources.Shop,
                     BackColor = Color.Transparent
                 };
             }
-            else if (shopIMG == 2)
+            else if (image == 2)
             {
                 Image = new PictureBox()
                 {
-                    Location = new Point(PosX, PosY),
+                    Location = new Point(PositionX, PositionY),
                     Size = new Size(SizeX, SizeY),
                     Image = Properties.Resources.Shop2,
                     BackColor = Color.Transparent

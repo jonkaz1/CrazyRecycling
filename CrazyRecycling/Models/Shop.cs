@@ -12,14 +12,14 @@ namespace CrazyRecycling.Models
     {
         public Shop(int posX, int posY, int sizeX, int sizeY)
         {
-            PosX = posX;
-            PosY = posY;
+            PositionX = posX;
+            PositionY = posY;
             SizeX = sizeX;
             SizeY = sizeY;
 
             Image = new PictureBox()
             {
-                Location = new Point(PosX, PosY),
+                Location = new Point(PositionX, PositionY),
                 Size = new Size(SizeX, SizeY),
                 Image = Properties.Resources.Shop,
                 BackColor = Color.Transparent
@@ -28,15 +28,15 @@ namespace CrazyRecycling.Models
         }
         public Shop(int posX, int posY, int sizeX, int sizeY, int shopIMG)
         {
-            PosX = posX;
-            PosY = posY;
+            PositionX = posX;
+            PositionY = posY;
             SizeX = sizeX;
             SizeY = sizeY;
             if (shopIMG == 1)
             {
                 Image = new PictureBox()
                 {
-                    Location = new Point(PosX, PosY),
+                    Location = new Point(PositionX, PositionY),
                     Size = new Size(SizeX, SizeY),
                     Image = Properties.Resources.Shop,
                     BackColor = Color.Transparent
@@ -46,7 +46,7 @@ namespace CrazyRecycling.Models
             {
                 Image = new PictureBox()
                 {
-                    Location = new Point(PosX, PosY),
+                    Location = new Point(PositionX, PositionY),
                     Size = new Size(SizeX, SizeY),
                     Image = Properties.Resources.Shop2,
                     BackColor = Color.Transparent

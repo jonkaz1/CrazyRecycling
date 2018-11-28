@@ -12,15 +12,15 @@ namespace CrazyRecycling.Models
     {
         public RecyclingMachine(int posX, int posY, int sizeX, int sizeY, int RecyclingIMG)
         {
-            PosX = posX;
-            PosY = posY;
+            PositionX = posX;
+            PositionY = posY;
             SizeX = sizeX;
             SizeY = sizeY;
             if (RecyclingIMG == 1)
             {
                 Image = new PictureBox()
                 {
-                    Location = new Point(PosX, PosY),
+                    Location = new Point(PositionX, PositionY),
                     Size = new Size(SizeX, SizeY),
                     Image = Properties.Resources.RecyclingMachine,
                     BackColor = Color.Transparent
@@ -30,7 +30,7 @@ namespace CrazyRecycling.Models
             {
                 Image = new PictureBox()
                 {
-                    Location = new Point(PosX, PosY),
+                    Location = new Point(PositionX, PositionY),
                     Size = new Size(SizeX, SizeY),
                     Image = Properties.Resources.Recyclingmachine2,
                     BackColor = Color.Transparent
@@ -39,13 +39,13 @@ namespace CrazyRecycling.Models
         }
         public RecyclingMachine(int posX, int posY, int sizeX, int sizeY)
         {
-            PosX = posX;
-            PosY = posY;
+            PositionX = posX;
+            PositionY = posY;
             SizeX = sizeX;
             SizeY = sizeY;
             Image = new PictureBox()
             {
-                Location = new Point(PosX, PosY),
+                Location = new Point(PositionX, PositionY),
                 Size = new Size(SizeX, SizeY),
                 Image = Properties.Resources.RecyclingMachine,
                 BackColor = Color.Transparent

@@ -1,7 +1,21 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CrazyRecycling.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="strWelcome" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Welcome to Crazy Recycling!</Value>
+    </Setting>
+    <Setting Name="strName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Choose your name:</Value>
+    </Setting>
+    <Setting Name="strStart" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Start game!</Value>
+    </Setting>
+    <Setting Name="strHighScores" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Highscores</Value>
+    </Setting>
+    <Setting Name="strCrazy" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Crazy Recycling</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

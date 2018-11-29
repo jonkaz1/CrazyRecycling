@@ -44,7 +44,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(500, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome to Crazy Recycling!";
+            this.label1.Text = CrazyRecycling.Properties.Settings.Default.strWelcome;
             // 
             // label2
             // 
@@ -54,7 +54,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(250, 31);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Choose your name:";
+            this.label2.Text = CrazyRecycling.Properties.Settings.Default.strName;
             // 
             // textBox1
             // 
@@ -72,7 +72,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(287, 82);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Start game!";
+            this.button1.Text = CrazyRecycling.Properties.Settings.Default.strStart;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
@@ -83,7 +83,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(287, 82);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Highscores";
+            this.button2.Text = CrazyRecycling.Properties.Settings.Default.strHighScores;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
@@ -100,7 +100,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameStart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Crazy Recycling";
+            this.Text = CrazyRecycling.Properties.Settings.Default.strCrazy;
             this.ResumeLayout(false);
             this.PerformLayout();
 

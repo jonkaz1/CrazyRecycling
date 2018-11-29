@@ -9,11 +9,11 @@ namespace CrazyRecycling.Models
 {
     public abstract class Machine
     {
-        public int PositionX;
-        public int PositionY;
-        public int SizeX;
-        public int SizeY;
-        public PictureBox Image;
+        public int PositionX { get; set; }
+        public int PositionY { get; set; }
+        public int SizeX { get; set; }
+        public int SizeY { get; set; }
+        public PictureBox Image { get; set; }
 
         public abstract Machine Clone();
     }

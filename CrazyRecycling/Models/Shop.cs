@@ -12,8 +12,8 @@ namespace CrazyRecycling.Models
     {
         public Shop(int positionX, int positionY, int sizeX, int sizeY)
         {
-            PositionX = positionX;
-            PositionY = positionY;
+            PositionX = posX;
+            PositionY = posY;
             SizeX = sizeX;
             SizeY = sizeY;
 
@@ -28,8 +28,8 @@ namespace CrazyRecycling.Models
         }
         public Shop(int positionX, int positionY, int sizeX, int sizeY, int image)
         {
-            PositionX = positionX;
-            PositionY = positionY;
+            PositionX = posX;
+            PositionY = posY;
             SizeX = sizeX;
             SizeY = sizeY;
             if (image == 1)

@@ -1,6 +1,7 @@
 ﻿using CrazyRecycling.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,15 @@ namespace CrazyRecycling.Controllers
 {
     public class MachineController
     {
-        public List<Machine> Machines = new List<Machine>();
+        public Collection<Machine> Machines { get; } = new Collection<Machine>();
 
-        public void PopulateListAsShops(List<Point> locations, int IMG) //int IMG (1 = first img; 2 = second img)
+        public void PopulateListAsShops(Collection<Point> locations, int imageId) //int IMG (1 = first img; 2 = second img)
         {
-            Machine shop = new Shop(0, 0, 16, 16, IMG);
+            if (locations == null)
+            {
+                throw new ArgumentNullException("locations", "locations is NULL");
+            }
+            Machine shop = new Shop(0, 0, 16, 16, imageId);
 
             foreach (var item in locations)
             {
@@ -24,9 +29,13 @@ namespace CrazyRecycling.Controllers
             }
         }
 
-        public void PopulateListAsRecyclingMachines(List<Point> locations, int IMG)//int IMG (1 = first img; 2 = second img)
+        public void PopulateListAsRecyclingMachines(Collection<Point> locations, int imageId)//int IMG (1 = first img; 2 = second img)
         {
-            Machine recyclingMachine = new RecyclingMachine(0, 0, 16, 16, IMG);
+            if (locations == null)
+            {
+                throw new ArgumentNullException("locations", "locations is NULL");
+            }
+            Machine recyclingMachine = new RecyclingMachine(0, 0, 16, 16, imageId);
 
             foreach (var item in locations)
             {

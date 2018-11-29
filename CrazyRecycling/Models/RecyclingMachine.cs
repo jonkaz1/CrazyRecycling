@@ -10,13 +10,13 @@ namespace CrazyRecycling.Models
 {
     public class RecyclingMachine : Machine
     {
-        public RecyclingMachine(int posX, int posY, int sizeX, int sizeY, int RecyclingIMG)
+        public RecyclingMachine(int positionX, int positionY, int sizeX, int sizeY, int receivedImage)
         {
-            PositionX = posX;
-            PositionY = posY;
+            PositionX = positionX;
+            PositionY = positionY;
             SizeX = sizeX;
             SizeY = sizeY;
-            if (RecyclingIMG == 1)
+            if (receivedImage == 1)
             {
                 Image = new PictureBox()
                 {
@@ -26,7 +26,7 @@ namespace CrazyRecycling.Models
                     BackColor = Color.Transparent
                 };
             }
-            else if (RecyclingIMG == 2)
+            else if (receivedImage == 2)
             {
                 Image = new PictureBox()
                 {
@@ -37,10 +37,10 @@ namespace CrazyRecycling.Models
                 };
             }
         }
-        public RecyclingMachine(int posX, int posY, int sizeX, int sizeY)
+        public RecyclingMachine(int positionX, int positionY, int sizeX, int sizeY)
         {
-            PositionX = posX;
-            PositionY = posY;
+            PositionX = positionX;
+            PositionY = positionY;
             SizeX = sizeX;
             SizeY = sizeY;
             Image = new PictureBox()

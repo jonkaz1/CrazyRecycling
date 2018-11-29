@@ -2,17 +2,17 @@
 <?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2017\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
 <FxCopReport Version="15.0">
  <Targets>
-  <Target Name="D:\New folder\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.exe">
+  <Target Name="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\bin\Debug\CrazyRecycling.exe">
    <Modules>
     <Module Name="crazyrecycling.exe">
      <Messages>
-      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
        <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'CrazyRecycling.exe' with a strong name key.</Issue>
       </Message>
-      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
        <Issue Certainty="95" Level="Error">Mark 'CrazyRecycling.exe' with CLSCompliant(true) because it exposes externally visible types.</Issue>
       </Message>
-      <Message TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
+      <Message TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
        <Issue Certainty="95" Level="Warning">Because assembly 'CrazyRecycling.exe' contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Issue>
       </Message>
      </Messages>
@@ -20,17 +20,22 @@
       <Namespace Name="CrazyRecycling">
        <Types>
         <Type Name="Facade" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+           <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Implement IDisposable on 'Facade' because it creates members of the following IDisposable types: 'PlayerController'.</Issue>
+          </Message>
+         </Messages>
          <Members>
           <Member Name="#IsPlayerTooFar(System.Int32,System.Int32,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers" File="Facade.cs" Line="86">The 'this' parameter (or 'Me' in Visual Basic) of 'Facade.IsPlayerTooFar(int, int, int, int)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Controllers" File="Facade.cs" Line="86">The 'this' parameter (or 'Me' in Visual Basic) of 'Facade.IsPlayerTooFar(int, int, int, int)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#machineController" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
              <Issue Certainty="75" Level="Warning">It appears that field 'Facade.machineController' is never used or is only ever assigned to. Use this field or remove it.</Issue>
             </Message>
            </Messages>
@@ -41,47 +46,47 @@
          <Members>
           <Member Name="#BottleTypeIntToString(System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Form1.cs" Line="267">The 'this' parameter (or 'Me' in Visual Basic) of 'Form1.BottleTypeIntToString(int)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Form1.cs" Line="267">The 'this' parameter (or 'Me' in Visual Basic) of 'Form1.BottleTypeIntToString(int)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Dispose(System.Boolean)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
            <Messages>
-            <Message Id="_cancelationTokenSourceBottles" TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Form1.Designer.cs" Line="15">'Form1' contains field 'Form1._cancelationTokenSourceBottles' that is of IDisposable type: 'CancellationTokenSource'. Change the Dispose method on 'Form1' to call Dispose or Close on this field.</Issue>
+            <Message Id="_cancelationTokenSourceBottles" TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Form1.Designer.cs" Line="15">'Form1' contains field 'Form1._cancelationTokenSourceBottles' that is of IDisposable type: 'CancellationTokenSource'. Change the Dispose method on 'Form1' to call Dispose or Close on this field.</Issue>
             </Message>
-            <Message Id="_cancelationTokenSourcePlayers" TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Form1.Designer.cs" Line="15">'Form1' contains field 'Form1._cancelationTokenSourcePlayers' that is of IDisposable type: 'CancellationTokenSource'. Change the Dispose method on 'Form1' to call Dispose or Close on this field.</Issue>
+            <Message Id="_cancelationTokenSourcePlayers" TypeName="DisposableFieldsShouldBeDisposed" Category="Microsoft.Usage" CheckId="CA2213" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Form1.Designer.cs" Line="15">'Form1' contains field 'Form1._cancelationTokenSourcePlayers' that is of IDisposable type: 'CancellationTokenSource'. Change the Dispose method on 'Form1' to call Dispose or Close on this field.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Form1_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Form1.cs" Line="60">In method 'Form1.Form1_Load(object, EventArgs)', call System.IDisposable.Dispose on object 'new Task(new Action(this, Form1_Load), this._cancelationTokenSourceBottles.Token, TaskCreationOptions.LongRunning)' before all references to it are out of scope.</Issue>
-             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Form1.cs" Line="59">In method 'Form1.Form1_Load(object, EventArgs)', call System.IDisposable.Dispose on object 'new Task(new Action(this, Form1_Load), this._cancelationTokenSourcePlayers.Token, TaskCreationOptions.LongRunning)' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Form1.cs" Line="60">In method 'Form1.Form1_Load(object, EventArgs)', call System.IDisposable.Dispose on object 'new Task(new Action(this, Form1_Load), this._cancelationTokenSourceBottles.Token, TaskCreationOptions.LongRunning)' before all references to it are out of scope.</Issue>
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Form1.cs" Line="59">In method 'Form1.Form1_Load(object, EventArgs)', call System.IDisposable.Dispose on object 'new Task(new Action(this, Form1_Load), this._cancelationTokenSourcePlayers.Token, TaskCreationOptions.LongRunning)' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Form1.Designer.cs" Line="61">Method 'Form1.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Crazy Recycling".</Issue>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Form1.Designer.cs" Line="61">Method 'Form1.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Crazy Recycling".</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#PlayerName" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Warning">Consider making 'Form1.PlayerName' non-public or a constant.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Timer1_tick(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Form1.cs" Line="231">In method 'Form1.Timer1_tick(object, EventArgs)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Form1.cs" Line="231">In method 'Form1.Timer1_tick(object, EventArgs)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -91,22 +96,22 @@
          <Members>
           <Member Name="#Button2_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="GameStart.cs" Line="32">In method 'GameStart.Button2_Click(object, EventArgs)', call System.IDisposable.Dispose on object 'highscores' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="GameStart.cs" Line="32">In method 'GameStart.Button2_Click(object, EventArgs)', call System.IDisposable.Dispose on object 'highscores' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="57">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Choose your name:".</Issue>
-             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="103">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Crazy Recycling".</Issue>
-             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="86">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Highscores".</Issue>
-             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="75">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Start game!".</Issue>
-             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="47">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Welcome to Crazy Recycling!".</Issue>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="57">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Choose your name:".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="103">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Crazy Recycling".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="86">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Highscores".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="75">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Start game!".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="47">Method 'GameStart.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Welcome to Crazy Recycling!".</Issue>
             </Message>
-            <Message Id="Highscores" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="86">Correct the spelling of the unrecognized token 'Highscores' in the literal '"Highscores"'.</Issue>
+            <Message Id="Highscores" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="GameStart.Designer.cs" Line="86">Correct the spelling of the unrecognized token 'Highscores' in the literal '"Highscores"'.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -114,20 +119,20 @@
         </Type>
         <Type Name="Highscores" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message Id="Highscores" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+          <Message Id="Highscores" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
            <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Highscores' in type name 'Highscores'.</Issue>
           </Message>
          </Messages>
          <Members>
           <Member Name="#InitializeComponent()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Highscores.Designer.cs" Line="43">Method 'Highscores.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "All time Highscores!".</Issue>
-             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Highscores.Designer.cs" Line="54">Method 'Highscores.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Highscores".</Issue>
+            <Message Id="System.Windows.Forms.Control.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Highscores.Designer.cs" Line="43">Method 'Highscores.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "All time Highscores!".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Highscores.Designer.cs" Line="54">Method 'Highscores.InitializeComponent()' passes a literal string as parameter 'value' of a call to 'Control.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Highscores".</Issue>
             </Message>
-            <Message Id="Highscores" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Highscores.Designer.cs" Line="43">Correct the spelling of the unrecognized token 'Highscores' in the literal '"All time Highscores!"'.</Issue>
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling" File="Highscores.Designer.cs" Line="54">Correct the spelling of the unrecognized token 'Highscores' in the literal '"Highscores"'.</Issue>
+            <Message Id="Highscores" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Highscores.Designer.cs" Line="43">Correct the spelling of the unrecognized token 'Highscores' in the literal '"All time Highscores!"'.</Issue>
+             <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling" File="Highscores.Designer.cs" Line="54">Correct the spelling of the unrecognized token 'Highscores' in the literal '"Highscores"'.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -141,48 +146,8 @@
          <Members>
           <Member Name="#leaderboard" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'LeaderboardController.leaderboard' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-         </Members>
-        </Type>
-        <Type Name="MachineController" Kind="Class" Accessibility="Public" ExternallyVisible="True">
-         <Members>
-          <Member Name="#Machines" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="90" Level="Error">Because field 'MachineController.Machines' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
-            </Message>
-            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="95" Level="Error">Change 'List&lt;Machine&gt;' in 'MachineController.Machines' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#PopulateListAsRecyclingMachines(System.Collections.Generic.List`1&lt;System.Drawing.Point&gt;,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="95" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MachineController.cs" Line="28">Change 'List&lt;Point&gt;' in 'MachineController.PopulateListAsRecyclingMachines(List&lt;Point&gt;, int)' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
-            </Message>
-            <Message Id="IMG" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MachineController.cs" Line="28">In member 'MachineController.PopulateListAsRecyclingMachines(List&lt;Point&gt;, int)', correct the casing of 'IMG' in parameter name 'IMG' by changing it to 'img'.</Issue>
-            </Message>
-            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MachineController.cs" Line="31">In externally visible method 'MachineController.PopulateListAsRecyclingMachines(List&lt;Point&gt;, int)', validate parameter 'locations' before using it.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#PopulateListAsShops(System.Collections.Generic.List`1&lt;System.Drawing.Point&gt;,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="95" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MachineController.cs" Line="16">Change 'List&lt;Point&gt;' in 'MachineController.PopulateListAsShops(List&lt;Point&gt;, int)' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
-            </Message>
-            <Message Id="IMG" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MachineController.cs" Line="16">In member 'MachineController.PopulateListAsShops(List&lt;Point&gt;, int)', correct the casing of 'IMG' in parameter name 'IMG' by changing it to 'img'.</Issue>
-            </Message>
-            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MachineController.cs" Line="19">In externally visible method 'MachineController.PopulateListAsShops(List&lt;Point&gt;, int)', validate parameter 'locations' before using it.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -192,15 +157,15 @@
          <Members>
           <Member Name="#.ctor(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MoveCommand.cs" Line="16">In externally visible method 'MoveCommand.MoveCommand(string)', validate parameter 'newLocation' before using it.</Issue>
+            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MoveCommand.cs" Line="16">In externally visible method 'MoveCommand.MoveCommand(string)', validate parameter 'newLocation' before using it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#ChangeInnerValue(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MoveCommand.cs" Line="27">In externally visible method 'MoveCommand.ChangeInnerValue(string)', validate parameter 'value' before using it.</Issue>
+            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="MoveCommand.cs" Line="27">In externally visible method 'MoveCommand.ChangeInnerValue(string)', validate parameter 'value' before using it.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -208,14 +173,14 @@
         </Type>
         <Type Name="PlayerCommand" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
+          <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
            <Issue Certainty="95" Level="CriticalWarning">Change the accessibility of all public constructors in 'PlayerCommand' to protected.</Issue>
           </Message>
          </Messages>
          <Members>
           <Member Name="#serverConnector" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'PlayerCommand.serverConnector' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
@@ -223,75 +188,32 @@
          </Members>
         </Type>
         <Type Name="PlayerController" Kind="Class" Accessibility="Public" ExternallyVisible="True">
-         <Messages>
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-           <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implement IDisposable on 'PlayerController' because it creates members of the following IDisposable types: 'CancellationTokenSource'. If 'PlayerController' has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Issue>
-          </Message>
-         </Messages>
          <Members>
           <Member Name="#.ctor(CrazyRecycling.Models.Player)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="23">In method 'PlayerController.PlayerController(Player)', call System.IDisposable.Dispose on object 'new Task(new Action(this, PlayerController), this._cancelationTokenSource.Token, TaskCreationOptions.LongRunning)' before all references to it are out of scope.</Issue>
-            </Message>
-            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="21">In externally visible method 'PlayerController.PlayerController(Player)', validate parameter 'player' before using it.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="24">In method 'PlayerController.PlayerController(Player)', call System.IDisposable.Dispose on object 'new Task(new Action(this, PlayerController), this._cancelationTokenSource.Token, TaskCreationOptions.LongRunning)' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#ChangeCharacterClass()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="57">The 'this' parameter (or 'Me' in Visual Basic) of 'PlayerController.ChangeCharacterClass()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#ChangeLocation(System.Windows.Forms.KeyEventArgs)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="63">In externally visible method 'PlayerController.ChangeLocation(KeyEventArgs)', validate parameter 'e' before using it.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#GetPlayerStats()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="50" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="109">Change 'PlayerController.GetPlayerStats()' to a property if appropriate.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#oldLocation" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="90" Level="Error">Because field 'PlayerController.oldLocation' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="69">The 'this' parameter (or 'Me' in Visual Basic) of 'PlayerController.ChangeCharacterClass()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#PickBottle()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="49">The 'this' parameter (or 'Me' in Visual Basic) of 'PlayerController.PickBottle()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#player" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="90" Level="Error">Because field 'PlayerController.player' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#ThrowBottle(System.Windows.Forms.KeyEventArgs)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message Id="e" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="44">Parameter 'e' of 'PlayerController.ThrowBottle(KeyEventArgs)' is never used. Remove the parameter or use it in the method body.</Issue>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="61">The 'this' parameter (or 'Me' in Visual Basic) of 'PlayerController.PickBottle()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#UseBottle()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="53">The 'this' parameter (or 'Me' in Visual Basic) of 'PlayerController.UseBottle()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Controllers\FacadeControllers" File="PlayerController.cs" Line="65">The 'this' parameter (or 'Me' in Visual Basic) of 'PlayerController.UseBottle()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -299,42 +221,42 @@
         </Type>
         <Type Name="ServerConnector" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
            <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implement IDisposable on 'ServerConnector' because it creates members of the following IDisposable types: 'HttpClient'. If 'ServerConnector' has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Issue>
           </Message>
          </Messages>
          <Members>
           <Member Name="#DeleteAction(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="60" Level="Error">Change the type of parameter 'requestUri' of method 'ServerConnector.DeleteAction(string)' from string to System.Uri, or provide an overload of 'ServerConnector.DeleteAction(string)', that allows 'requestUri' to be passed as a System.Uri object.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#GetAction(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="60" Level="Error">Change the type of parameter 'requestUri' of method 'ServerConnector.GetAction(string)' from string to System.Uri, or provide an overload of 'ServerConnector.GetAction(string)', that allows 'requestUri' to be passed as a System.Uri object.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#PatchAction(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="60" Level="Error">Change the type of parameter 'requestUri' of method 'ServerConnector.PatchAction(string, string)' from string to System.Uri, or provide an overload of 'ServerConnector.PatchAction(string, string)', that allows 'requestUri' to be passed as a System.Uri object.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#PostAction(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="60" Level="Error">Change the type of parameter 'requestUri' of method 'ServerConnector.PostAction(string, string)' from string to System.Uri, or provide an overload of 'ServerConnector.PostAction(string, string)', that allows 'requestUri' to be passed as a System.Uri object.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#PutAction(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="60" Level="Error">Change the type of parameter 'requestUri' of method 'ServerConnector.PutAction(string, string)' from string to System.Uri, or provide an overload of 'ServerConnector.PutAction(string, string)', that allows 'requestUri' to be passed as a System.Uri object.</Issue>
             </Message>
            </Messages>
@@ -349,8 +271,8 @@
          <Members>
           <Member Name="#CrazyRecycling.Models.ICharacterClass.ThrowBottle(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Brute.cs" Line="37">In method 'Brute.ICharacterClass.ThrowBottle(int, int)', object 'bottlePic' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'bottlePic' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Brute.cs" Line="37">In method 'Brute.ICharacterClass.ThrowBottle(int, int)', object 'bottlePic' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'bottlePic' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -360,20 +282,20 @@
          <Members>
           <Member Name="#GetColor(CrazyRecycling.Models.ICharacterClass)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="13">The 'this' parameter (or 'Me' in Visual Basic) of 'ColorData.GetColor(ICharacterClass)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="13">The 'this' parameter (or 'Me' in Visual Basic) of 'ColorData.GetColor(ICharacterClass)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
             </Message>
-            <Message Id="b" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="19">'ColorData.GetColor(ICharacterClass)' declares a variable, 'b', of type 'Brute', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            <Message Id="b" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="19">'ColorData.GetColor(ICharacterClass)' declares a variable, 'b', of type 'Brute', which is never used or is only assigned to. Use this variable or remove it.</Issue>
             </Message>
-            <Message Id="d" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="21">'ColorData.GetColor(ICharacterClass)' declares a variable, 'd', of type 'DefaultClass', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            <Message Id="d" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="21">'ColorData.GetColor(ICharacterClass)' declares a variable, 'd', of type 'DefaultClass', which is never used or is only assigned to. Use this variable or remove it.</Issue>
             </Message>
-            <Message Id="h" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="14">'ColorData.GetColor(ICharacterClass)' declares a variable, 'h', of type 'Hoarder', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            <Message Id="h" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="14">'ColorData.GetColor(ICharacterClass)' declares a variable, 'h', of type 'Hoarder', which is never used or is only assigned to. Use this variable or remove it.</Issue>
             </Message>
-            <Message Id="s" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="17">'ColorData.GetColor(ICharacterClass)' declares a variable, 's', of type 'Speedy', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            <Message Id="s" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="ColorData.cs" Line="17">'ColorData.GetColor(ICharacterClass)' declares a variable, 's', of type 'Speedy', which is never used or is only assigned to. Use this variable or remove it.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -383,8 +305,8 @@
          <Members>
           <Member Name="#CrazyRecycling.Models.ICharacterClass.ThrowBottle(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="DefaultClass.cs" Line="37">In method 'DefaultClass.ICharacterClass.ThrowBottle(int, int)', object 'bottlePic' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'bottlePic' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="DefaultClass.cs" Line="37">In method 'DefaultClass.ICharacterClass.ThrowBottle(int, int)', object 'bottlePic' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'bottlePic' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -394,8 +316,8 @@
          <Members>
           <Member Name="#CrazyRecycling.Models.ICharacterClass.ThrowBottle(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Hoarder.cs" Line="37">In method 'Hoarder.ICharacterClass.ThrowBottle(int, int)', object 'bottlePic' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'bottlePic' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Hoarder.cs" Line="37">In method 'Hoarder.ICharacterClass.ThrowBottle(int, int)', object 'bottlePic' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'bottlePic' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -405,23 +327,23 @@
          <Members>
           <Member Name="#GetStats()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="50" Level="Warning">Change 'ICharacterClass.GetStats()' to a property if appropriate.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#ThrowBottle(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="X" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="X" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Name="MemberParameter" Certainty="85" Level="Error">In member 'ICharacterClass.ThrowBottle(int, int)', correct the casing of 'X' in parameter name 'X' by changing it to 'x'.</Issue>
             </Message>
-            <Message Id="Y" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="Y" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Name="MemberParameter" Certainty="85" Level="Error">In member 'ICharacterClass.ThrowBottle(int, int)', correct the casing of 'Y' in parameter name 'Y' by changing it to 'y'.</Issue>
             </Message>
-            <Message Id="X" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="X" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Name="MemberParameterMoreMeaningfulName" Certainty="75" Level="CriticalWarning">In method 'ICharacterClass.ThrowBottle(int, int)', consider providing a more meaningful name than parameter name 'X'.</Issue>
             </Message>
-            <Message Id="Y" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="Y" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Name="MemberParameterMoreMeaningfulName" Certainty="75" Level="CriticalWarning">In method 'ICharacterClass.ThrowBottle(int, int)', consider providing a more meaningful name than parameter name 'Y'.</Issue>
             </Message>
            </Messages>
@@ -432,56 +354,11 @@
          <Members>
           <Member Name="#Standings" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'Leaderboard.Standings' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
-            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="95" Level="Error">Change 'List&lt;Standing&gt;' in 'Leaderboard.Standings' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
-            </Message>
-           </Messages>
-          </Member>
-         </Members>
-        </Type>
-        <Type Name="Machine" Kind="Class" Accessibility="Public" ExternallyVisible="True">
-         <Members>
-          <Member Name="#Image" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="90" Level="Error">Because field 'Machine.Image' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#PosY" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="90" Level="Error">Because field 'Machine.PosY' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
-            </Message>
-            <Message Id="Pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Pos' in member name 'Machine.PosY' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#PosX" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="90" Level="Error">Because field 'Machine.PosX' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
-            </Message>
-            <Message Id="Pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Pos' in member name 'Machine.PosX' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#SizeY" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="90" Level="Error">Because field 'Machine.SizeY' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#SizeX" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="90" Level="Error">Because field 'Machine.SizeX' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -491,15 +368,15 @@
          <Members>
           <Member Name="#_characterClass" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'PlayerDefaultColor._characterClass' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#GetColor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Certainty="50" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="PlayerDefaultColor.cs" Line="20">Change 'PlayerDefaultColor.GetColor()' to a property if appropriate.</Issue>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="PlayerDefaultColor.cs" Line="20">Change 'PlayerDefaultColor.GetColor()' to a property if appropriate.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -509,35 +386,35 @@
          <Members>
           <Member Name="#Color" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'PlayerStats.Color' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Damage" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'PlayerStats.Damage' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#HealthPoints" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'PlayerStats.HealthPoints' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#PointsBoost" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'PlayerStats.PointsBoost' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Speed" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'PlayerStats.Speed' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
@@ -548,30 +425,30 @@
          <Members>
           <Member Name="#.ctor(System.Int32,System.Int32,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="46">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="46">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
             </Message>
-            <Message Id="pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="40">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int)', correct the spelling of 'pos' in parameter name 'posX' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
-             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="40">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int)', correct the spelling of 'pos' in parameter name 'posY' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            <Message Id="pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="40">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int)', correct the spelling of 'pos' in parameter name 'posX' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="40">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int)', correct the spelling of 'pos' in parameter name 'posY' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#.ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="21">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="31">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="21">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="31">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
             </Message>
-            <Message Id="IMG" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="13">In member 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', correct the casing of 'IMG' in parameter name 'RecyclingIMG' by changing it to 'Img'.</Issue>
+            <Message Id="IMG" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="13">In member 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', correct the casing of 'IMG' in parameter name 'RecyclingIMG' by changing it to 'Img'.</Issue>
             </Message>
-            <Message Id="Recycling" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="13">In member 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', correct the casing of 'Recycling' in parameter name 'RecyclingIMG' by changing it to 'recycling'.</Issue>
+            <Message Id="Recycling" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="13">In member 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', correct the casing of 'Recycling' in parameter name 'RecyclingIMG' by changing it to 'recycling'.</Issue>
             </Message>
-            <Message Id="pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="13">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', correct the spelling of 'pos' in parameter name 'posX' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
-             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="13">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', correct the spelling of 'pos' in parameter name 'posY' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            <Message Id="pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="13">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', correct the spelling of 'pos' in parameter name 'posX' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="RecyclingMachine.cs" Line="13">In method 'RecyclingMachine.RecyclingMachine(int, int, int, int, int)', correct the spelling of 'pos' in parameter name 'posY' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -581,27 +458,27 @@
          <Members>
           <Member Name="#.ctor(System.Int32,System.Int32,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="20">In method 'Shop.Shop(int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="20">In method 'Shop.Shop(int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
             </Message>
-            <Message Id="pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="13">In method 'Shop.Shop(int, int, int, int)', correct the spelling of 'pos' in parameter name 'posX' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
-             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="13">In method 'Shop.Shop(int, int, int, int)', correct the spelling of 'pos' in parameter name 'posY' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            <Message Id="pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="13">In method 'Shop.Shop(int, int, int, int)', correct the spelling of 'pos' in parameter name 'posX' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="13">In method 'Shop.Shop(int, int, int, int)', correct the spelling of 'pos' in parameter name 'posY' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#.ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="37">In method 'Shop.Shop(int, int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="47">In method 'Shop.Shop(int, int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="37">In method 'Shop.Shop(int, int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="47">In method 'Shop.Shop(int, int, int, int, int)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
             </Message>
-            <Message Id="IMG" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="29">In member 'Shop.Shop(int, int, int, int, int)', correct the casing of 'IMG' in parameter name 'shopIMG' by changing it to 'Img'.</Issue>
+            <Message Id="IMG" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="29">In member 'Shop.Shop(int, int, int, int, int)', correct the casing of 'IMG' in parameter name 'shopIMG' by changing it to 'Img'.</Issue>
             </Message>
-            <Message Id="pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
-             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="29">In method 'Shop.Shop(int, int, int, int, int)', correct the spelling of 'pos' in parameter name 'posX' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
-             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="29">In method 'Shop.Shop(int, int, int, int, int)', correct the spelling of 'pos' in parameter name 'posY' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            <Message Id="pos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="29">In method 'Shop.Shop(int, int, int, int, int)', correct the spelling of 'pos' in parameter name 'posX' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+             <Issue Name="MemberParameter" Certainty="75" Level="CriticalWarning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Shop.cs" Line="29">In method 'Shop.Shop(int, int, int, int, int)', correct the spelling of 'pos' in parameter name 'posY' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -611,8 +488,8 @@
          <Members>
           <Member Name="#CrazyRecycling.Models.ICharacterClass.ThrowBottle(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models" File="Speedy.cs" Line="37">In method 'Speedy.ICharacterClass.ThrowBottle(int, int)', object 'bottlePic' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'bottlePic' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models" File="Speedy.cs" Line="37">In method 'Speedy.ICharacterClass.ThrowBottle(int, int)', object 'bottlePic' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'bottlePic' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -622,21 +499,21 @@
          <Members>
           <Member Name="#PlayerId" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'Standing.PlayerId' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#PlayerName" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'Standing.PlayerName' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Points" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'Standing.Points' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
@@ -653,15 +530,15 @@
            <Accessors>
             <Accessor Name="#get_Box()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
              <Messages>
-              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-               <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Bottle.cs" Line="17">'Bottle.Box.get()' appears to have no upstream public or protected callers.</Issue>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Bottle.cs" Line="17">'Bottle.Box.get()' appears to have no upstream public or protected callers.</Issue>
               </Message>
              </Messages>
             </Accessor>
             <Accessor Name="#set_Box(System.Drawing.Rectangle)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
              <Messages>
-              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-               <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Bottle.cs" Line="17">'Bottle.Box.set(Rectangle)' appears to have no upstream public or protected callers.</Issue>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Bottle.cs" Line="17">'Bottle.Box.set(Rectangle)' appears to have no upstream public or protected callers.</Issue>
               </Message>
              </Messages>
             </Accessor>
@@ -669,7 +546,7 @@
           </Member>
           <Member Name="#GetBottleInfo()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="50" Level="Warning">Change 'Bottle.GetBottleInfo()' to a property if appropriate.</Issue>
             </Message>
            </Messages>
@@ -680,15 +557,15 @@
          <Members>
           <Member Name="#Count" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'Cola.Count' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#GetBottleInfo()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Cola.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Cola.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Cola.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Cola.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -698,15 +575,15 @@
          <Members>
           <Member Name="#Damage" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'GinOfDestruction.Damage' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#GetBottleInfo()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="GinOfDestruction.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'GinOfDestruction.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="GinOfDestruction.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'GinOfDestruction.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -716,15 +593,15 @@
          <Members>
           <Member Name="#Count" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'NukeCola.Count' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#GetBottleInfo()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="NukeCola.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'NukeCola.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="NukeCola.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'NukeCola.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -734,9 +611,9 @@
          <Members>
           <Member Name="#CreateBottle(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="PointBottleFactory.cs" Line="19">In method 'PointBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="PointBottleFactory.cs" Line="29">In method 'PointBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="PointBottleFactory.cs" Line="19">In method 'PointBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="PointBottleFactory.cs" Line="29">In method 'PointBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -746,11 +623,11 @@
          <Members>
           <Member Name="#CreateBottle(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="SpecialBottleFactory.cs" Line="19">In method 'SpecialBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="SpecialBottleFactory.cs" Line="27">In method 'SpecialBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="SpecialBottleFactory.cs" Line="37">In method 'SpecialBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
-             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="SpecialBottleFactory.cs" Line="47">In method 'SpecialBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+            <Message TypeName="Dispose objects before losing scope" Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="SpecialBottleFactory.cs" Line="19">In method 'SpecialBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="SpecialBottleFactory.cs" Line="27">In method 'SpecialBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="SpecialBottleFactory.cs" Line="37">In method 'SpecialBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
+             <Issue Name="ExceptionEdge" Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="SpecialBottleFactory.cs" Line="47">In method 'SpecialBottleFactory.CreateBottle(string)', object 'new PictureBox()' is not disposed along all exception paths. Call System.IDisposable.Dispose on object 'new PictureBox()' before all references to it are out of scope.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -760,15 +637,15 @@
          <Members>
           <Member Name="#Damage" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'Vodka.Damage' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#GetBottleInfo()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Vodka.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Vodka.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Vodka.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Vodka.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -778,15 +655,15 @@
          <Members>
           <Member Name="#Damage" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'Whiskey.Damage' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#GetBottleInfo()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Whiskey.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Whiskey.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Whiskey.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Whiskey.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -796,15 +673,15 @@
          <Members>
           <Member Name="#Damage" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Certainty="90" Level="Error">Because field 'Wine.Damage' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#GetBottleInfo()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking">
-             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Wine.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Wine.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Bottles" File="Wine.cs" Line="15">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Wine.GetBottleInfo()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -818,16 +695,16 @@
          <Members>
           <Member Name="#BuildLocation(System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="X" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="X" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Name="MemberParameter" Certainty="85" Level="Error">In member 'MapPropBuilder.BuildLocation(int, int)', correct the casing of 'X' in parameter name 'X' by changing it to 'x'.</Issue>
             </Message>
-            <Message Id="Y" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="Y" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Name="MemberParameter" Certainty="85" Level="Error">In member 'MapPropBuilder.BuildLocation(int, int)', correct the casing of 'Y' in parameter name 'Y' by changing it to 'y'.</Issue>
             </Message>
-            <Message Id="X" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="X" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Name="MemberParameterMoreMeaningfulName" Certainty="75" Level="CriticalWarning">In method 'MapPropBuilder.BuildLocation(int, int)', consider providing a more meaningful name than parameter name 'X'.</Issue>
             </Message>
-            <Message Id="Y" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+            <Message Id="Y" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
              <Issue Name="MemberParameterMoreMeaningfulName" Certainty="75" Level="CriticalWarning">In method 'MapPropBuilder.BuildLocation(int, int)', consider providing a more meaningful name than parameter name 'Y'.</Issue>
             </Message>
            </Messages>
@@ -836,22 +713,22 @@
         </Type>
         <Type Name="Prop" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
            <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implement IDisposable on 'Prop' because it creates members of the following IDisposable types: 'PictureBox'. If 'Prop' has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Issue>
           </Message>
          </Messages>
         </Type>
         <Type Name="PropSpawner" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message Id="Spawner" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="Breaking">
+          <Message Id="Spawner" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="Breaking">
            <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Spawner' in type name 'PropSpawner'.</Issue>
           </Message>
          </Messages>
          <Members>
           <Member Name="#Construct(CrazyRecycling.Models.Props.MapPropBuilder)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-23 10:48:08Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="D:\New folder\CrazyRecycling\CrazyRecycling\Models\Props" File="PropSpawner.cs" Line="14">In externally visible method 'PropSpawner.Construct(MapPropBuilder)', validate parameter 'builder' before using it.</Issue>
+            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2018-11-29 17:08:40Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CrazyRecycling\Models\Props" File="PropSpawner.cs" Line="14">In externally visible method 'PropSpawner.Construct(MapPropBuilder)', validate parameter 'builder' before using it.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -865,7 +742,7 @@
          <Members>
           <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="ExcludedInSource" Created="2018-11-23 10:48:08Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="ExcludedInSource" Created="2018-11-29 17:08:40Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
            </Messages>
           </Member>
          </Members>
@@ -982,7 +859,6 @@
   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
    <Name>Identifiers should be spelled correctly</Name>
    <Description>The individual words that make up an identifier should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
-   <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
    <Resolution Name="MemberParameter">In method {0}, correct the spelling of '{1}' in parameter name {2} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
    <Resolution Name="MemberParameterMoreMeaningfulName">In method {0}, consider providing a more meaningful name than parameter name {1}.</Resolution>
    <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
@@ -1052,16 +928,6 @@
    <MessageLevel Certainty="95">Warning</MessageLevel>
    <File Name="performancerules.dll" Version="15.0.0.0" />
   </Rule>
-  <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
-   <Name>Review unused parameters</Name>
-   <Description>Review parameters in non-virtual methods that are not used in the method body to ensure no correctness exists around failure to access them. Unused parameters incur maintenance and performance costs. Sometimes a violation of this rule can point to an implementation bug in the method (i.e. the parameter should actually have been used in the method body). Exclude warnings of this rule if the parameter has to exist because of backward compatibility.</Description>
-   <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
-   <Owner />
-   <Url>http://msdn.microsoft.com/library/ms182268.aspx</Url>
-   <Email>[none]</Email>
-   <MessageLevel Certainty="95">Warning</MessageLevel>
-   <File Name="usagerules.dll" Version="15.0.0.0" />
-  </Rule>
   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
    <Name>Specify IFormatProvider</Name>
    <Description>If an overload exists that takes an IFormatProvider argument, it should always be called in favor of an overload that does not. Some methods in the runtime convert a value to or from a string representation and take a string parameter that contains one or more characters, called format specifiers, which indicate how the value is to be converted. If the meaning of the format specifier varies by culture, a formatting object supplies the actual characters used in the string representation. In scenarios where sorting and comparison behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
@@ -1076,6 +942,7 @@
    <Name>Types that own disposable fields should be disposable</Name>
    <Description>Types that declare disposable members should also implement IDisposable. If the type does not own any unmanaged resources, do not implement a finalizer on it.</Description>
    <Resolution Name="DependsOnFix">Implement IDisposable on {0} because it creates members of the following IDisposable types: {1}. If {0} has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Resolution>
+   <Resolution Name="NonBreaking">Implement IDisposable on {0} because it creates members of the following IDisposable types: {1}.</Resolution>
    <Owner />
    <Url>http://msdn.microsoft.com/library/ms182172.aspx</Url>
    <Email>[none]</Email>

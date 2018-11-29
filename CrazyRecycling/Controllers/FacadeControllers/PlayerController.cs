@@ -1,5 +1,6 @@
 ﻿using CrazyRecycling.Models;
 using CrazyRecycling.Models.Bottles;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
@@ -8,17 +9,17 @@ using System.Windows.Forms;
 
 namespace CrazyRecycling.Controllers
 {
-    public class PlayerController
+    public class PlayerController : IDisposable
     {
         CancellationTokenSource _cancelationTokenSource;
 
-        public Player player;
-        public Point oldLocation;
+        public Player Player { get; set; }
+        public Point OldLocation { get; set; }
 
         public PlayerController(Player player)
         {
-            this.player = player;
-            oldLocation = new Point(player.PositionX, player.PositionY);
+            Player = player ?? throw new ArgumentNullException("player", "Player was null");
+            OldLocation = new Point(player.PositionX, player.PositionY);
             _cancelationTokenSource = new CancellationTokenSource();
             new Task(() => UpdatePlayerLocation(), _cancelationTokenSource.Token, TaskCreationOptions.LongRunning).Start();
         }
@@ -38,11 +39,22 @@ namespace CrazyRecycling.Controllers
         /// <summary>
         /// Throwing bottle depends on character class
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="keyEvent"></param>
         /// <returns></returns>
-        public Bottle ThrowBottle(KeyEventArgs e)
+        public Bottle ThrowBottle(KeyEventArgs keyEvent)
         {
-            Bottle bottle = player.CharacterClass.ThrowBottle(player.PlayerObject.Location.X, player.PlayerObject.Location.Y);
+            if (keyEvent == null)
+            {
+                throw new ArgumentNullException("keyEvent", "KeyEvent was null");
+            }
+            switch (keyEvent.KeyCode)
+            {
+                case Keys.Space:
+                    break;
+                default:
+                    break;
+            }
+            Bottle bottle = Player.CharacterClass.ThrowBottle(Player.PlayerObject.Location.X, Player.PlayerObject.Location.Y);
             return bottle;
         }
         public void PickBottle()
@@ -58,25 +70,29 @@ namespace CrazyRecycling.Controllers
 
         }
         
-        public void ChangeLocation(KeyEventArgs e)
+        public void ChangeLocation(KeyEventArgs keyEvent)
         {
-            switch (e.KeyCode)
+            if (keyEvent == null)
+            {
+                throw new ArgumentNullException("keyEvent", "KeyEvent was null");
+            }
+            switch (keyEvent.KeyCode)
             {
                 case Keys.W:
-                    player.PositionY += -1;
-                    player.PlayerObject.Location = new Point(player.PositionX, player.PositionY);
+                    Player.PositionY += -1;
+                    Player.PlayerObject.Location = new Point(Player.PositionX, Player.PositionY);
                     break;
                 case Keys.A:
-                    player.PositionX += -1;
-                    player.PlayerObject.Location = new Point(player.PositionX, player.PositionY);
+                    Player.PositionX += -1;
+                    Player.PlayerObject.Location = new Point(Player.PositionX, Player.PositionY);
                     break;
                 case Keys.S:
-                    player.PositionY += 1;
-                    player.PlayerObject.Location = new Point(player.PositionX, player.PositionY);
+                    Player.PositionY += 1;
+                    Player.PlayerObject.Location = new Point(Player.PositionX, Player.PositionY);
                     break;
                 case Keys.D:
-                    player.PositionX += 1;
-                    player.PlayerObject.Location = new Point(player.PositionX, player.PositionY);
+                    Player.PositionX += 1;
+                    Player.PlayerObject.Location = new Point(Player.PositionX, Player.PositionY);
                     break;
                 default:
                     break;
@@ -91,12 +107,11 @@ namespace CrazyRecycling.Controllers
         {
             while (!_cancelationTokenSource.Token.IsCancellationRequested)
             {
-                if (player.PositionX != oldLocation.X || player.PositionY != oldLocation.Y)
+                if (Player.PositionX != OldLocation.X || Player.PositionY != OldLocation.Y)
                 {
-                    commands[0].ChangeInnerValue(player.PositionX + ";" + player.PositionY);
-                    commands[0].Execute("Player/" + player.PlayerId);
-                    oldLocation.X = player.PositionX;
-                    oldLocation.Y = player.PositionY;
+                    commands[0].ChangeInnerValue(Player.PositionX + ";" + Player.PositionY);
+                    commands[0].Execute("Player/" + Player.PlayerId);
+                    OldLocation = new Point(Player.PositionX, Player.PositionY);
                 }
                 else
                 {
@@ -105,10 +120,29 @@ namespace CrazyRecycling.Controllers
             }
         }
 
-        public PlayerStats GetPlayerStats()
+        public PlayerStats RetrievePlayerStats()
         {
-            PlayerStats playerStats = player.CharacterClass.GetStats();
+            PlayerStats playerStats = Player.CharacterClass.GetStats();
             return playerStats;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                // free managed resources
+                if (_cancelationTokenSource != null)
+                {
+                    _cancelationTokenSource.Dispose();
+                    _cancelationTokenSource = null;
+                }
+            }
         }
     }
 }

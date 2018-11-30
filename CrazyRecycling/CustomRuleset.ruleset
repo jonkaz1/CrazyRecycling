@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Custom rule set" Description=" Custom rule set" ToolsVersion="15.0">
+  <Localization ResourceAssembly="..\CustomeRulesetProject\bin\Debug\netcoreapp2.1\CustomeRulesetProject.dll" ResourceBaseName="Rules" />
+  <RuleHintPaths>
+    <Path>C:\Users\user\Documents\GitHub\CrazyRecycling\CustomeRulesetProject\bin\Debug\netcoreapp2.1\CustomeRulesetProject.dll</Path>
+  </RuleHintPaths>
+</RuleSet>

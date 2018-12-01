@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CrazyRecycling.Models.Bottles
 {
-    public abstract class Bottle
+    public abstract class Bottle : InventoryItem
     {
         public int BottleId { get; set; }
         public int PositionX { get; set; }
@@ -25,5 +25,20 @@ namespace CrazyRecycling.Models.Bottles
         }
 
         public abstract string GetBottleInfo();
+
+        public override InventoryItem GetItem()
+        {
+            return this;
+        }
+
+        public override void Add(InventoryItem item)
+        {
+            Console.WriteLine("Cannot add to bottle");
+        }
+
+        public override void Remove(InventoryItem item)
+        {
+            Console.WriteLine("Cannot remove to bottle");
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace CrazyRecycling.Models
         public PictureBox PlayerObject { get; set; }
         public bool IsNewlyCreated { get; set; }
         public bool LocationChanged { get; set; }
+        public Inventory Inventory { get; set; }
 
         public ICharacterClass CharacterClass { get; set; } = new DefaultClass();
         public PlayerDefaultColor Color { get; set; }

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="My Custom Rule Set" Description=" " ToolsVersion="15.0">
+  <RuleHintPaths>
+    <Path>C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\CustomeRulesetProject\bin\Debug\netcoreapp2.1</Path>
+  </RuleHintPaths>
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CR1000" Action="Warning" />
+  </Rules>
+</RuleSet>

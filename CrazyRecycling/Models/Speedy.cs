@@ -15,12 +15,14 @@ namespace CrazyRecycling.Models
 
         public Speedy()
         {
-            stats = new PlayerStats();
-            stats.HealthPoints = 10;
-            stats.Damage = 2;
-            stats.Color = 0;
-            stats.Speed = 2;
-            stats.PointsBoost = 1;
+            stats = new PlayerStats
+            {
+                HealthPoints = 10,
+                Damage = 2,
+                Color = 0,
+                Speed = 2,
+                PointsBoost = 1
+            };
         }
 
         public PlayerStats GetStats()
@@ -34,10 +36,12 @@ namespace CrazyRecycling.Models
         Bottle ICharacterClass.ThrowBottle(int X, int Y)
         {
             Bottle bottle = new PointBottleFactory().CreateBottle("Cola");
-            PictureBox bottlePic = new PictureBox();
-            bottlePic.Image = global::CrazyRecycling.Properties.Resources.NukeCola;
-            bottlePic.Location = new Point(X, Y);
-            bottlePic.Size = new Size(16, 16);
+            PictureBox bottlePic = new PictureBox
+            {
+                Image = Properties.Resources.NukeCola,
+                Location = new Point(X, Y),
+                Size = new Size(16, 16)
+            };
             bottle.Image = bottlePic;
             bottle.ThrownDirection = new Point(1, 1);
             bottle.TimeToDestroy = 2;

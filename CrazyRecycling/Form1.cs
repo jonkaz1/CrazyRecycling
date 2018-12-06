@@ -83,9 +83,8 @@ namespace CrazyRecycling
 
         public void CreatePlayer()
         {
-            Task<string> create = Task.Run(() => Facade.GetConnector().PostAction("Player",
-                "{\"Name\":\"" + MainPlayer.Name + "\"}"));
-            create.Wait();
+            Task<string> create = Facade.Connector.PostAction("Player",
+                "{\"Name\":\"" + MainPlayer.Name + "\"}");
             var result = create.Result;
             var obj = JObject.Parse(result);
             MainPlayer.PlayerId = obj["playerId"].Value<int>();
@@ -93,7 +92,7 @@ namespace CrazyRecycling
 
         public void DeletePlayer(int playerId)
         {
-            Task.Run(() => Facade.GetConnector().DeleteAction("Player/" + playerId)).Wait();
+            Facade.Connector.DeleteAction("Player/" + playerId);
         }
 
         /// <summary>
@@ -103,8 +102,7 @@ namespace CrazyRecycling
         {
             while (!_cancelationTokenSourcePlayers.Token.IsCancellationRequested)
             {
-                Task<string> getPlayers = Task.Run(() => Facade.GetConnector().GetAction("Player"));
-                getPlayers.Wait();
+                Task<string> getPlayers = Facade.Connector.GetAction("Player");
                 var result = getPlayers.Result;
                 var array = JArray.Parse(result);
 
@@ -120,8 +118,7 @@ namespace CrazyRecycling
         {
             while (!_cancelationTokenSourceBottles.Token.IsCancellationRequested)
             {
-                var task = Task.Run(() => Facade.GetConnector().GetAction("Bottle"));
-                task.Wait();
+                var task = Facade.Connector.GetAction("Bottle");
                 var result = task.Result;
                 var array = JArray.Parse(result);
                 Bottle bottle;
@@ -140,7 +137,7 @@ namespace CrazyRecycling
                                 bottle.PositionX = item["posX"].Value<int>();
                                 bottle.PositionY = item["posY"].Value<int>();
                                 bottle.BottleId = item["bottleId"].Value<int>();
-                                bottle.Image.Location = new Point(bottle.PositionX, bottle.PositionY);
+                                bottle.Image.Location = new Point(bottle.PositionX * 16, bottle.PositionY * 16);
                                 bottle.IsNewlySpawned = true;
                                 GroundBottles.Add(bottle);
                             }
@@ -152,7 +149,7 @@ namespace CrazyRecycling
                                     bottle.PositionX = item["posX"].Value<int>();
                                     bottle.PositionY = item["posY"].Value<int>();
                                     bottle.BottleId = item["bottleId"].Value<int>();
-                                    bottle.Image.Location = new Point(bottle.PositionX, bottle.PositionY);
+                                    bottle.Image.Location = new Point(bottle.PositionX * 16, bottle.PositionY * 16);
                                     bottle.IsNewlySpawned = true;
                                     GroundBottles.Add(bottle);
                                 }
@@ -169,8 +166,7 @@ namespace CrazyRecycling
         /// </summary>
         private void GetMachines(int imgNumber)
         {
-            var task = Task.Run(() => Facade.GetConnector().GetAction("Machine"));
-            task.Wait();
+            var task = Facade.Connector.GetAction("Machine");
             var result = task.Result;
             var array = JArray.Parse(result);
             Machine machine;
@@ -180,7 +176,7 @@ namespace CrazyRecycling
                 {
                     machine = new RecyclingMachine(
                     item["posX"].Value<int>(), item["posY"].Value<int>(),
-                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>(), 
+                    item["sizeX"].Value<int>(), item["sizeY"].Value<int>(),
                     imgNumber
                     );
                     Machines.Add(machine);
@@ -232,14 +228,14 @@ namespace CrazyRecycling
                     {
                         Image = Properties.Resources.Player,
                         Size = new Size(16, 16),
-                        Location = new Point(item.PositionX, item.PositionY)
+                        Location = new Point(item.PositionX * 16, item.PositionY * 16)
                     };
                     Controls.Add(item.PlayerObject);
                     item.IsNewlyCreated = false;
                 }
                 if (item.LocationChanged)
                 {
-                    item.PlayerObject.Location = new Point(item.PositionX, item.PositionY);
+                    item.PlayerObject.Location = new Point(item.PositionX * 16, item.PositionY * 16);
                     item.LocationChanged = false;
                 }
             }

@@ -14,12 +14,12 @@ namespace CrazyRecycling.Controllers
         public MoveCommand(string newLocation)
         {
             string[] split = newLocation.Split(';');
-            this.NewLocation = "{\"posX\":\"" + split[0] + "\",\"posY\":\"" + split[1] + "\"}";
+            NewLocation = "{\"posX\":\"" + split[0] + "\",\"posY\":\"" + split[1] + "\"}";
         }
 
         public override void Execute(string value)
         {
-            Task.Run(() => serverConnector.PatchAction(value, NewLocation)).Wait();
+            proxyConnector.PatchAction(value, NewLocation);
         }
 
         public override void ChangeInnerValue(string value)

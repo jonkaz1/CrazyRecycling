@@ -31,6 +31,8 @@ namespace CrazyRecycling.Models
         public int Speed { get; set; }
         public int PointsBoost { get; set; }
 
+        public HealthState.HealthState HealthState { get; set; }
+
         public Player()
         {
             Color = new PlayerDefaultColor(CharacterClass);

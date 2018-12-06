@@ -69,7 +69,7 @@ namespace CrazyRecycling.Controllers
         {
 
         }
-        
+
         public void ChangeLocation(KeyEventArgs keyEvent)
         {
             if (keyEvent == null)
@@ -80,24 +80,24 @@ namespace CrazyRecycling.Controllers
             {
                 case Keys.W:
                     Player.PositionY += -1;
-                    Player.PlayerObject.Location = new Point(Player.PositionX, Player.PositionY);
+                    Player.PlayerObject.Location = new Point(Player.PositionX * 16, Player.PositionY * 16);
                     break;
                 case Keys.A:
                     Player.PositionX += -1;
-                    Player.PlayerObject.Location = new Point(Player.PositionX, Player.PositionY);
+                    Player.PlayerObject.Location = new Point(Player.PositionX * 16, Player.PositionY * 16);
                     break;
                 case Keys.S:
                     Player.PositionY += 1;
-                    Player.PlayerObject.Location = new Point(Player.PositionX, Player.PositionY);
+                    Player.PlayerObject.Location = new Point(Player.PositionX * 16, Player.PositionY * 16);
                     break;
                 case Keys.D:
                     Player.PositionX += 1;
-                    Player.PlayerObject.Location = new Point(Player.PositionX, Player.PositionY);
+                    Player.PlayerObject.Location = new Point(Player.PositionX * 16, Player.PositionY * 16);
                     break;
                 default:
                     break;
             }
-            
+
         }
 
         /// <summary>

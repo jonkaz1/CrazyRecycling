@@ -20,6 +20,7 @@ namespace Server.Models
 
         public ICollection<Bottle> Bottles { get; set; }
 
+        public int HealthPoints { get; set; }
     }
 
     public enum CharacterClass

@@ -1,4 +1,5 @@
 ﻿using CrazyRecycling.Controllers;
+using CrazyRecycling.Controllers.FacadeControllers;
 using CrazyRecycling.Models;
 using CrazyRecycling.Models.Bottles;
 using Newtonsoft.Json.Linq;
@@ -17,16 +18,13 @@ namespace CrazyRecycling
         private PlayerController playerController;
         private LeaderboardController leaderboard = new LeaderboardController();
         private MachineController machineController = new MachineController();
-        private ServerConnector Connector = new ServerConnector();
-
-        public ServerConnector GetConnector()
-        {
-            return Connector;
-        }
+        public ProxyConnector Connector { get; set; }
+        
         public Facade()
         {
-            Connector = ServerConnector.Instance();
+            Connector = ProxyConnector.Instance;
         }
+
         public void AttachPlayer(Player player)
         {
             playerController = new PlayerController(player);

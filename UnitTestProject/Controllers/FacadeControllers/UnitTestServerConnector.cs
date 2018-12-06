@@ -15,7 +15,7 @@ namespace CrazyRecycling.Controllers.Tests
         public void GetActionTest()
         {
             //Arrange
-            ServerConnector connector = ServerConnector.Instance();
+            ServerConnector connector = ServerConnector.Instance;
             //Act
             var task1 = Task.Run(() => connector.GetAction("Player"));
             var task2 = Task.Run(() => connector.GetAction("Player"));
@@ -29,7 +29,7 @@ namespace CrazyRecycling.Controllers.Tests
         public void GetActionTestNotExists()
         {
             //Arrange
-            ServerConnector connector = ServerConnector.Instance();
+            ServerConnector connector = ServerConnector.Instance;
             //Act
             var task1 = Task.Run(() => connector.GetAction("Player/1"));
             task1.Wait();
@@ -40,7 +40,7 @@ namespace CrazyRecycling.Controllers.Tests
         public void GetActionTestExists()
         {
             //Arrange
-            ServerConnector connector = ServerConnector.Instance();
+            ServerConnector connector = ServerConnector.Instance;
             //Act
             var task1 = Task.Run(() => connector.GetAction("Player/146"));
             task1.Wait();

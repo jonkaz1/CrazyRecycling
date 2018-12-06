@@ -43,7 +43,9 @@ namespace Server.Helper
                         PosY = Randomizer.Next(16, 1000),
                         IsProjectile = false,
                         SpawnTime = DateTime.Now,
-                        BottleType = bottleType
+                        BottleType = bottleType,
+                        BagDeepness = -1,
+                        BagPosition = -1
                     });
                 }
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrazyRecycling.Controllers.FacadeControllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,11 @@ namespace CrazyRecycling.Controllers
 {
     public abstract class PlayerCommand
     {
-        protected ServerConnector serverConnector;
+        protected ProxyConnector proxyConnector;
 
         public PlayerCommand()
         {
-            serverConnector = ServerConnector.Instance();
+            proxyConnector = ProxyConnector.Instance;
         }
 
         public abstract void Execute(string value);

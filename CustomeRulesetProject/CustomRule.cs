@@ -10,7 +10,7 @@ namespace CustomRulesetProject
     internal abstract class CustomRule : BaseIntrospectionRule
     {
         protected CustomRule(string ruleName)
-            : base(ruleName, "DukesFirstFxCopRule.DukesFirstFxCopRule", typeof(CustomRule).Assembly)
+            : base(ruleName, "CustomRulesetProject.RuleMetadata", typeof(CustomRule).Assembly)
         {
         }
     }

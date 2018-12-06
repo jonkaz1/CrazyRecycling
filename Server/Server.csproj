@@ -5,6 +5,14 @@
     <UserSecretsId>01805e29-c52b-47a6-a6dc-7f2bf33269fd</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Migrations\20181030091604_Restructuredmodels.cs" />
     <Compile Remove="Migrations\20181030091604_Restructuredmodels.Designer.cs" />

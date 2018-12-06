@@ -37,6 +37,7 @@ namespace Server.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Bottle bottle)
         {
+            
             bottle.SpawnTime = DateTime.Now;
             bottle.LastPosX = bottle.PosX + bottle.LastPosX * 10;
             bottle.LastPosY = bottle.PosX + bottle.LastPosY * 10;

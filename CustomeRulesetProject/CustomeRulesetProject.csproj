@@ -9,14 +9,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget></PlatformTarget>
     <DocumentationFile></DocumentationFile>
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="RuleMetadata.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="RuleMetadata.xml" />
   </ItemGroup>
 
   <ItemGroup>

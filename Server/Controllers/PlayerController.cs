@@ -97,6 +97,7 @@ namespace Server.Controllers
             }
             else
             {
+                p.LastCheckTime = DateTime.Now;
                 p.PosX = player.PosX;
                 p.PosY = player.PosY;
                 await _context.SaveChangesAsync();
@@ -112,8 +113,12 @@ namespace Server.Controllers
             {
                 return BadRequest(ModelState);
             }
-            player.PosX = random.Next(16, 200);
-            player.PosY = random.Next(16, 200);
+            var dateCheck = DateTime.Now;
+            dateCheck.AddMinutes(-30);
+            await _context.Database.ExecuteSqlCommandAsync("DELETE FROM Player WHERE LastCheckTime <= {0}", dateCheck);
+
+            player.PosX = random.Next(1, 10);
+            player.PosY = random.Next(1, 10);
             player.CharacterClass = CharacterClass.DefaultClass;
             player.SpawnTime = DateTime.Now;
             _context.Player.Add(player);
@@ -148,7 +153,7 @@ namespace Server.Controllers
         {
             await _context.Database.ExecuteSqlCommandAsync("TRUNCATE TABLE Player");
             return Ok();
-        }
+        }        
 
         private bool PlayerExists(int id)
         {

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Server.ChainOfResp;
 using Server.Helper;
 using Server.Models;
 
@@ -16,6 +17,7 @@ namespace Server.Controllers
     {
         private readonly ServerContext _context;
         private readonly Generator _generator;
+        private Handler bottleHandler;
 
         public BottleController(ServerContext context)
         {
@@ -24,15 +26,26 @@ namespace Server.Controllers
                 Creator = new BottleDataCreator()
             };
             _context = context;
+            bottleHandler = new PickUpHandler
+            {
+                Successor = new DepositBottle
+                {
+                    Successor = new ThrowBottle()
+                }
+            };
         }
 
         // GET: api/Bottle
         [HttpGet]
         public IEnumerable<Bottle> GetBottle()
         {
-            _generator.GenerateData(_context);
-            _context.SaveChanges();
-            return _context.Bottle;
+            if (_context.Bottle.Count() < 32)
+            {
+                _generator.GenerateData(_context);
+                _context.SaveChanges();
+            }
+            var bottles = _context.Bottle.Where(x => x.BagDeepness == -1);
+            return bottles;
         }
 
         // GET: api/Bottle/5
@@ -52,6 +65,20 @@ namespace Server.Controllers
             }
 
             return Ok(bottle);
+        }
+
+        public async Task<IActionResult> PatchBottle([FromRoute] int id, [FromBody] BottleDTOContainer bottle)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (bottle == null || bottle.Bottles == null)
+            {
+                return BadRequest();
+            }
+                 
+            return Ok();
         }
 
         // PUT: api/Bottle/5

@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace UnitTestProject.Controllers.FacadeControllers
         {
             //Arrange
             var machineController = new MachineController();
-            List<Point> locations = new List<Point>();
+            Collection<Point> locations = new Collection<Point>();
             for (int i = 0; i < 10; i++)
             {
                 locations.Add(new Point(i, i));
@@ -33,7 +34,7 @@ namespace UnitTestProject.Controllers.FacadeControllers
         {
             //Arrange
             var machineController = new MachineController();
-            List<Point> locations = new List<Point>();
+            Collection<Point> locations = new Collection<Point>();
             for (int i = 0; i < 10; i++)
             {
                 locations.Add(new Point(i, i));

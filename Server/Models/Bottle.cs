@@ -19,7 +19,12 @@ namespace Server.Models
         public int Speed { get; set; }
         public int LastPosX { get; set; }
         public int LastPosY { get; set; }
-        public BottleType BottleType { get; set; }        
+        public BottleType BottleType { get; set; }   
+        
+        public int BagDeepness { get; set; }
+        public int BagPosition { get; set; }
+
+        public DateTime LastUseTime { get; set; }
     }
 
     public enum BottleType

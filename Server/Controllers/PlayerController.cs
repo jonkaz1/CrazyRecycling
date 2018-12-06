@@ -121,6 +121,7 @@ namespace Server.Controllers
             player.PosY = random.Next(1, 10);
             player.CharacterClass = CharacterClass.DefaultClass;
             player.SpawnTime = DateTime.Now;
+            player.LastCheckTime = DateTime.Now;
             _context.Player.Add(player);
             await _context.SaveChangesAsync();
 

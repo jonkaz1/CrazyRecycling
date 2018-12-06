@@ -19,7 +19,7 @@ namespace CrazyRecycling.Models
 
             Image = new PictureBox()
             {
-                Location = new Point(PositionX, PositionY),
+                Location = new Point(PositionX * 16, PositionY * 16),
                 Size = new Size(SizeX, SizeY),
                 Image = Properties.Resources.Shop,
                 BackColor = Color.Transparent
@@ -36,7 +36,7 @@ namespace CrazyRecycling.Models
             {
                 Image = new PictureBox()
                 {
-                    Location = new Point(PositionX, PositionY),
+                    Location = new Point(PositionX * 16, PositionY * 16),
                     Size = new Size(SizeX, SizeY),
                     Image = Properties.Resources.Shop,
                     BackColor = Color.Transparent
@@ -46,7 +46,7 @@ namespace CrazyRecycling.Models
             {
                 Image = new PictureBox()
                 {
-                    Location = new Point(PositionX, PositionY),
+                    Location = new Point(PositionX * 16, PositionY * 16),
                     Size = new Size(SizeX, SizeY),
                     Image = Properties.Resources.Shop2,
                     BackColor = Color.Transparent

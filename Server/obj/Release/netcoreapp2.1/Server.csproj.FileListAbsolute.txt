@@ -30,3 +30,6 @@ C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\Server\obj\Release\netcoreapp2
 C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\Server\obj\Release\netcoreapp2.1\Server.RazorTargetAssemblyInfo.cache
 C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\Server\obj\Release\netcoreapp2.1\Server.dll
 C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\Server\obj\Release\netcoreapp2.1\Server.pdb
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\Server\bin\Release\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\Server\bin\Release\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Karolio\Projects\CrazyRecycling\CrazyRecycling\Server\bin\Release\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll

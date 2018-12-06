@@ -39,8 +39,8 @@ namespace Server.Helper
                     }
                     context.Bottle.Add(new Bottle()
                     {
-                        PosX = Randomizer.Next(16, 1000),
-                        PosY = Randomizer.Next(16, 1000),
+                        PosX = Randomizer.Next(1, 10),
+                        PosY = Randomizer.Next(1, 10),
                         IsProjectile = false,
                         SpawnTime = DateTime.Now,
                         BottleType = bottleType,

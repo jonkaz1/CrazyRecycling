@@ -18,8 +18,8 @@ namespace Server.Helper
                     context.Machine.Add(new Machine()
                     {
                         MachineType = MachineType.RecyclingMachine,
-                        PosX = Randomizer.Next(16, 1000),
-                        PosY = Randomizer.Next(16, 1000),
+                        PosX = Randomizer.Next(1, 10),
+                        PosY = Randomizer.Next(1, 10),
                         SizeX = 16,
                         SizeY = 16
                     });
@@ -33,8 +33,8 @@ namespace Server.Helper
                     context.Machine.Add(new Machine()
                     {
                         MachineType = MachineType.Shop,
-                        PosX = Randomizer.Next(16, 1000),
-                        PosY = Randomizer.Next(16, 1000),
+                        PosX = Randomizer.Next(1, 10),
+                        PosY = Randomizer.Next(1, 10),
                         SizeX = 16,
                         SizeY = 16
                     });

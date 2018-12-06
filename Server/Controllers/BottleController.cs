@@ -77,7 +77,7 @@ namespace Server.Controllers
             {
                 return BadRequest();
             }
-                 
+            var result = bottleHandler.HandleRequest(bottle);
             return Ok();
         }
 

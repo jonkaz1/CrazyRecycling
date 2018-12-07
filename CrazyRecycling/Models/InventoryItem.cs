@@ -11,5 +11,8 @@ namespace CrazyRecycling.Models
         public abstract InventoryItem GetItem();
         public abstract void Add(InventoryItem item);
         public abstract void Remove(InventoryItem item);
+        //start of Jonas Visitor code
+        public abstract void Accept(IVisitor visitor);
+        //end
     }
 }

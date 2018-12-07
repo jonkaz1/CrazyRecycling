@@ -112,6 +112,7 @@
     <Compile Include="Models\Bottles\Vodka.cs" />
     <Compile Include="Models\ColorData.cs" />
     <Compile Include="Models\Brute.cs" />
+    <Compile Include="Models\DamageVisitor.cs" />
     <Compile Include="Models\DefaultClass.cs" />
     <Compile Include="Models\GarbageBag.cs" />
     <Compile Include="Models\HealthState\Alive.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Models\ICharacterClass.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\InventoryItem.cs" />
+    <Compile Include="Models\IVisitor.cs" />
     <Compile Include="Models\Machine.cs" />
     <Compile Include="Models\Leaderboard.cs" />
     <Compile Include="Models\Player.cs" />
@@ -128,6 +130,7 @@
     <Compile Include="Models\Bottles\SpecialBottleFactory.cs" />
     <Compile Include="Models\PlayerColor.cs" />
     <Compile Include="Models\PlayerDefaultColor.cs" />
+    <Compile Include="Models\PointsVisitor.cs" />
     <Compile Include="Models\Props\MapPropBuilder.cs" />
     <Compile Include="Models\Props\MountainBuilder.cs" />
     <Compile Include="Models\Props\Prop.cs" />

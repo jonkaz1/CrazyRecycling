@@ -40,5 +40,13 @@ namespace CrazyRecycling.Models.Bottles
         {
             Console.WriteLine("Cannot remove to bottle");
         }
+
+
+        //start of Jonas Visitor code
+        public override void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+        //end
     }
 }

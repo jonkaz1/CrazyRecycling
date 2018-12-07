@@ -84,7 +84,15 @@ namespace CrazyRecycling.Models
             }
             Color = new PlayerColor(CharacterClass);
         }
-
+        public void CheckBigBoost()
+        {
+            if (Points >= 1000)
+            {
+                Inventory.MainBag.Accept(new DamageVisitor());
+                Inventory.MainBag.Accept(new PointsVisitor());
+                //Visit
+            }
+        }
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrazyRecycling.Models.Bottles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,15 @@ namespace CrazyRecycling.Models
         public override void Remove(InventoryItem item)
         {
             Children.Remove(item);
+        }
+
+        public override void Accept(IVisitor visitor)
+        {
+            foreach (Bottle e in Children)
+            {
+                e.Accept(visitor);
+            }
+            Console.WriteLine();
         }
     }
 }

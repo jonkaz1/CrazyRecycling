@@ -8,11 +8,12 @@ namespace CrazyRecycling.Models.Bottles
 {
     public class Cola : Bottle
     {
-        public int Count;
+        //public int Count;
 
         public override string GetBottleInfo()
         {
-            return Count.ToString();
+            //return Count.ToString();
+            return PointsCount.ToString();
         }
     }
 }

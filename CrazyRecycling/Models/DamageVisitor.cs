@@ -13,10 +13,10 @@ namespace CrazyRecycling.Models
         {
             Bottle bottle = element as Bottle;
 
-            //if (bottle.Damage != 0)
-            //{
-            //    bottle.Damage *= 2;
-            //}
+            if (bottle.Damage != 0)
+            {
+                bottle.Damage *= 2;
+            }
         }
     }
 }

@@ -19,6 +19,7 @@ namespace CrazyRecycling.Models
         public PictureBox PlayerObject { get; set; }
         public bool IsNewlyCreated { get; set; }
         public bool LocationChanged { get; set; }
+        public bool isBoostNeeded { get; set; }
         public Inventory Inventory { get; set; }
 
         public ICharacterClass CharacterClass { get; set; } = new DefaultClass();
@@ -43,6 +44,7 @@ namespace CrazyRecycling.Models
             Color2 = stats.Color;
             Speed = stats.Speed;
             PointsBoost = stats.PointsBoost;
+            isBoostNeeded = false;
         }
         public Player(string name, int positionX, int positionY, int points, ICharacterClass characterClass, Bottle bottle, PictureBox playerObject)
         {
@@ -84,15 +86,15 @@ namespace CrazyRecycling.Models
             }
             Color = new PlayerColor(CharacterClass);
         }
+        //start of Jonas Visitor code
         public void CheckBigBoost()
         {
-            if (Points >= 1000)
+            if (Points >= 1000 && isBoostNeeded)
             {
                 Inventory.MainBag.Accept(new DamageVisitor());
                 Inventory.MainBag.Accept(new PointsVisitor());
-                //Visit
             }
         }
-
+        //end
     }
 }

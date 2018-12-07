@@ -16,7 +16,9 @@ namespace CrazyRecycling.Models.Bottles
             switch (name)
             {
                 case "Wine":
-                    return new Wine() { Damage = 1,
+                    return new Wine() {
+                        Damage = 1,
+                        PointsCount = 0,
                         Image = new PictureBox()
                         {
                             Image = Resources.Wine,
@@ -27,6 +29,7 @@ namespace CrazyRecycling.Models.Bottles
                     return new Vodka()
                     {
                         Damage = 2,
+                        PointsCount = 0,
                         Image = new PictureBox()
                         {
                             Image = Resources.Vodka,
@@ -37,6 +40,7 @@ namespace CrazyRecycling.Models.Bottles
                     return new Whiskey()
                     {
                         Damage = 3,
+                        PointsCount = 0,
                         Image = new PictureBox()
                         {
                             Image = Resources.Whiskey,
@@ -47,6 +51,7 @@ namespace CrazyRecycling.Models.Bottles
                     return new GinOfDestruction()
                     {
                         Damage = 10,
+                        PointsCount = 0,
                         Image = new PictureBox()
                         {
                             Image = Resources.GinOfDestruction,

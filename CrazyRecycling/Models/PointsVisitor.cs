@@ -13,10 +13,10 @@ namespace CrazyRecycling.Models
         {
             Bottle bottle = element as Bottle;
 
-            //if (bottle.PointsCount != 0)
-            //{
-            //    bottle.PointsCount *= 2;
-            //}
+            if (bottle.PointsCount != 0)
+            {
+                bottle.PointsCount *= 2;
+            }
         }
     }
 }

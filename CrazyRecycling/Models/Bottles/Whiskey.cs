@@ -8,7 +8,7 @@ namespace CrazyRecycling.Models.Bottles
 {
     public class Whiskey : Bottle
     {
-        public int Damage;
+        //public int Damage;
 
         public override string GetBottleInfo()
         {

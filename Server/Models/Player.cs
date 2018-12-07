@@ -17,10 +17,10 @@ namespace Server.Models
         public DateTime SpawnTime { get; set; }
         public DateTime LastCheckTime { get; set; }
         public CharacterClass CharacterClass { get; set; }
-
         public ICollection<Bottle> Bottles { get; set; }
-
         public int HealthPoints { get; set; }
+        public ICollection<Message> Messages { get; set; } = new List<Message>();
+
     }
 
     public enum CharacterClass

@@ -10,8 +10,8 @@ using Server.Models;
 namespace Server.Migrations
 {
     [DbContext(typeof(ServerContext))]
-    [Migration("20181207143112_messages")]
-    partial class messages
+    [Migration("20181208133811_Messages")]
+    partial class Messages
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,13 +89,14 @@ namespace Server.Migrations
 
                     b.Property<int?>("PlayerId");
 
-                    b.Property<string>("PlayerMessage");
+                    b.Property<string>("PlayerMessage")
+                        .IsRequired();
 
                     b.HasKey("MessageId");
 
                     b.HasIndex("PlayerId");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Message");
                 });
 
             modelBuilder.Entity("Server.Models.Player", b =>
@@ -135,7 +136,7 @@ namespace Server.Migrations
             modelBuilder.Entity("Server.Models.Message", b =>
                 {
                     b.HasOne("Server.Models.Player", "Player")
-                        .WithMany("Messages")
+                        .WithMany()
                         .HasForeignKey("PlayerId");
                 });
 #pragma warning restore 612, 618

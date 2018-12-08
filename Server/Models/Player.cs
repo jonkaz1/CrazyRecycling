@@ -19,8 +19,7 @@ namespace Server.Models
         public CharacterClass CharacterClass { get; set; }
         public ICollection<Bottle> Bottles { get; set; }
         public int HealthPoints { get; set; }
-        public ICollection<Message> Messages { get; set; } = new List<Message>();
-
+       
     }
 
     public enum CharacterClass

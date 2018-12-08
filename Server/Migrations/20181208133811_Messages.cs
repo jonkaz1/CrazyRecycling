@@ -4,25 +4,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Server.Migrations
 {
-    public partial class messages : Migration
+    public partial class Messages : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Messages",
+                name: "Message",
                 columns: table => new
                 {
                     MessageId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     PlayerId = table.Column<int>(nullable: true),
-                    PlayerMessage = table.Column<string>(nullable: true),
+                    PlayerMessage = table.Column<string>(nullable: false),
                     Created_At = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Messages", x => x.MessageId);
+                    table.PrimaryKey("PK_Message", x => x.MessageId);
                     table.ForeignKey(
-                        name: "FK_Messages_Player_PlayerId",
+                        name: "FK_Message_Player_PlayerId",
                         column: x => x.PlayerId,
                         principalTable: "Player",
                         principalColumn: "PlayerId",
@@ -30,15 +30,15 @@ namespace Server.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Messages_PlayerId",
-                table: "Messages",
+                name: "IX_Message_PlayerId",
+                table: "Message",
                 column: "PlayerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Messages");
+                name: "Message");
         }
     }
 }

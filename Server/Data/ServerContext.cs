@@ -17,12 +17,9 @@ namespace Server.Models
         public DbSet<Player> Player { get; set; }
         public DbSet<Machine> Machine { get; set; }
         public DbSet<Bottle> Bottle { get; set; }
-        public DbSet<Message> Messages { get; set; }
+        public DbSet<Message> Message { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Player>()
-                .HasMany(p => p.Messages)
-                .WithOne(p => p.Player);
             base.OnModelCreating(builder);
         }
     }

@@ -24,6 +24,10 @@ namespace CrazyRecycling
             this.Hide();
             form1.Closed += (s, args) => this.Close();
             Form1.PlayerName = textBox1.Text;
+            if (Form1.PlayerName == "")
+            {
+                Form1.PlayerName = "Player";
+            }
             form1.Show();
         }
 

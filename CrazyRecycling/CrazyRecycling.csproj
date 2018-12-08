@@ -185,6 +185,7 @@
     <Compile Include="Models\Bottles\Whiskey.cs" />
     <Compile Include="Models\Bottles\Wine.cs" />
     <Compile Include="Models\Bottles\Vodka.cs" />
+    <Compile Include="Models\ChatMediator.cs" />
     <Compile Include="Models\ColorData.cs" />
     <Compile Include="Models\Brute.cs" />
     <Compile Include="Models\DamageVisitor.cs" />
@@ -195,9 +196,11 @@
     <Compile Include="Models\HealthState\HealthState.cs" />
     <Compile Include="Models\Hoarder.cs" />
     <Compile Include="Models\ICharacterClass.cs" />
+    <Compile Include="Models\IChatMediator.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\InventoryItem.cs" />
     <Compile Include="Models\IVisitor.cs" />
+    <Compile Include="Models\IPlayer.cs" />
     <Compile Include="Models\Machine.cs" />
     <Compile Include="Models\Leaderboard.cs" />
     <Compile Include="Models\Player.cs" />

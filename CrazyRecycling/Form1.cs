@@ -17,6 +17,9 @@ namespace CrazyRecycling
     //context
     public partial class Form1 : Form
     {
+        IChatMediator chatMediator = new ChatMediator();
+        // create users and add them to chat mediator's user list
+
         Facade Facade = new Facade();
         public static string PlayerName;
 
@@ -27,6 +30,7 @@ namespace CrazyRecycling
         List<Machine> Machines = new List<Machine>();
 
 
+
         CancellationTokenSource _cancelationTokenSourcePlayers;
         CancellationTokenSource _cancelationTokenSourceBottles;
 
@@ -34,6 +38,13 @@ namespace CrazyRecycling
         {
             InitializeComponent();
             DoubleBuffered = true;
+
+            IPlayer john = new Player(chatMediator, "John");
+            IPlayer tina = new Player(chatMediator, "Tina");
+            IPlayer lara = new Player(chatMediator, "Lara");
+            chatMediator.AddPlayer(john);
+            chatMediator.AddPlayer(tina);
+            chatMediator.AddPlayer(lara);
         }
 
         /// <summary>
@@ -52,8 +63,6 @@ namespace CrazyRecycling
             PlayerList.Add(MainPlayer);
             CreatePlayer();
 
-
-
             _cancelationTokenSourcePlayers = new CancellationTokenSource();
             _cancelationTokenSourceBottles = new CancellationTokenSource();
             new Task(() => GetPlayerData(), _cancelationTokenSourcePlayers.Token, TaskCreationOptions.LongRunning).Start();
@@ -62,6 +71,14 @@ namespace CrazyRecycling
 
             Facade.AttachPlayer(MainPlayer);
             Facade.AddCommand(MainPlayer.PositionX + ";" + MainPlayer.PositionY);
+
+            this.label3.Visible = false;
+            this.label2.Visible = false;
+            this.textBox1.Visible = false;
+            this.maskedTextBox1.Visible = false;
+            this.button1.Visible = false;
+
+
         }
 
 
@@ -79,7 +96,15 @@ namespace CrazyRecycling
                 ThrownBottles.Add(bottle);
             }
             Facade.ChangeLocation(e);
+
+            if (e.KeyCode == Keys.Tab)
+            {
+                    this.button1.Enabled = this.button1.Enabled ? false : true;
+                    this.maskedTextBox1.Enabled = this.maskedTextBox1.Enabled ? false : true;
+                    this.button2.Enabled = this.button2.Enabled ? false : true;
+            }
         }
+
 
         public void CreatePlayer()
         {
@@ -250,6 +275,8 @@ namespace CrazyRecycling
                     }
                 }
             }
+            
+
         }
         /*
          Wine,
@@ -278,6 +305,64 @@ namespace CrazyRecycling
                 default:
                     return "";
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //IPlayer player = new Player(chatMediator, PlayerName);
+            //chatMediator.AddPlayer(player);
+            //string message = player.ReceiveMessage("Hello Everyone!");
+
+            //string message = this.maskedTextBox1.Text;
+
+            //if (message != "") {
+            //    this.textBox1.Text += PlayerName + ": " + message + "\r\n";
+            //}
+
+            
+
+            this.maskedTextBox1.Text = "";
+            this.maskedTextBox1.Enabled = false;
+            this.button1.Enabled = false;
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+
+            //// send message
+            //IPlayer player = new Player(chatMediator, PlayerName);
+            //chatMediator.AddPlayer(player);
+            //player.SendMessage("Hello Everyone!");
+
+            this.button2.Visible = false;
+            this.button2.Enabled = false;
+            this.maskedTextBox1.Visible = true;
+            this.textBox1.Visible = true;
+            this.button1.Visible = true;
+            this.label3.Visible = true;
+            this.label2.Visible = true;
+
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Server.Models
         public DbSet<Player> Player { get; set; }
         public DbSet<Machine> Machine { get; set; }
         public DbSet<Bottle> Bottle { get; set; }
-
+        public DbSet<Message> Message { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

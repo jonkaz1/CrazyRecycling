@@ -1,6 +1,7 @@
 ﻿using CrazyRecycling.Models.Bottles;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CrazyRecycling.Models
 {
-    public class Player
+    public class Player : IPlayer
     {
         public int PlayerId { get; set; }
         public string Name { get; set; }
@@ -20,6 +21,8 @@ namespace CrazyRecycling.Models
         public bool IsNewlyCreated { get; set; }
         public bool LocationChanged { get; set; }
         public Inventory Inventory { get; set; }
+
+        IChatMediator chatMediator;
 
         public ICharacterClass CharacterClass { get; set; } = new DefaultClass();
         public PlayerDefaultColor Color { get; set; }
@@ -68,6 +71,7 @@ namespace CrazyRecycling.Models
             PositionX = positionX;
             PositionY = positionY;
         }
+
         public void SetClass(string charClass)
         {
             if (charClass == "Brute")
@@ -84,7 +88,22 @@ namespace CrazyRecycling.Models
             }
             Color = new PlayerColor(CharacterClass);
         }
+        
 
+        public Player(IChatMediator chatMediator, string name)
+        {
+            this.Name = name;
+            this.chatMediator = chatMediator;
+        }
 
+        public void SendMessage(string message)
+        {
+            chatMediator.SendMessage(message, this);
+        }
+
+        public string ReceiveMessage(string message)
+        {
+            return String.Format(Name + ": " + message);
+        }
     }
 }

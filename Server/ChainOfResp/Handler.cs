@@ -8,6 +8,7 @@ namespace Server.ChainOfResp
 {
     public abstract class Handler
     {
+        public ServerContext Context { get; set; }
         protected Handler _successor;
 
         public Handler Successor
@@ -22,6 +23,6 @@ namespace Server.ChainOfResp
             }
         }
         
-        public abstract Bottle HandleRequest(BottleDTOContainer bottle);
+        public abstract Bottle HandleRequest(BottleDTOContainer bottle, int playerId);
     }
 }

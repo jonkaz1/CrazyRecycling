@@ -28,9 +28,14 @@ namespace Server.Controllers
             _context = context;
             bottleHandler = new PickUpHandler
             {
+                Context = _context,
                 Successor = new DepositBottle
                 {
-                    Successor = new ThrowBottle()
+                    Context = _context,
+                    Successor = new ThrowBottle
+                    {
+                        Context = _context
+                    }
                 }
             };
         }
@@ -77,7 +82,7 @@ namespace Server.Controllers
             {
                 return BadRequest();
             }
-            var result = bottleHandler.HandleRequest(bottle);
+            var result = bottleHandler.HandleRequest(bottle, id);
             return Ok();
         }
 

@@ -8,15 +8,20 @@ namespace Server.ChainOfResp
 {
     public class PickUpHandler : Handler
     {
-        public override Bottle HandleRequest(BottleDTOContainer bottle)
+        public override Bottle HandleRequest(BottleDTOContainer bottle, int playerId)
         {
             if (bottle.Action == BottleAction.PickUp)
             {
-                return null;
+                var b = Context.Bottle.Find(bottle.Bottles[0].BottleId);
+                var p = Context.Player.Find(playerId);
+                b.BagDeepness = bottle.BagDeepness;
+                b.BagPosition = bottle.BagPosition;
+                p.Bottles.Add(b);
+                return b;
             }
             else
             {
-                return Successor.HandleRequest(bottle);
+                return Successor.HandleRequest(bottle, playerId);
             }
         }
     }

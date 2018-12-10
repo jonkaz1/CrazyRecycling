@@ -9,13 +9,14 @@ namespace Server.Models
     {
         public BottleDTO[] Bottles { get; set; }
         public BottleAction Action { get; set; }
+
+        public int BagDeepness { get; set; }
+        public int BagPosition { get; set; }
     }
 
     public class BottleDTO
     {
         public int BottleId { get; set; }
-        public int PositionX { get; set; }
-        public int PositionY { get; set; }        
     }
 
     public enum BottleAction

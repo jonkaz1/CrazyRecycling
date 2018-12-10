@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrazyRecycling.Controllers.Memento;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,16 +14,24 @@ namespace CrazyRecycling
     public partial class GameStart : Form
     {
         Form1 form1 = new Form1();
+        CurrentProfile currentProfile = new CurrentProfile();
+        Profile profile = null;
 
         public GameStart()
         {
+            if (profile == null)
+            {
+                profile = new Profile("CrazyRecyclingProfile.txt");
+            }
+            currentProfile.RestoreProfile(profile);
+            textBox1.Text = currentProfile.PlayerName;
             InitializeComponent();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            form1.Closed += (s, args) => this.Close();
+            Hide();
+            form1.Closed += (s, args) => Close();
             Form1.PlayerName = textBox1.Text;
             if (Form1.PlayerName == "")
             {
@@ -35,6 +44,22 @@ namespace CrazyRecycling
         {
             Highscores highscores = new Highscores();
             highscores.Show();
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            currentProfile.RestoreProfile(profile);
+            textBox1.Text = currentProfile.PlayerName;
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            profile = currentProfile.SaveProfile("CrazyRecyclingProfile.txt");
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            currentProfile.PlayerName = textBox1.Text;
         }
     }
 }

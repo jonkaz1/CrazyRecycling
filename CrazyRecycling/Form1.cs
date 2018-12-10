@@ -26,7 +26,7 @@ namespace CrazyRecycling
         Player MainPlayer = new Player();
         List<Player> PlayerList = new List<Player>();
         List<Bottle> ThrownBottles = new List<Bottle>();
-        List<Bottle> GroundBottles = new List<Bottle>();
+        public static List<Bottle> GroundBottles = new List<Bottle>();
         List<Machine> Machines = new List<Machine>();
 
 
@@ -99,9 +99,9 @@ namespace CrazyRecycling
 
             if (e.KeyCode == Keys.Tab)
             {
-                    this.button1.Enabled = this.button1.Enabled ? false : true;
-                    this.maskedTextBox1.Enabled = this.maskedTextBox1.Enabled ? false : true;
-                    this.button2.Enabled = this.button2.Enabled ? false : true;
+                    button1.Enabled = button1.Enabled ? false : true;
+                    maskedTextBox1.Enabled = maskedTextBox1.Enabled ? false : true;
+                    button2.Enabled = button2.Enabled ? false : true;
             }
         }
 

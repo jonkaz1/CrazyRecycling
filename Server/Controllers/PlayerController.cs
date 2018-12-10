@@ -113,8 +113,8 @@ namespace Server.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var dateCheck = DateTime.Now;
-            dateCheck.AddMinutes(-30);
+            //var dateCheck = DateTime.Now;
+            //dateCheck.AddMinutes(-30);
             //await _context.Database.ExecuteSqlCommandAsync("DELETE FROM Player WHERE LastCheckTime >= {0}", dateCheck);
 
             player.PosX = random.Next(1, 10);

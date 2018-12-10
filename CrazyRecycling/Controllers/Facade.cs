@@ -34,6 +34,7 @@ namespace CrazyRecycling
         {
             MoveCommand command = new MoveCommand(newLocation);
             playerController.AddCommand(command);
+            playerController.AddCommand(new PickUpCommand());
         }
 
         public Bottle GetBottle(KeyEventArgs e)

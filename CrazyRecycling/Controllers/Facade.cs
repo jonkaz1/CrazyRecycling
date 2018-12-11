@@ -18,7 +18,7 @@ namespace CrazyRecycling
         private PlayerController playerController;
         private LeaderboardController leaderboard = new LeaderboardController();
         private MachineController machineController = new MachineController();
-        public ProxyConnector Connector { get; set; }
+        public AbstractServerConnector Connector { get; set; }
         
         public Facade()
         {

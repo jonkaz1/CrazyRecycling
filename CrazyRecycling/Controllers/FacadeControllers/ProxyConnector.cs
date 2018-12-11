@@ -12,7 +12,6 @@ namespace CrazyRecycling.Controllers.FacadeControllers
         private static readonly object padlock = new object();
 
         private ServerConnector Connector { get; set; }
-        public string URLAdress;
 
         protected ProxyConnector()
         {

@@ -10,7 +10,7 @@ namespace CrazyRecycling.Controllers
 {
     public abstract class PlayerCommand
     {
-        protected ProxyConnector proxyConnector;
+        protected AbstractServerConnector proxyConnector;
 
         public PlayerCommand()
         {

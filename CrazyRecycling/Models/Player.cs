@@ -115,7 +115,7 @@ namespace CrazyRecycling.Models
 
         public string ReceiveMessage(string message)
         {
-            return String.Format(Name + ": " + message);
+            return string.Format(Name + ": " + message);
         }
     }
 }

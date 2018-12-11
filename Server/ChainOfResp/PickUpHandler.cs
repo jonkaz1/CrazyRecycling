@@ -16,7 +16,12 @@ namespace Server.ChainOfResp
                 var p = Context.Player.Find(playerId);
                 b.BagDeepness = bottle.BagDeepness;
                 b.BagPosition = bottle.BagPosition;
+                if (p.Bottles == null)
+                {
+                    p.Bottles = new List<Bottle>();
+                }
                 p.Bottles.Add(b);
+                Context.SaveChanges();
                 return b;
             }
             else

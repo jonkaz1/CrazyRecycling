@@ -24,8 +24,8 @@ namespace CrazyRecycling
                 profile = new Profile("CrazyRecyclingProfile.txt");
             }
             currentProfile.RestoreProfile(profile);
-            textBox1.Text = currentProfile.PlayerName;
             InitializeComponent();
+            textBox1.Text = currentProfile.PlayerName;
         }
 
         private void Button1_Click(object sender, EventArgs e)

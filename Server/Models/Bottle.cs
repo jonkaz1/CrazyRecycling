@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,10 @@ namespace Server.Models
         public int BagPosition { get; set; }
 
         public DateTime LastUseTime { get; set; }
+
+        [ForeignKey("Player")]
+        public int? PlayerId { get; set; }
+        public Player Player { get; set; }
     }
 
     public enum BottleType

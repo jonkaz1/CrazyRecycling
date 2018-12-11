@@ -113,15 +113,30 @@ namespace Server.Controllers
             {
                 return BadRequest(ModelState);
             }
-            //var dateCheck = DateTime.Now;
-            //dateCheck.AddMinutes(-30);
-            //await _context.Database.ExecuteSqlCommandAsync("DELETE FROM Player WHERE LastCheckTime >= {0}", dateCheck);
+            var dateCheck = DateTime.Now;
+            dateCheck.AddMinutes(-30);
+            List<Player> toDelete = new List<Player>();
+            List<Bottle> toDeleteBottle = new List<Bottle>();
+            foreach (var item in _context.Player)
+            {
+                if (item.LastCheckTime < dateCheck)
+                {
+                    foreach (var bottle in _context.Bottle.Where(x => x.PlayerId == item.PlayerId).Select(x => x))
+                    {
+                        toDeleteBottle.Add(bottle);
+                    }
+                    toDelete.Add(item);
+                }
+            }
+            _context.Player.RemoveRange(toDelete);
+            _context.Bottle.RemoveRange(toDeleteBottle);
 
             player.PosX = random.Next(1, 10);
             player.PosY = random.Next(1, 10);
             player.CharacterClass = CharacterClass.DefaultClass;
             player.SpawnTime = DateTime.Now;
             player.LastCheckTime = DateTime.Now;
+            player.Bottles = new List<Bottle>();
             _context.Player.Add(player);
             await _context.SaveChangesAsync();
 
@@ -143,6 +158,12 @@ namespace Server.Controllers
                 return NotFound();
             }
 
+            List<Bottle> toDeleteBottle = new List<Bottle>();
+            foreach (var bottle in _context.Bottle.Where(x => x.PlayerId == id).Select(x => x))
+            {
+                toDeleteBottle.Add(bottle);
+            }
+            _context.Bottle.RemoveRange(toDeleteBottle);
             _context.Player.Remove(player);
             await _context.SaveChangesAsync();
 

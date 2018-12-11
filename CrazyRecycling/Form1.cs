@@ -91,17 +91,23 @@ namespace CrazyRecycling
         {
             if (e.KeyCode == Keys.Space)
             {
-                var bottle = Facade.GetBottle(e);
-                Controls.Add(bottle.Image);
-                ThrownBottles.Add(bottle);
+                lock (GroundBottles)
+                {
+                    var bottle = GroundBottles.Find(x => x.PositionX == MainPlayer.PositionX && x.PositionY == MainPlayer.PositionY);
+                    if (bottle != null)
+                    {
+                        Facade.PickUpBottle(bottle.BottleId);
+                        Controls.Remove(bottle.Image);
+                    }
+                }
             }
             Facade.ChangeLocation(e);
 
             if (e.KeyCode == Keys.Tab)
             {
-                    button1.Enabled = button1.Enabled ? false : true;
-                    maskedTextBox1.Enabled = maskedTextBox1.Enabled ? false : true;
-                    button2.Enabled = button2.Enabled ? false : true;
+                button1.Enabled = button1.Enabled ? false : true;
+                maskedTextBox1.Enabled = maskedTextBox1.Enabled ? false : true;
+                button2.Enabled = button2.Enabled ? false : true;
             }
         }
 
@@ -125,11 +131,15 @@ namespace CrazyRecycling
         /// </summary>
         public void GetPlayerData()
         {
+            Task<string> getPlayers;
+            string result;
+            JArray array;
+
             while (!_cancelationTokenSourcePlayers.Token.IsCancellationRequested)
             {
-                Task<string> getPlayers = Facade.Connector.GetAction("Player");
-                var result = getPlayers.Result;
-                var array = JArray.Parse(result);
+                getPlayers = Facade.Connector.GetAction("Player");
+                result = getPlayers.Result;
+                array = JArray.Parse(result);
 
                 foreach (var item in array)
                 {
@@ -141,19 +151,29 @@ namespace CrazyRecycling
 
         public void GetBottleData()
         {
+            Task<string> task;
+            string result;
+            JArray array;
+            Bottle bottle;
+            AbstractFactory pointBottleFactory = new PointBottleFactory();
+            AbstractFactory specialBottleFactory = new SpecialBottleFactory();
+            List<Bottle> toDelete;
+
             while (!_cancelationTokenSourceBottles.Token.IsCancellationRequested)
             {
-                var task = Facade.Connector.GetAction("Bottle");
-                var result = task.Result;
-                var array = JArray.Parse(result);
-                Bottle bottle;
-                AbstractFactory pointBottleFactory = new PointBottleFactory();
-                AbstractFactory specialBottleFactory = new SpecialBottleFactory();
-                foreach (var item in array)
+                task = Facade.Connector.GetAction("Bottle");
+                result = task.Result;
+                array = JArray.Parse(result);
+                lock (GroundBottles)
                 {
-                    lock (GroundBottles)
+                    foreach (var item in GroundBottles)
                     {
-                        if (GroundBottles.FirstOrDefault(x => x.BottleId == item["bottleId"].Value<int>()) == null)
+                        item.MarkedForDelete = true;
+                    }
+                    foreach (var item in array)
+                    {
+                        bottle = GroundBottles.FirstOrDefault(x => x.BottleId == item["bottleId"].Value<int>());
+                        if (bottle == null)
                         {
                             string bottleType = BottleTypeIntToString(item["bottleType"].Value<int>());
                             bottle = pointBottleFactory.CreateBottle(bottleType);
@@ -164,6 +184,7 @@ namespace CrazyRecycling
                                 bottle.BottleId = item["bottleId"].Value<int>();
                                 bottle.Image.Location = new Point(bottle.PositionX * 16, bottle.PositionY * 16);
                                 bottle.IsNewlySpawned = true;
+                                bottle.MarkedForDelete = false;
                                 GroundBottles.Add(bottle);
                             }
                             else
@@ -176,11 +197,25 @@ namespace CrazyRecycling
                                     bottle.BottleId = item["bottleId"].Value<int>();
                                     bottle.Image.Location = new Point(bottle.PositionX * 16, bottle.PositionY * 16);
                                     bottle.IsNewlySpawned = true;
+                                    bottle.MarkedForDelete = false;
                                     GroundBottles.Add(bottle);
                                 }
                             }
                         }
+                        else
+                        {
+                            bottle.MarkedForDelete = false;
+                        }
                     }
+                    toDelete = GroundBottles.Where(x => x.MarkedForDelete == true).ToList();
+                    foreach (Control item in Controls)
+                    {
+                        if (item is PictureBox pictureBox && toDelete.Exists(x => x.Image == (item as PictureBox)))
+                        {
+                            Controls.Remove(pictureBox);
+                        }
+                    }
+                    GroundBottles.RemoveAll(x => x.MarkedForDelete == true);
                 }
                 _cancelationTokenSourceBottles.Token.WaitHandle.WaitOne(5000);
             }
@@ -275,8 +310,6 @@ namespace CrazyRecycling
                     }
                 }
             }
-            
-
         }
         /*
          Wine,
@@ -338,7 +371,7 @@ namespace CrazyRecycling
             //    this.textBox1.Text += PlayerName + ": " + message + "\r\n";
             //}
 
-            
+
 
             this.maskedTextBox1.Text = "";
             this.maskedTextBox1.Enabled = false;

@@ -18,6 +18,7 @@ namespace CrazyRecycling.Models.Bottles
         public Point ThrownDirection { get; set; } = new Point();
         public float TimeToDestroy { get; set; } = 0;
         public bool IsNewlySpawned { get; set; }
+        public bool MarkedForDelete { get; set; }
 
         //start of Jonas Visitor code
         public int Damage;

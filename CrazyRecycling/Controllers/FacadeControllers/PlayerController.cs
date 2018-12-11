@@ -57,9 +57,10 @@ namespace CrazyRecycling.Controllers
             Bottle bottle = Player.CharacterClass.ThrowBottle(Player.PlayerObject.Location.X, Player.PlayerObject.Location.Y);
             return bottle;
         }
-        public void PickBottle()
+        public void PickBottle(int bottleId)
         {
-
+            commands[1].ChangeInnerValue(bottleId.ToString());
+            commands[1].Execute("Bottle/" + Player.PlayerId);
         }
         public void UseBottle()
         {

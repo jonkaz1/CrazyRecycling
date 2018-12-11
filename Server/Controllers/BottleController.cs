@@ -44,7 +44,7 @@ namespace Server.Controllers
         [HttpGet]
         public IEnumerable<Bottle> GetBottle()
         {
-            if (_context.Bottle.Count() < 32)
+            if (_context.Bottle.Count(x => x.BagDeepness == -1) < 32)
             {
                 _generator.GenerateData(_context);
                 _context.SaveChanges();
@@ -72,6 +72,7 @@ namespace Server.Controllers
             return Ok(bottle);
         }
 
+        [HttpPatch("{id}")]
         public async Task<IActionResult> PatchBottle([FromRoute] int id, [FromBody] BottleDTOContainer bottle)
         {
             if (!ModelState.IsValid)
@@ -83,6 +84,7 @@ namespace Server.Controllers
                 return BadRequest();
             }
             var result = bottleHandler.HandleRequest(bottle, id);
+            await _context.SaveChangesAsync();
             return Ok();
         }
 

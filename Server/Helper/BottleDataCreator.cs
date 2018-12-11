@@ -10,7 +10,7 @@ namespace Server.Helper
     {
         public override void GenerateValues(ServerContext context)
         {
-            if (context.Bottle.Count() < 32)
+            if (context.Bottle.Count(x => x.BagDeepness == -1) < 32)
             {
                 BottleType bottleType;
                 for (int i = 0; i < 8; i++)
@@ -39,8 +39,8 @@ namespace Server.Helper
                     }
                     context.Bottle.Add(new Bottle()
                     {
-                        PosX = Randomizer.Next(1, 10),
-                        PosY = Randomizer.Next(1, 10),
+                        PosX = Randomizer.Next(1, 50),
+                        PosY = Randomizer.Next(1, 50),
                         IsProjectile = false,
                         SpawnTime = DateTime.Now,
                         BottleType = bottleType,

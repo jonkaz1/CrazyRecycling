@@ -16,6 +16,7 @@ namespace CrazyRecycling.Controllers.FacadeControllers
         protected ProxyConnector()
         {
             Connector = ServerConnector.Instance;
+            // SetAddressToDev();
         }
 
         public static ProxyConnector Instance
@@ -44,6 +45,11 @@ namespace CrazyRecycling.Controllers.FacadeControllers
         public void SetAddressToProd()
         {
             Connector.SetBaseAddress("https://crazyrecycling.azurewebsites.net/api/");
+        }
+
+        public void SetAddressToDev()
+        {
+            Connector.SetBaseAddress("https://localhost:44399/api/");
         }
 
         public override Task<string> GetAction(string text)

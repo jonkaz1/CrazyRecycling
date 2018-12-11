@@ -42,6 +42,11 @@ namespace CrazyRecycling
             return playerController.ThrowBottle(e);
         }
 
+        public void PickUpBottle(int bottleId)
+        {
+            playerController.PickBottle(bottleId);
+        }
+
         public void ChangeLocation(KeyEventArgs e)
         {
             playerController.ChangeLocation(e);

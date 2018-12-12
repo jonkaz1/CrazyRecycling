@@ -64,7 +64,8 @@ namespace CrazyRecycling.Controllers
         }
         public void UseBottle()
         {
-
+            commands[2].Execute("Bottle/" + Player.PlayerId + ";{\"Action\":1,\"BagDeepness\":0,\"BagPosition\":0," +
+                "\"Bottles\":[{\"BottleId\":0}]}");
         }
         public void ChangeCharacterClass()
         {

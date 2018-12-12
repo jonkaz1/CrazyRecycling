@@ -155,12 +155,13 @@
     <Compile Include="Controllers\FacadeControllers\LeaderboardController.cs" />
     <Compile Include="Controllers\FacadeControllers\MachineController.cs" />
     <Compile Include="Controllers\FacadeControllers\MoveCommand.cs" />
-    <Compile Include="Controllers\FacadeControllers\PickUpCommand.cs" />
+    <Compile Include="Controllers\FacadeControllers\PickupBottleCommand.cs" />
     <Compile Include="Controllers\FacadeControllers\PlayerCommand.cs" />
     <Compile Include="Controllers\FacadeControllers\PlayerController.cs" />
     <Compile Include="Controllers\FacadeControllers\ProxyConnector.cs" />
     <Compile Include="Controllers\FacadeControllers\ServerConnector.cs" />
     <Compile Include="Controllers\Facade.cs" />
+    <Compile Include="Controllers\FacadeControllers\UseObjectCommand.cs" />
     <Compile Include="Controllers\Memento\CurrentProfile.cs" />
     <Compile Include="Controllers\Memento\Profile.cs" />
     <Compile Include="Form1.cs">

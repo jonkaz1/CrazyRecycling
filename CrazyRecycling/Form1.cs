@@ -101,6 +101,10 @@ namespace CrazyRecycling
                     }
                 }
             }
+            if (e.KeyCode == Keys.Q)
+            {
+                Facade.DepositBottle();
+            }
             Facade.ChangeLocation(e);
 
             if (e.KeyCode == Keys.Tab)
@@ -310,6 +314,7 @@ namespace CrazyRecycling
                     }
                 }
             }
+            label4.Text = MainPlayer.Points.ToString();
         }
         /*
          Wine,

@@ -13,38 +13,30 @@ namespace Server.ChainOfResp
             if (bottle.Action == BottleAction.Deposit)
             {
                 var p = Context.Player.Find(playerId);
-                var machine = Context.Machine.FirstOrDefault(x => 
+                var machine = Context.Machine.FirstOrDefault(x =>
                 x.MachineType == MachineType.RecyclingMachine && x.PosX == p.PosX && x.PosY == p.PosY);
                 if (machine == null)
                 {
                     return null;
                 }
                 var toRemove = new List<int>();
-                foreach (var item in p.Bottles)
+                var Colas = Context.Bottle.Where(x => x.BagDeepness == bottle.BagDeepness 
+                && x.BagPosition == bottle.BagPosition 
+                && (x.BottleType == BottleType.Cola || x.BottleType == BottleType.NukeCola));
+                foreach (var item in Colas)
                 {
-                    if (item.BagDeepness == bottle.BagDeepness && item.BagPosition == bottle.BagPosition)
+                    switch (item.BottleType)
                     {
-                        switch (item.BottleType)
-                        {
-                            case BottleType.Cola:
-                                p.Points += 1;
-                                toRemove.Add(item.BottleId);
-                                break;
-                            case BottleType.NukeCola:
-                                toRemove.Add(item.BottleId);
-                                p.Points += 5;
-                                break;
-                            default:
-                                break;
-                        }
+                        case BottleType.Cola:
+                            p.Points += 1;
+                            break;
+                        case BottleType.NukeCola:
+                            p.Points += 5;
+                            break;
+                        default:
+                            break;
                     }
-                }
-                Bottle b;
-                for (int i = 0; i < toRemove.Count; i++)
-                {
-                    b = Context.Bottle.Find(toRemove[i]);
-                    p.Bottles.Remove(b);
-                    Context.Bottle.Remove(b);
+                    Context.Bottle.Remove(item);
                 }
                 return null;
             }

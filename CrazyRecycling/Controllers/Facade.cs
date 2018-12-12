@@ -34,7 +34,8 @@ namespace CrazyRecycling
         {
             MoveCommand command = new MoveCommand(newLocation);
             playerController.AddCommand(command);
-            playerController.AddCommand(new PickUpCommand());
+            playerController.AddCommand(new PickupBottleCommand());
+            playerController.AddCommand(new UseObjectCommand());
         }
 
         public Bottle GetBottle(KeyEventArgs e)
@@ -45,6 +46,11 @@ namespace CrazyRecycling
         public void PickUpBottle(int bottleId)
         {
             playerController.PickBottle(bottleId);
+        }
+
+        public void DepositBottle()
+        {
+            playerController.UseBottle();
         }
 
         public void ChangeLocation(KeyEventArgs e)
@@ -67,12 +73,14 @@ namespace CrazyRecycling
                     Name = item["name"].Value<string>(),
                     PositionX = point.X,
                     PositionY = point.Y,
+                    Points = item["points"].Value<int>(),
                     IsNewlyCreated = true
                 };
                 PlayerList.Add(p);
             }
             else
             {
+                p.Points = item["points"].Value<int>();
                 if (p.PlayerId == MainPlayer.PlayerId && !IsPlayerTooFar(MainPlayer.PositionX, MainPlayer.PositionY, point.X, point.Y))
                 {
                     return;

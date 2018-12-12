@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace CrazyRecycling.Controllers.FacadeControllers
 {
-    public class PickUpCommand : PlayerCommand
+    public class UseObjectCommand : PlayerCommand
     {
-        private string BottleString { get; set; }
-
         public override void ChangeInnerValue(string value)
         {
-            BottleString = "{\"Action\":0,\"BagDeepness\":0,\"BagPosition\":0," +
-                "\"Bottles\":[{\"BottleId\":" + value + "}]}";
+            throw new NotImplementedException();
         }
 
         public override void Execute(string value)
         {
-            proxyConnector.PatchAction(value, BottleString);
+            var split = value.Split(';');
+            proxyConnector.PatchAction(split[0], split[1]);
         }
     }
 }

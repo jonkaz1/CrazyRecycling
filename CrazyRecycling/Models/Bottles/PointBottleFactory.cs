@@ -44,7 +44,7 @@ namespace CrazyRecycling.Models.Bottles
                         }
                     };
                 default:
-                    return null;
+                    return new BottleNullObject();
             }
         }
     }

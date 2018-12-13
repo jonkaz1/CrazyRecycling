@@ -43,6 +43,11 @@ namespace CrazyRecycling
             return playerController.ThrowBottle(e);
         }
 
+        public AbstractServerConnector GetConnector()
+        {
+            return Connector;
+        }
+
         public void PickUpBottle(int bottleId)
         {
             playerController.PickBottle(bottleId);

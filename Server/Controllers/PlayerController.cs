@@ -116,7 +116,8 @@ namespace Server.Controllers
             var dateCheck = DateTime.Now;
             dateCheck.AddMinutes(-30);
             List<Player> toDelete = new List<Player>();
-            List<Bottle> toDeleteBottle = new List<Bottle>();
+            List<Bottle> toDeleteBottle = new List<Bottle>();			
+            List<Message> toDeleteMessage = new List<Message>();
             foreach (var item in _context.Player)
             {
                 if (item.LastCheckTime < dateCheck)
@@ -125,9 +126,14 @@ namespace Server.Controllers
                     {
                         toDeleteBottle.Add(bottle);
                     }
+					foreach (var message in _context.Message.Where(x => x.Player.PlayerId == item.PlayerId).Select(x => x))
+					{
+						toDeleteMessage.Add(message);
+					}
                     toDelete.Add(item);
                 }
             }
+			_context.Message.RemoveRange(toDeleteMessage);
             _context.Player.RemoveRange(toDelete);
             _context.Bottle.RemoveRange(toDeleteBottle);
 
@@ -158,11 +164,17 @@ namespace Server.Controllers
                 return NotFound();
             }
 
+            List<Message> toDeleteMessage = new List<Message>();
             List<Bottle> toDeleteBottle = new List<Bottle>();
             foreach (var bottle in _context.Bottle.Where(x => x.PlayerId == id).Select(x => x))
             {
                 toDeleteBottle.Add(bottle);
             }
+            foreach (var message in _context.Message.Where(x => x.Player.PlayerId == id).Select(x => x))
+            {
+                toDeleteMessage.Add(message);
+            }
+            _context.Message.RemoveRange(toDeleteMessage);
             _context.Bottle.RemoveRange(toDeleteBottle);
             _context.Player.Remove(player);
             await _context.SaveChangesAsync();

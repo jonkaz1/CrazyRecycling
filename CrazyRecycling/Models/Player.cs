@@ -1,4 +1,5 @@
 ﻿using CrazyRecycling.Models.Bottles;
+using CrazyRecycling.Models.HealthState;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -106,6 +107,26 @@ namespace CrazyRecycling.Models
         {
             this.Name = name;
             this.chatMediator = chatMediator;
+        }
+
+        public int CheckHealth()
+        {
+            if (HealthState is Alive alive)
+            {
+                return alive.HealthPoints;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public void ChangeHealth(int value)
+        {
+            if (HealthState is Alive alive)
+            {
+                alive.Handle(value, this);
+            }
         }
 
         public void SendMessage(string message)

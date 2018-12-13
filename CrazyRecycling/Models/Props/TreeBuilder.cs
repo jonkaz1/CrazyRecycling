@@ -9,10 +9,10 @@ namespace CrazyRecycling.Models.Props
 {
     public class TreeBuilder : MapPropBuilder
     {
-        public override void BuildLocation(int X, int Y)
-        {
-            Prop.Picture.Location = new Point(X, Y);
-        }
+        //public override void BuildLocation(int X, int Y)
+        //{
+        //    Prop.Picture.Location = new Point(X, Y);
+        //}
 
         public override void BuildPictureBox()
         {

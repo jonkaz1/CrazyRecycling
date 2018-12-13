@@ -2,23 +2,21 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Collections.Specialized;
 using CrazyRecycling.Models.Bottles;
 using CrazyRecycling.Models.Props;
+using CrazyRecycling.Models.Mediator;
+using System.Timers;
 
 namespace CrazyRecycling
 {
     //context
     public partial class Form1 : Form
     {
-        IChatMediator chatMediator = new ChatMediator();
-        // create users and add them to chat mediator's user list
 
         Facade Facade = new Facade();
         public static string PlayerName;
@@ -34,17 +32,13 @@ namespace CrazyRecycling
         CancellationTokenSource _cancelationTokenSourcePlayers;
         CancellationTokenSource _cancelationTokenSourceBottles;
 
+        Mediator achievementMediator = new Mediator();
+        bool tabPressed = false; bool hasBeenShown = false;
+
         public Form1()
         {
             InitializeComponent();
             DoubleBuffered = true;
-
-            IPlayer john = new Player(chatMediator, "John");
-            IPlayer tina = new Player(chatMediator, "Tina");
-            IPlayer lara = new Player(chatMediator, "Lara");
-            chatMediator.AddPlayer(john);
-            chatMediator.AddPlayer(tina);
-            chatMediator.AddPlayer(lara);
         }
 
         /// <summary>
@@ -72,15 +66,58 @@ namespace CrazyRecycling
             Facade.AttachPlayer(MainPlayer);
             Facade.AddCommand(MainPlayer.PositionX + ";" + MainPlayer.PositionY);
 
-            this.label3.Visible = false;
-            this.label2.Visible = false;
-            this.textBox1.Visible = false;
-            this.maskedTextBox1.Visible = false;
-            this.button1.Visible = false;
-
-
+            setLabelsToNotVisible();
+            MediatorStart();
+            tenSecondsTimer();
         }
 
+        public void MediatorStart()
+        {
+            Notificator SendToAchvievment = new Notificator(achievementMediator);
+            Notificator SendToNotification = new Notificator(achievementMediator);
+            SendToAchvievment.AchievementReceived += AchievementReceivedEventHandler;
+            SendToNotification.NotificationReceived += NotificationReceivedEventHandler;
+            achievementMediator.AddComunicator(SendToAchvievment);
+            achievementMediator.AddComunicator(SendToNotification);
+        }
+        public void NotificationReceivedEventHandler(string message)
+        {
+            NotificationsLabel.Text = message;
+            NotificationsLabel.Visible = true;
+        }
+
+        public void setLabelsToNotVisible()
+        {
+            PlayerMessageLabel.Visible = false;
+            ChatRoomLabel.Visible = false;
+            ChatTextBox.Visible = false;
+            YourMessageTextBox.Visible = false;
+            SendButton.Visible = false;
+            AchievmentsLabel.Visible = false;
+            NotificationsLabel.Visible = false;
+        }
+        public void tenSecondsTimer()
+        {
+            System.Timers.Timer aTimer = new System.Timers.Timer();
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            // Set the Interval to 10 seconds.
+            aTimer.Interval = 10000;
+            aTimer.Enabled = true;
+
+            if (hasBeenShown == true)
+                aTimer.Enabled = false;
+        }
+        public void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            if (hasBeenShown == false)
+            {
+                Event keyPressed = new Event(achievementMediator);
+                achievementMediator.AddComunicator(keyPressed);
+                achievementMediator.achievment = keyPressed;
+                keyPressed.Send("Congratulations! You've been ingame for 10 seconds.", 2);
+            }
+            hasBeenShown = true;
+        }
 
         /// <summary>
         /// Input controller
@@ -109,9 +146,18 @@ namespace CrazyRecycling
 
             if (e.KeyCode == Keys.Tab)
             {
-                button1.Enabled = button1.Enabled ? false : true;
-                maskedTextBox1.Enabled = maskedTextBox1.Enabled ? false : true;
-                button2.Enabled = button2.Enabled ? false : true;
+                if (tabPressed == false)
+                {
+                    Event keyPressed = new Event(achievementMediator);
+                    achievementMediator.AddComunicator(keyPressed);
+                    achievementMediator.achievment = keyPressed;
+                    keyPressed.Send("Congratulations! You've found CHAT button.", 1);
+                    tabPressed = true;
+                }
+
+                SendButton.Enabled = SendButton.Enabled ? false : true;
+                YourMessageTextBox.Enabled = YourMessageTextBox.Enabled ? false : true;
+                JoinChatButton.Enabled = JoinChatButton.Enabled ? false : true;
             }
         }
 
@@ -345,11 +391,6 @@ namespace CrazyRecycling
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
         }
@@ -366,41 +407,37 @@ namespace CrazyRecycling
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //IPlayer player = new Player(chatMediator, PlayerName);
-            //chatMediator.AddPlayer(player);
-            //string message = player.ReceiveMessage("Hello Everyone!");
-
-            //string message = this.maskedTextBox1.Text;
-
-            //if (message != "") {
-            //    this.textBox1.Text += PlayerName + ": " + message + "\r\n";
-            //}
-
-
-
-            this.maskedTextBox1.Text = "";
-            this.maskedTextBox1.Enabled = false;
-            this.button1.Enabled = false;
+            this.YourMessageTextBox.Text = "";
+            this.YourMessageTextBox.Enabled = false;
+            this.SendButton.Enabled = false;
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.JoinChatButton.Visible = false;
+            this.JoinChatButton.Enabled = false;
+            this.YourMessageTextBox.Visible = true;
+            this.ChatTextBox.Visible = true;
+            this.SendButton.Visible = true;
+            this.PlayerMessageLabel.Visible = true;
+            this.ChatRoomLabel.Visible = true;
+        }
 
+        public void AchievementReceivedEventHandler(string message)
+        {
+            AchievmentsLabel.Text = message;
+            AchievmentsLabel.Visible = true;
+        }
 
-            //// send message
-            //IPlayer player = new Player(chatMediator, PlayerName);
-            //chatMediator.AddPlayer(player);
-            //player.SendMessage("Hello Everyone!");
+        private void AchievmentsLabel_Click(object sender, EventArgs e)
+        {
+            AchievmentsLabel.Visible = false;
+        }
 
-            this.button2.Visible = false;
-            this.button2.Enabled = false;
-            this.maskedTextBox1.Visible = true;
-            this.textBox1.Visible = true;
-            this.button1.Visible = true;
-            this.label3.Visible = true;
-            this.label2.Visible = true;
-
+        private void NotificationsLabel_Click(object sender, EventArgs e)
+        {
+            NotificationsLabel.Visible = false;
         }
     }
 }

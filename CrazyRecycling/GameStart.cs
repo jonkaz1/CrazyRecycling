@@ -1,4 +1,5 @@
 ﻿using CrazyRecycling.Controllers.Memento;
+using CrazyRecycling.Models.Iterator;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace CrazyRecycling
         Form1 form1 = new Form1();
         CurrentProfile currentProfile = new CurrentProfile();
         Profile profile = null;
+        ConcreteAggregate a = new ConcreteAggregate(); Iterator iterator;
 
         public GameStart()
         {
@@ -26,8 +28,41 @@ namespace CrazyRecycling
             currentProfile.RestoreProfile(profile);
             InitializeComponent();
             textBox1.Text = currentProfile.PlayerName;
-        }
 
+            NationalitySelect();
+
+        }
+        public void NationalitySelect()
+        {
+            a[0] = "Spanish";
+            a[1] = "Russian";
+            a[2] = "German";
+            a[3] = "Latvian";
+            a[4] = "Russian";
+            a[5] = "German";
+            a[6] = "Latvian";
+
+            iterator = a.CreateIterator();
+
+            object item = iterator.First();
+            Nationality.Text = item.ToString();
+        }
+        public void Next()
+        {
+            object item = iterator.Next();
+            if (item != null)
+            {
+                Nationality.Text = item.ToString();
+            }
+        }
+        public void Previous()
+        {
+            object item = iterator.Previous();
+            if (item != null)
+            {
+                Nationality.Text = item.ToString();
+            }
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             Hide();
@@ -60,6 +95,16 @@ namespace CrazyRecycling
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             currentProfile.PlayerName = textBox1.Text;
+        }
+
+        private void Previous_Click(object sender, EventArgs e)
+        {
+            Previous();
+        }
+
+        private void ButtonNext_Click(object sender, EventArgs e)
+        {
+            Next();
         }
     }
 }

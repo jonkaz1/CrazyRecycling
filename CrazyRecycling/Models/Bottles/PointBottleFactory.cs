@@ -18,11 +18,8 @@ namespace CrazyRecycling.Models.Bottles
                 case "Cola":
                     return new Cola()
                     {
-                        //start of Jonas Visitor code
-                        //Count = 1,
                         PointsCount = 1,
                         Damage = 0,
-                        //end
                         Image = new PictureBox()
                         {
                             Image = Resources.Cola,
@@ -32,11 +29,8 @@ namespace CrazyRecycling.Models.Bottles
                 case "NukeCola":
                     return new NukeCola()
                     {
-                        //start of Jonas Visitor code
-                        //Count = 5,
                         PointsCount = 5,
                         Damage = 0,
-                        //end
                         Image = new PictureBox()
                         {
                             Image = Resources.NukeCola,

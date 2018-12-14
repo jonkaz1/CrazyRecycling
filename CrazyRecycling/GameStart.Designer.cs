@@ -36,6 +36,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.ButtonPrevious = new System.Windows.Forms.Button();
+            this.Nationality = new System.Windows.Forms.Label();
+            this.ButtonNext = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -110,11 +113,43 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
+            // ButtonPrevious
+            // 
+            this.ButtonPrevious.Location = new System.Drawing.Point(516, 266);
+            this.ButtonPrevious.Name = "ButtonPrevious";
+            this.ButtonPrevious.Size = new System.Drawing.Size(58, 23);
+            this.ButtonPrevious.TabIndex = 7;
+            this.ButtonPrevious.Text = "<<<";
+            this.ButtonPrevious.UseVisualStyleBackColor = true;
+            this.ButtonPrevious.Click += new System.EventHandler(this.Previous_Click);
+            // 
+            // Nationality
+            // 
+            this.Nationality.AutoSize = true;
+            this.Nationality.Location = new System.Drawing.Point(580, 271);
+            this.Nationality.Name = "Nationality";
+            this.Nationality.Size = new System.Drawing.Size(56, 13);
+            this.Nationality.TabIndex = 9;
+            this.Nationality.Text = "Nationality";
+            // 
+            // ButtonNext
+            // 
+            this.ButtonNext.Location = new System.Drawing.Point(642, 266);
+            this.ButtonNext.Name = "ButtonNext";
+            this.ButtonNext.Size = new System.Drawing.Size(58, 23);
+            this.ButtonNext.TabIndex = 10;
+            this.ButtonNext.Text = ">>>";
+            this.ButtonNext.UseVisualStyleBackColor = true;
+            this.ButtonNext.Click += new System.EventHandler(this.ButtonNext_Click);
+            // 
             // GameStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ButtonNext);
+            this.Controls.Add(this.Nationality);
+            this.Controls.Add(this.ButtonPrevious);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -140,5 +175,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ButtonPrevious;
+        private System.Windows.Forms.Label Nationality;
+        private System.Windows.Forms.Button ButtonNext;
     }
 }

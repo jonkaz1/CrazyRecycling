@@ -184,6 +184,7 @@
     </Compile>
     <Compile Include="Models\Bottles\AbstractFactory.cs" />
     <Compile Include="Models\Bottles\Bottle.cs" />
+    <Compile Include="Models\Bottles\BottleNullObject.cs" />
     <Compile Include="Models\Bottles\Cola.cs" />
     <Compile Include="Models\Bottles\GinOfDestruction.cs" />
     <Compile Include="Models\Bottles\Whiskey.cs" />
@@ -203,6 +204,10 @@
     <Compile Include="Models\Chat\IChatMediator.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\InventoryItem.cs" />
+    <Compile Include="Models\Iterator\Aggregate.cs" />
+    <Compile Include="Models\Iterator\ConcreteAggregate.cs" />
+    <Compile Include="Models\Iterator\ConcreteIterator.cs" />
+    <Compile Include="Models\Iterator\Iterator.cs" />
     <Compile Include="Models\IVisitor.cs" />
     <Compile Include="Models\Chat\IPlayer.cs" />
     <Compile Include="Models\Machine.cs" />

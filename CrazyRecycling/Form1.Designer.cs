@@ -128,7 +128,7 @@ namespace CrazyRecycling
             this.ChatTextBox.ReadOnly = true;
             this.ChatTextBox.Size = new System.Drawing.Size(250, 219);
             this.ChatTextBox.TabIndex = 4;
-            this.ChatTextBox.Text = "zigmas: sveiki bahurai\r\namibijus: labas\r\n";
+            this.ChatTextBox.Text = "zigmas: sveiki \r\namibijus: labas\r\n";
             this.ChatTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
